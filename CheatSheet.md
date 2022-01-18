@@ -19,6 +19,6 @@
     - [UNC Path Injection]()
     - [SSRP/MC-SQLR Poisoning]()
     - [Persistence]()
-     - [DML, DDL & Logon Triggers]()
+      - [DML, DDL & Logon Triggers]()
    - [Trust Tickets](#trust-tickets)
 	 
