@@ -20,5 +20,5 @@
     - [SSRP/MC-SQLR Poisoning]()
     - [Persistence]()
      - [DML, DDL & Logon Triggers]()
-    - [Trust Tickets](#trust-tickets)
+   - [Trust Tickets](#trust-tickets)
 	 
