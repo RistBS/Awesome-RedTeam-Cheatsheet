@@ -7,14 +7,14 @@
     - [ConstrainLanguageMode (CLM)]()
     - [Just Enough Administration (JEA)]()
     - [ExecutionPolicy (EP)]()
-  - [MS Exchange]
+  - [MS Exchange]()
     - [OWA Password Spraying]()
     - [GAL & OAB Exfiltration]()
     - [PrivExchange]()
     - [ProxyLogon]()
     - [CVE-2020-0688]()
 	
-  - [MSSQL Server]
+  - [MSSQL Server]()
     - [UNC Path Injection]()
     - [SSRP/MC-SQLR Poisoning]()
     - [Persistence]()
