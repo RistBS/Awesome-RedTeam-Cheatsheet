@@ -1,9 +1,8 @@
 ## Summary
 
-- [Active Directory Exploitation Cheat Sheet](#active-directory-exploitation-cheat-sheet)
+- [AD Exploitation Cheat Sheet by RistBS](#active-directory-exploitation-cheat-sheet)
   - [Summary](#summary)
   - [Tools](#tools)
-  - [Domain Enumeration](#domain-enumeration)
   - [Enhanced Security Bypass]()
     - [AntiMalware Scan Interface (AMSI)]()
     - [ConstrainLanguageMode (CLM)]()
