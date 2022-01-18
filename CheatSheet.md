@@ -1,71 +1,55 @@
-# Sommaire :
-
-**1. Enumération :**
-
-	 1.1 - énumeration LDAP
-	 1.1.1 - 
-	 2 - MSRPC 
-	
-**2. Kerberos :**
-
-   2.1 - Pass-The-Hash (PTH)
-   2.2 - Pass-The-Ticket (PTT)
-   2.3 - Pass-The-Key (PTK)
-   2.4 - Overpass-The-Hash (OTH)
-	
-	 2.5 - *Roasting :*
-	  2.5.1 - ASREPRoasting
-	  2.5.2 - Kerberoasting
-	  2.5.3 - ASREQRoasting
-	  2.5.4 - Kerberos Preauth
-	  
-	2.6 - *Delegation :*
-	   2.6.1 - Unconstrained Delegation (KUD)
-	   2.6.2 - Constrained Delegation (KCD)
-	   2.6.3 - Resource Based Constrained Delegation (RBCD)
-	 
-	2.7 - MS14-068 
-	2.8 - abuser de MS-PAC
-	   2.8.1 sAMAccountname Spoofing
-     2.8.2 sam-the-admin
-
-**3. ACE :**
-
-   3.1 - GenericAll
-   3.2 - GenericWrite
-
-**4. Lateral Mouvement :**
-
-    4.1 - Bloodhound
-    4.2 - PowerView
-	
-**5. Credentials Dumping :**
-    5.1 - 
-	  5.2 - 
-
-**6. Bypass de sécurité avancées :**
-
-  6.1 - AntiMalware Scan Interface (AMSI)
-	6.2 - ConstrainLanguageMode (CLM)
-	6.3 - Just Enough Administration (JEA)
-	6.4 - ExecutionPolicy (EP)
-
-**7. MS Exchange :**
-
-  7.1 - OWA Password Spraying
-	7.2 - Exfiltrations d'emails des GAL et OAB
-	7.3 - PrivExchange
-	7.4 - ProxyLogon
-	7.5 - CVE-2020-0688
-	
-**7. MSSQL Server :**
-
-   8.1 - UNC Path Injection
-   8.2 - SSRP/MC-SQLR Poisoning
-   8.3 - Persistence
-      8.3.1 - DML, DDL & Logon Triggers
-	
-**8. Miscs :**
-
-   9.1 - Abuser de l'IPv6 en AD
-   9.2 - Attribus MAQ
+- [Active Directory Exploitation Cheat Sheet](#active-directory-exploitation-cheat-sheet)
+  - [Summary](#summary)
+  - [Tools](#tools)
+  - [Domain Enumeration](#domain-enumeration)
+    - [Using PowerView](#using-powerview)
+    - [Using AD Module](#using-ad-module)
+    - [Using BloodHound](#using-bloodhound)
+      - [Remote BloodHound](#remote-bloodhound)
+      - [On Site BloodHound](#on-site-bloodhound)
+    - [Useful Enumeration Tools](#useful-enumeration-tools)
+  - [Local Privilege Escalation](#local-privilege-escalation)
+    - [Useful Local Priv Esc Tools](#useful-local-priv-esc-tools)
+  - [Lateral Movement](#lateral-movement)
+    - [Powershell Remoting](#powershell-remoting)
+    - [Remote Code Execution with PS Credentials](#remote-code-execution-with-ps-credentials)
+    - [Import a powershell module and execute its functions remotely](#import-a-powershell-module-and-execute-its-functions-remotely)
+    - [Executing Remote Stateful commands](#executing-remote-stateful-commands)
+    - [Mimikatz](#mimikatz)
+    - [Remote Desktop Protocol](#remote-desktop-protocol)
+    - [URL File Attacks](#url-file-attacks)
+    - [Useful Tools](#useful-tools)
+  - [Domain Privilege Escalation](#domain-privilege-escalation)
+    - [Kerberoast](#kerberoast)
+    - [ASREPRoast](#asreproast)
+    - [Password Spray Attack](#password-spray-attack)
+    - [Force Set SPN](#force-set-spn)
+    - [Abusing Shadow Copies](#abusing-shadow-copies)
+    - [List and Decrypt Stored Credentials using Mimikatz](#list-and-decrypt-stored-credentials-using-mimikatz)
+    - [Unconstrained Delegation](#unconstrained-delegation)
+    - [Constrained Delegation](#constrained-delegation)
+    - [Resource Based Constrained Delegation](#resource-based-constrained-delegation)
+    - [DNSAdmins Abuse](#dnsadmins-abuse)
+    - [Abusing Active Directory-Integraded DNS](#abusing-active-directory-integraded-dns)
+    - [Abusing Backup Operators Group](#abusing-backup-operators-group)
+    - [Abusing Exchange](#abusing-exchange)
+    - [Weaponizing Printer Bug](#weaponizing-printer-bug)
+    - [Abusing ACLs](#abusing-acls)
+    - [Abusing IPv6 with mitm6](#abusing-ipv6-with-mitm6)
+    - [SID History Abuse](#sid-history-abuse)
+    - [Exploiting SharePoint](#exploiting-sharepoint)
+    - [Zerologon](#zerologon)
+    - [PrintNightmare](#printnightmare)
+    - [Active Directory Certificate Services](#active-directory-certificate-services)
+    - [No PAC](#no-pac)
+  - [Domain Persistence](#domain-persistence)
+    - [Golden Ticket Attack](#golden-ticket-attack)
+    - [DCsync Attack](#dcsync-attack)
+    - [Silver Ticket Attack](#silver-ticket-attack)
+    - [Skeleton Key Attack](#skeleton-key-attack)
+    - [DSRM Abuse](#dsrm-abuse)
+    - [Custom SSP](#custom-ssp)
+  - [Cross Forest Attacks](#cross-forest-attacks)
+    - [Trust Tickets](#trust-tickets)
+    - [Abuse MSSQL Servers](#abuse-mssql-servers)
+    - [Breaking Forest Trusts](#breaking-forest-trusts)
