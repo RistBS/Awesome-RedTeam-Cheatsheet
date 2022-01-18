@@ -14,12 +14,11 @@
     - [PrivExchange]()
     - [ProxyLogon]()
     - [CVE-2020-0688]()
-
 - [Cross Forest Attacks](#cross-forest-attacks)
   - [MSSQL Server]()
     - [UNC Path Injection]()
     - [SSRP/MC-SQLR Poisoning]()
     - [Persistence]()
-      - [DML, DDL & Logon Triggers]()
+     - [DML, DDL & Logon Triggers]()
     - [Trust Tickets](#trust-tickets)
 	 
