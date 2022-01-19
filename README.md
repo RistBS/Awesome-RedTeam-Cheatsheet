@@ -1,5 +1,5 @@
 
-![](https://github.com/RistBS/Active-directory-Cheat-sheet/attack-kill-chain-small.jpg)
+![ad-kill-chain](https://ibb.co/z7DSpds)
 
 # Active-directory-Cheat-sheet
 ## Summary
