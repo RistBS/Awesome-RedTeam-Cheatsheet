@@ -15,7 +15,9 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
   - [Credentials Dumping]()
     - [LSASS Dumping]()
     - [NTDS Dumping]()
-    - [DPAPI 
+    - [DPAPI Dumping]()
+    - [LSA Dumping]()
+    - [SAM Dumping]()
   - [Brutforce AD Password]()
     - [Custom Username and Password wordlist](custom-username-and-password-wordlist)
   - [RID Cycling]()
