@@ -1,5 +1,5 @@
 
-![attack-kill-chain](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/master/attack-kill-chain-small.jpg)
+![attack-kill-chain](https://github.com/RistBS/Active-directory-Cheat-sheet/attack-kill-chain-small.jpg)
 
 # Active-directory-Cheat-sheet
 ## Summary
