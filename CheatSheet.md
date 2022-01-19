@@ -46,7 +46,7 @@ cme ldap $dc -d $DOMAIN -u $USER -p $PASSWORD -M maq
 
 #### IOXIDResolver Interface Enumeration
 
-it's a little script that enumerate addresses in NetworkAddr field with RPC_C_AUTHN_DCE_PUBLIC level
+it's a little script that enumerate addresses in NetworkAddr field with **RPC_C_AUTHN_DCE_PUBLIC** level
 ```py
 from impacket.dcerpc.v5 import transport
 from impacket.dcerpc.v5.dcomrt import IObjectExporter
