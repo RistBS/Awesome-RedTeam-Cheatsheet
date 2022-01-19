@@ -11,7 +11,7 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
   - [Tools](#tools)
   - [Hash Cracking]()
   - [Brutforce AD Password]()
-    - [Custom Username & Password wordlist]()
+    - [Custom Username and Password wordlist](custom-username-and-password-wordlist)
   - [RID Cycling]()
   - [Enhanced Security Bypass]()
     - [AntiMalware Scan Interface (AMSI)]()
@@ -101,7 +101,7 @@ note : some Hash Type in hashcat depend of the **etype**
 
 ## Brutforce AD Password :
 
-### Custom Username & Password wordlist :
+### Custom Username and Password wordlist :
 
 create passwords using bash & hashcat with this format : <season><year>
 ```bash
