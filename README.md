@@ -4,7 +4,6 @@
 - [AD Exploitation Cheat Sheet by RistBS](#active-directory-exploitation-cheat-sheet)
   - [Summary](#summary)
   - [Tools](#tools)
-  
   - [Hash Cracking]()
   - [Enhanced Security Bypass]()
     - [AntiMalware Scan Interface (AMSI)]()
