@@ -99,6 +99,18 @@ hashcat -m 18200 -a 0 hash wordlist.txt --force
 
 note : some Hash Type in hashcat depend of the **etype**
 
+## Brutforce AD Password :
+
+### Custom Username & Password wordlist :
+
+create passwords using bash & hashcat with this format : <season><year>
+```bash
+for i in $(cat pwd_list); do echo $i, echo ${i}\!; echo ${i}2019; echo ${i}2020 ;done > pwds
+haschat --force --stdout pwds -r /usr/share/hashcat/rules/base64.rule
+haschat --force --stdout pwds -r /usr/share/hashcat/rules/base64.rule -r /usr/share/hashcat/rules/toogles1.r | sort u
+haschat --force --stdout pwds -r /usr/share/hashcat/rules/base64.rule -r /usr/share/hashcat/rules/toogles1.r | sort u | awk 'length($0) > 7' > pwlist.txt
+```
+
 ## RID Cycling :
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/zPQ6ntJ/rid.png" alt="rid" border="0"></a>
