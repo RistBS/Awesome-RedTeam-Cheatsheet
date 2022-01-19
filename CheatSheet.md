@@ -18,21 +18,35 @@
   - [Forest Persience]()
     - [DCShadow]()
   - [Cross Forest Attacks](#cross-forest-attacks)
-    - [MSSQL Server]()
-      - [UNC Path Injection]()
-      - [SSRP/MC-SQLR Poisoning]()
+    - [MSSQL Server](mssql-server)
+      - [UNC Path Injection](unc-path-injection)
+      - [SSRP/MC-SQLR Poisoning](ssrpmcsqlr-poisoning)
       - [Persistence]()
         - [DML, DDL & Logon Triggers]()
      - [Trust Tickets](#trust-tickets)
-  - [Abusing IPv6 in AD]()
-    - [IOXIDResolver Interface Enumeration](#ioxid)
+  - [Miscs](#miscs)
+    - [Domain Level Attribute](#domain-level-attribute)
+      - [MachineAccountQuota (MAQ) Exploitation](#machineaccountquota-maq-exploitation) 
+    - [Abusing IPv6 in AD](#abusing-ipv6-in-ad)
+      - [IOXIDResolver Interface Enumeration](#ioxidresolver-interface-enumeration)
 
 
+## Miscs :
 
-## Abusing IPv6 in AD :
+### Domain Level Attribute :
 
-### IOXIDResolver Interface Enumeration
+#### MachineAccountQuota (MAQ) Exploitation :
 
+use crackmapexec (CME) with maq module :
+```sh
+cme ldap $dc -d $DOMAIN -u $USER -p $PASSWORD -M maq
+```
+
+### Abusing IPv6 in AD :
+
+#### IOXIDResolver Interface Enumeration
+
+it's a little script that enumerate addresses in NetworkAddr field with RPC_C_AUTHN_DCE_PUBLIC level
 ```py
 from impacket.dcerpc.v5 import transport
 from impacket.dcerpc.v5.dcomrt import IObjectExporter
