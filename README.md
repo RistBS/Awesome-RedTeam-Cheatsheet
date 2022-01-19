@@ -1,5 +1,7 @@
 This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-Exploitation-Cheat-Sheet](https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet) repo.
 
+it is the first version of this repo, many things will be added later, so stay tuned ! :D
+
 
 <a href="https://ibb.co/z7DSpds"><img src="https://i.ibb.co/pR53cq2/attack-kill-chain-small.jpg" alt="attack-kill-chain-small" border="0" /></a>
 
@@ -130,8 +132,9 @@ cme smb $target -u $username -p $password --rid-brute
 ```
 using [lookupsid](https://github.com/SecureAuthCorp/impacket/blob/cd4fe47cfcb72d7d35237a99e3df95cedf96e94f/examples/lookupsid.py) :
 ```bash
-lookupsid.py MEGACORP/snovvcrash:'Passw0rd!'@127.0.0.1 20000
+lookupsid.py MEGACORP/$user:'$password'@$target 20000
 ```
+the value "20000" in lookupsid is to indicate how many RID will be tested
   
 ## Enhanced Security Bypass:
 
