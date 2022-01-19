@@ -10,6 +10,8 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
   - [Summary](#summary)
   - [Tools](#tools)
   - [Hash Cracking]()
+  - [Brutforce AD Password]()
+    - [Custom Username & Password wordlist]()
   - [RID Cycling]()
   - [Enhanced Security Bypass]()
     - [AntiMalware Scan Interface (AMSI)]()
