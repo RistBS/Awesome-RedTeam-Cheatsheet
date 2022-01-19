@@ -123,7 +123,16 @@ haschat --force --stdout pwds -r /usr/share/hashcat/rules/base64.rule -r /usr/sh
 ## RID Cycling :
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/zPQ6ntJ/rid.png" alt="rid" border="0"></a>
-
+  
+using [Crackmapexec](https://github.com/byt3bl33d3r/CrackMapExec) :
+```bash
+cme smb $target -u $username -p $password --rid-brute
+```
+using [lookupsid](https://github.com/SecureAuthCorp/impacket/blob/cd4fe47cfcb72d7d35237a99e3df95cedf96e94f/examples/lookupsid.py) :
+```bash
+lookupsid.py MEGACORP/snovvcrash:'Passw0rd!'@127.0.0.1 20000
+```
+  
 ## Enhanced Security Bypass:
 
 ### AntiMalware Scan Interface :
