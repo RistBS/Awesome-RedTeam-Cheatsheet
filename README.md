@@ -144,7 +144,7 @@ patching AMSI from Powershell6 :
 
 ### RunAsPPL for Credentials Dumping :
 
-[ ❓ ] : RunAsPPL is an additional LSA protection to prevent reading memory and code injection by non-protected processes.
+[ ❓ ] : [RunAsPPL](https://docs.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/configuring-additional-lsa-protection) is an **additional LSA protection** to prevent reading memory and code injection by **non-protected processes**.
 
 ```
 mimikatz # privilege::debug
