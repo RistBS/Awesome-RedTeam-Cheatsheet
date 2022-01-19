@@ -4,7 +4,6 @@
   - [Summary](#summary)
   - [Tools](#tools)
   - [Hash Cracking]()
-    - Using JTR 
   - [Enhanced Security Bypass]()
     - [AntiMalware Scan Interface (AMSI)]()
     - [ConstrainLanguageMode (CLM)]()
