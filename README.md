@@ -40,6 +40,58 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
       - [IOXIDResolver Interface Enumeration](#ioxidresolver-interface-enumeration)
 
 
+## Tools
+
+## Hash Cracking :
+
+LM :
+john --format=lm hash.txt
+hashcat -m 3000 -a 3 hash.txt
+
+NT : 
+john --format=nt hash.txt --wordlist=wordlist.txt
+hsahcat -m 1000 -a 3 hash.txt
+
+
+NTLMv1 :
+
+using JTR :
+```bash
+john --format=netntlmv1 hash.txt
+```
+using hashcat :
+```bash
+hashcat -m 5500 --force -a 0 hash.txt wordlist.txt
+```
+
+NTLMv2 :
+
+using JTR :
+```bash
+john --format=netntlmv2 hash.txt
+```
+using hashcat :
+```bash
+hashcat -m 5600 --force -a 0 hash.txt wordlist.txt
+```
+
+Kerberoasting :
+
+using JTR :
+```bash
+john --format=krb5tgs spn.txt --wordlist=wordlist.txt 
+```
+using hashcat :
+```bash
+hashcat -m 13100 -a 0 spn.txt wordlist.txt --force
+```
+
+ASREPRoasting :
+```bash
+hashcat -m 18200 -a 0 hash wordlist.txt --force
+```
+
+note : some Hash Type in hashcat depend of the **etype**
 
 ## MS Exhchange :
 
