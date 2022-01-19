@@ -18,6 +18,7 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
     - [ConstrainLanguageMode (CLM)]()
     - [Just Enough Administration (JEA)]()
     - [ExecutionPolicy (EP)]()
+    - [RunAsPPL for Credentials Dumping]()
   - [MS Exchange]()
     - [OWA Password Spraying]()
     - [GAL & OAB Exfiltration]()
