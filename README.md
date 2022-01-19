@@ -10,6 +10,7 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
   - [Summary](#summary)
   - [Tools](#tools)
   - [Hash Cracking]()
+  - [RID Cycling]()
   - [Enhanced Security Bypass]()
     - [AntiMalware Scan Interface (AMSI)]()
     - [ConstrainLanguageMode (CLM)]()
@@ -96,6 +97,9 @@ hashcat -m 18200 -a 0 hash wordlist.txt --force
 
 note : some Hash Type in hashcat depend of the **etype**
 
+## RID Cycling :
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/zPQ6ntJ/rid.png" alt="rid" border="0"></a>
 
 ## Enhanced Security Bypass:
 
