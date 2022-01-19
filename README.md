@@ -36,6 +36,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [PrivExchange]()
     - [ProxyLogon]()
     - [CVE-2020-0688]()
+  - [Persistence]()
   - [Forest Persistence]()
     - [DCShadow]()
   - [Cross Forest Attacks](#cross-forest-attacks)
