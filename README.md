@@ -13,10 +13,11 @@
   - [MS Exchange]()
     - [OWA Password Spraying]()
     - [GAL & OAB Exfiltration]()
+    - [Exchange User Enumeration]()
     - [PrivExchange]()
     - [ProxyLogon]()
     - [CVE-2020-0688]()
-  - [Forest Persience]()
+  - [Forest Persistence]()
     - [DCShadow]()
   - [Cross Forest Attacks](#cross-forest-attacks)
     - [MSSQL Server](mssql-server)
@@ -25,12 +26,38 @@
       - [Persistence]()
         - [DML, DDL & Logon Triggers]()
      - [Trust Tickets](#trust-tickets)
+  - [Azure Active Directory (AAD)]()
+    - [User Enumeration]()
   - [Miscs](#miscs)
     - [Domain Level Attribute](#domain-level-attribute)
       - [MachineAccountQuota (MAQ) Exploitation](#machineaccountquota-maq-exploitation) 
     - [Abusing IPv6 in AD](#abusing-ipv6-in-ad)
       - [IOXIDResolver Interface Enumeration](#ioxidresolver-interface-enumeration)
 
+
+
+## MS Exhchange :
+
+### Exchange User Enumeration :
+
+
+## Forest Persistence :
+
+
+## Cross Forest Attacks :
+
+## Azure Active Directory :
+
+### User Enumeration :
+
+First, we connect to Azure Active Directory with **Connect-MsolService**.
+```powershell
+PS> Connect-MsolService -Credential $cred
+```
+this command allow enumeration with MFA (MultiFactor Authentification)
+```powershell
+Get-MsolUser -EnabledFilter EnabledOnly -MaxResults 50000 | select DisplayName,UserPrincipalName,@{N="MFA Status"; E={ if( $_.StrongAuthenticationRequirements.State -ne $null){ $_. StrongAuthenticationRequirements.State} else { "Disabled"}}} | export-csv mfaresults.csv
+```
 
 ## Miscs :
 
