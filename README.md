@@ -1,4 +1,3 @@
-![](https://imgur.com/46hyY15.png)
 <a href="https://ibb.co/z7DSpds"><img src="https://i.ibb.co/pR53cq2/attack-kill-chain-small.jpg" alt="attack-kill-chain-small" border="0" /></a>
 
 # Active-directory-Cheat-sheet
