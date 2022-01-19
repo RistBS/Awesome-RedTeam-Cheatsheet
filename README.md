@@ -1,4 +1,4 @@
-
+![](https://imgur.com/46hyY15.png)
 ![ad-kill-chain](https://ibb.co/z7DSpds)
 
 # Active-directory-Cheat-sheet
