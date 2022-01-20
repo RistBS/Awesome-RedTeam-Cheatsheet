@@ -268,6 +268,10 @@ cme ldap $dc -d $DOMAIN -u $USER -p $PASSWORD -M maq
 
 ### Abusing IPv6 in AD :
 
+scanning IPv6 address using nmap :
+
+`nmap -6 -sCV dead:beef:0000:0000:b885:d62a:d679:573f --max-retries=2 --min-rate=3000 -Pn -T3`
+
 #### IOXIDResolver Interface Enumeration
 
 it's a little script that enumerate addresses in NetworkAddr field with [**RPC_C_AUTHN_DCE_PUBLIC**](https://docs.microsoft.com/en-us/windows/win32/rpc/authentication-service-constants) level
