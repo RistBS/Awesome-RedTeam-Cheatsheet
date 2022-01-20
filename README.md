@@ -262,9 +262,8 @@ Get-MsolUser -EnabledFilter EnabledOnly -MaxResults 50000 | select DisplayName,U
 #### MachineAccountQuota (MAQ) Exploitation :
 
 use crackmapexec (CME) with maq module :
-```sh
-cme ldap $dc -d $DOMAIN -u $USER -p $PASSWORD -M maq
-```
+
+`cme ldap $dc -d $DOMAIN -u $USER -p $PASSWORD -M maq`
 
 ### Abusing IPv6 in AD :
 
