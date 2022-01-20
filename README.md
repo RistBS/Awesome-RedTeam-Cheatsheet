@@ -131,13 +131,46 @@ note : some Hash Type in hashcat depend of the **etype**
 
 ### Custom Username and Password wordlist :
 
-create passwords using bash & hashcat with this format : <season><year>
+default password list (pwd_list) :
+```sh
+January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December
+Autumn
+Fall
+Spring
+Winter
+Summer
+``` 
+create passwords using bash & hashcat :
 ```bash
 for i in $(cat pwd_list); do echo $i, echo ${i}\!; echo ${i}2019; echo ${i}2020 ;done > pwds
 haschat --force --stdout pwds -r /usr/share/hashcat/rules/base64.rule
 haschat --force --stdout pwds -r /usr/share/hashcat/rules/base64.rule -r /usr/share/hashcat/rules/toogles1.r | sort u
 haschat --force --stdout pwds -r /usr/share/hashcat/rules/base64.rule -r /usr/share/hashcat/rules/toogles1.r | sort u | awk 'length($0) > 7' > pwlist.txt
 ```
+
+
+default username list (users.list) :
+```
+john doe
+paul smith
+jacaques miller
+```
+create custom usernames using username-anarchy :
+```bash
+./username-anarchy --input-file users.list --select-format first,first.last,f.last,flast > users2.list
+```
+
 
 ## RID Cycling :
 
