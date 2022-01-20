@@ -78,7 +78,7 @@ it is the first version of this repo, many things will be added later, so stay t
 **Powershell tools :**
 - Nishang -> https://github.com/samratashok/nishang
 - PowerView -> https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
---
+
 **Enumeration tools :**
 - Bloodhound -> https://github.com/BloodHoundAD/BloodHound
 - crackmapexec -> https://github.com/byt3bl33d3r/CrackMapExe
