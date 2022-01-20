@@ -80,6 +80,7 @@ it is the first version of this repo, many things will be added later, so stay t
 
 nishang has multiples useful scripts for windows pentesting in Powershell environement.
 - `[⭐] PowerView` -> https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
+
 powerview is a script from powersploit that allow enumeration of the AD architecture for a potential lateral mouvement or local privilege escalation (LPE).
 
 **Enumeration tools :**
@@ -94,7 +95,7 @@ powerview is a script from powersploit that allow enumeration of the AD architec
 - `[⭐] mimikatz` -> https://github.com/ParrotSec/mimikatz
 - `[⭐] rubeus` -> https://github.com/GhostPack/Rubeus
 
-**Listener :**
+**Listener Tool :**
 - `[⭐] responder` -> https://github.com/SpiderLabs/Responder
 
 
