@@ -43,7 +43,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [ConstrainLanguageMode]()
     - [Just Enough Administration]()
     - [ExecutionPolicy]()
-    - [RunAsPPL for Credentials Dumping]()
+    - [RunAsPPL for Credentials Dumping](runasppl-for-credentials-dumping)
   - [MS Exchange]()
     - [OWA Password Spraying]()
     - [GAL & OAB Exfiltration]()
