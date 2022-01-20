@@ -76,23 +76,23 @@ it is the first version of this repo, many things will be added later, so stay t
 ## Tools
 
 **Powershell tools :**
-- Nishang -> https://github.com/samratashok/nishang
-- PowerView -> https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
+- `Nishang` -> https://github.com/samratashok/nishang
+- `PowerView` -> https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
 
 **Enumeration tools :**
-- Bloodhound -> https://github.com/BloodHoundAD/BloodHound
-- crackmapexec -> https://github.com/byt3bl33d3r/CrackMapExe
+- `Bloodhound` -> https://github.com/BloodHoundAD/BloodHound
+- `crackmapexec` -> https://github.com/byt3bl33d3r/CrackMapExe
 
 **AD exploitation toolkit :**
-- Impacket -> https://github.com/SecureAuthCorp/impacket 
-- kekeo -> https://github.com/gentilkiwi/kekeo
+- `Impacket` -> https://github.com/SecureAuthCorp/impacket 
+- `kekeo` -> https://github.com/gentilkiwi/kekeo
 
 **Dumping Tools :**
-- mimikatz -> https://github.com/ParrotSec/mimikatz
-- rubeus -> https://github.com/GhostPack/Rubeus
+- `mimikatz` -> https://github.com/ParrotSec/mimikatz
+- `rubeus` -> https://github.com/GhostPack/Rubeus
 
 **listener :**
-- <u>responder</u> -> https://github.com/SpiderLabs/Responder
+- `responder` -> https://github.com/SpiderLabs/Responder
 
 
 ## Hash Cracking
