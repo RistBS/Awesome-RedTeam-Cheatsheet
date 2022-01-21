@@ -744,10 +744,30 @@ Get-MsolUser -EnabledFilter EnabledOnly -MaxResults 50000 | select DisplayName,U
 
 *locate Azure AD Connect Server*
 ```powershell
-ldapsearch -H ldap://DC01.MEGACORP.CORP:389 -D "MEGACORP\john" -w "****" -b "DC=MEGACORP,DC=CORP" '(description=*Azure*)' description
+ldapsearch -H ldap://DC01.MEGACORP.CORP:389 -D "MEGACORP\john" -w $password -b "DC=MEGACORP,DC=CORP" '(description=*Azure*)' description
+```
+
+### Enumeration using AZ CLI
+
+**Storage Enumeration**
+
+*blob storage enumeration*
+```powershell
+az storage account list -o table
+az storage account list -o json | jq -r '.[].name'
 ```
 
 ### PowerZure
+
+*create a new user*
+```powershell
+New-AzureUser -Username 'john.doe@megacorp.com' -Password catAker
+```
+
+*Executes a command on a specified VM*
+```powershell
+Execute-Command -OS Windows -VM Win10 -ResourceGroup rg01 -Command "whoami"
+```
 
 ### Golden SAML
 
