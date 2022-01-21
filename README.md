@@ -69,7 +69,7 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Miscs](#miscs)
     - [Domain Level Attribute](#domain-level-attribute)
       - [MachineAccountQuota (MAQ) Exploitation](#machineaccountquota-maq-exploitation)
-      - [Bad-Pwd-Count]()
+      - [Bad-Pwd-Count](#bad-pwd-count)
     - [Abusing IPv6 in AD](#abusing-ipv6-in-ad)
       - [Rogue DHCP](#rogue-dhcp) 
       - [IOXIDResolver Interface Enumeration](#ioxidresolver-interface-enumeration)
@@ -340,6 +340,13 @@ Get-MsolUser -EnabledFilter EnabledOnly -MaxResults 50000 | select DisplayName,U
 use crackmapexec (CME) with maq module :
 
 `cme ldap $dc -d $DOMAIN -u $USER -p $PASSWORD -M maq`
+
+#### BadPwnCount
+```bash
+crackmapexec ldap 10.10.13.100 -u $user -p $pwd --kdcHost 10.10.13.100 --users
+LDAP        10.10.13.100       389    dc1       Guest      badpwdcount: 0 pwdLastSet: <never>
+```
+
 
 ### Abusing IPv6 in AD 
 
