@@ -70,7 +70,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [PowerZure](#powerzure)
     - [Golden SAML](#golden-saml)
     - [PRT Manipulation](#passtheprt)
-    - [MSOL Service Account](#msol-account)
+    - [MSOL Service Account](#msol-service-account)
   - [Miscs](#miscs)
     - [Domain Level Attribute](#domain-level-attribute)
       - [MachineAccountQuota (MAQ) Exploitation](#machineaccountquota-maq-exploitation)
