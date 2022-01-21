@@ -556,13 +556,22 @@ the value "20000" in lookupsid is to indicate how many RID will be tested
 
 ## Pivoting
 
+**Pivot with WDFW via custom rules**
+```powershell
+netsh interface portproxy add v4tov4 listenaddress=LOCAL_ADDRESS listenport=LOCALPORT connectaddress=REMOTE_ADDRESS connectport=REMOTE_PORT protocol=tcp
+```
+*allow connections to localport*
+```powershell
+netsh advfirewall firewall add rule name="pivot like a pro" protocol=TCP dir=in localip=LOCAL_ADDRESS localport=LOCAL_PORT action=allow
+```
+
 ### SMB Pipes
 
 **Local/Remote ports can be forwarded** using **SMB pipes**. You can use [Invoke-Piper](https://github.com/p3nt4/Invoke-Piper) or [Invoke-SocksProxy](https://github.com/p3nt4/Invoke-SocksProxy) for that.
 - `Invoke-Piper` : *used to forward local or remote ports*
 - `Invoke-SocksProxy` : *used for dynamic port forwarding*
 
-*Local port forwarding through pipe forPivot: `-L 33389:127.0.0.1:3389`*
+**Case 1** *Local port forwarding through pipe forPivot: `-L 33389:127.0.0.1:3389`*
 
 > SERVER SIDE :
 ```powershell
@@ -573,7 +582,7 @@ Invoke-PiperServer -bindPipe forPivot -destHost 127.0.0.1 -destPort 3389
 Invoke-PiperClient -destPipe forPivot -pipeHost $server_ip -bindPort 33389
 ```
 
-*Admin only remote port forwarding through pipe forPivot: `-R 33389:127.0.0.1:3389`*
+**Case 2** *Admin only remote port forwarding through pipe forPivot: `-R 33389:127.0.0.1:3389`*
 
 > SERVER SIDE :
 ```powershell
@@ -584,7 +593,7 @@ Invoke-PiperServer -remote -bindPipe forPivot -bindPort 33389 -security Administ
 Invoke-PiperClient -remote -destPipe forPivot -pipeHost $server_ip -destHost 127.0.0.1 -destPort 3389
 ```
 
-*Dynamic port forwarding with Invoke-SocksProxy with forPivot as NamedPipe: `-D 3333`*
+**Case 3** *Dynamic port forwarding with Invoke-SocksProxy with forPivot as NamedPipe: `-D 3333`*
 
 > SERVER SIDE :
 ```powershell
