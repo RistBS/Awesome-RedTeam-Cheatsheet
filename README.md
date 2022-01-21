@@ -107,7 +107,7 @@ powerview is a script from powersploit that allow enumeration of the AD architec
 
 allow anyone with creds to connect to any machine and any config
 
-**[!] this action require credentials.**
+**[ ! ] this action require credentials.**
 
 ```powershell
 Add-PswaAuthorizationRule -UsernName * -ComputerName * -ConfigurationName *
