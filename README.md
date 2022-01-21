@@ -226,12 +226,12 @@ note : some Hash Type in hashcat depend of the **etype**
 ### Custom Username and Password wordlist 
 
 default password list (pwd_list) :
-```sh
+`
 Autumn
 Spring
 Winter
 Summer
-``` 
+` 
 create passwords using bash & hashcat :
 ```bash
 for i in $(cat pwd_list); do echo $i, echo ${i}\!; echo ${i}2019; echo ${i}2020 ;done > pwds
