@@ -14,7 +14,7 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Powershell Components](#powershell-components)
     - [Powershell Tricks](#powershell-tricks)
     - [PSWA Abusing](#pswa-abusing) 
-  - [Domain Enumeration](#domain-enumeration)
+  - [Enumeration](#domain-enumeration)
     - [GPO enumeration](#gpo-enumeration)
     - [ACL enumeration](#acl-enumeration)
   - [Domain Privilege Escalation](#local-privilege-escalation)
