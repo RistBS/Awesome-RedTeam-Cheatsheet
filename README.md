@@ -227,20 +227,7 @@ note : some Hash Type in hashcat depend of the **etype**
 
 default password list (pwd_list) :
 ```sh
-January
-February
-March
-April
-May
-June
-July
-August
-September
-October
-November
-December
 Autumn
-Fall
 Spring
 Winter
 Summer
