@@ -64,7 +64,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [DCShadow](#dcshadow)
   - [Cross Forest Attacks](#cross-forest-attacks)
      - [Trust Tickets](#trust-tickets)
-     - [Using KRBTGT Hash]()
+     - [Using KRBTGT Hash](#using-krbtgt-hash)
   - [Azure Active Directory (AAD)](#azure-active-directory)
     - [AZ User Enumeration](#az-user-enumeration)
     - [PowerZure](#powerzure)
