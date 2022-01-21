@@ -69,7 +69,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [AZ User Enumeration](#az-user-enumeration)
     - [PowerZure](#powerzure)
     - [Golden SAML](#golden-saml)
-    - [PassTheCRT](#passthecrt)
+    - [PRT Manipulation](#passtheprt)
     - [MSOL Service Account](#msol-account)
   - [Miscs](#miscs)
     - [Domain Level Attribute](#domain-level-attribute)
@@ -733,27 +733,36 @@ Invoke-Mimikatz -Command '"kerberos::ptt C:\path\krb_tgt.kirbi
 
 ### AZ User Enumeration
 
-First, we connect to Azure Active Directory with **Connect-MsolService**.
+*connection to Azure Active Directory with **Connect-MsolService**.*
 ```powershell
 PS> Connect-MsolService -Credential $cred
 ```
-this command allow enumeration with MFA (MultiFactor Authentification)
+*this command allow enumeration with MFA (MultiFactor Authentification)*
 ```powershell
 Get-MsolUser -EnabledFilter EnabledOnly -MaxResults 50000 | select DisplayName,UserPrincipalName,@{N="MFA Status"; E={ if( $_.StrongAuthenticationRequirements.State -ne $null){ $_. StrongAuthenticationRequirements.State} else { "Disabled"}}} | export-csv mfaresults.csv
+```
+
+*locate Azure AD Connect Server*
+```powershell
+ldapsearch -H ldap://DC01.MEGACORP.CORP:389 -D "MEGACORP\john" -w "****" -b "DC=MEGACORP,DC=CORP" '(description=*Azure*)' description
 ```
 
 ### PowerZure
 
 ### Golden SAML
 
-*Requirements :*
+*⚠️ Requirements :*
 - Admin privileges of ADFS server
 
 a toolkit to exploit Golden SAML can be found [here](https://github.com/secureworks/whiskeysamlandfriends)
 
 
+### PRT Manipulation
 
-### PassTheCRT
+
+
+#### PassThePRT
+
 
 ### MSOL Service Account
 
