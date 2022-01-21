@@ -17,7 +17,7 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Enumeration](#domain-enumeration)
     - [GPO enumeration](#gpo-enumeration)
     - [ACL enumeration](#acl-enumeration)
-  - [Domain Privilege Escalation](#local-privilege-escalation)
+  - [Domain Privilege Escalation](#domain-privilege-escalation)
     - [Kerberoasting](#kerberoasting)
     - [ASREPRoasting](#asreproasting)
     - [DNSAdmin](#dnsadmin)
@@ -132,7 +132,7 @@ Add-PswaAuthorizationRule -UsernName * -ComputerName * -ConfigurationName *
 ```
 
 
-## Domain Enumeration
+## Enumeration
 
 
 #### Find user with SPN
@@ -195,13 +195,21 @@ Get-GPResultantSetOfPolicy -ReportType Html -Path C:\Users\Administrator\report.
 ### ACL enumeration
 
 
-## Local Privilege Escalation
+## Domain Privilege Escalation
 
 ### Kerberoasting
 
 ### ASREPRoasting
 
 ### DNSAdmin
+
+> Enumerate users in this group :
+```powershell
+# METHOD 1
+Get-NetGroupMember -GroupName "DNSAdmins"
+# METHOD 2
+Get-ADGroupMember -Identity DNSAdmins
+```
 
 
 ## Lateral Mouvement
