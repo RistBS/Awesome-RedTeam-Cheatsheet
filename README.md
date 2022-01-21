@@ -134,7 +134,63 @@ Add-PswaAuthorizationRule -UsernName * -ComputerName * -ConfigurationName *
 
 ## Domain Enumeration
 
+
+#### Find user with SPN
+
+using [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
+```powershell
+Get-NetUser –SPN
+```
+using [AD Module](https://docs.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) :
+```powershell
+Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
+```
+
+
+#### Trusts Enumeration
+
+**MapTrust :**
+
+```bash
+Invoke-MapDomainTrust
+```
+
+**Domain trusts for the current domain :**
+
+using [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
+```powershell
+Get-NetDomainTrust #Find potential external trust
+Get-NetDomainTrust –Domain us.dollarcorp.moneycorp.local
+```
+
+using [AD Module](https://docs.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) :
+```powershell
+Get-ADTrust
+Get-ADTrust –Identity us.dollarcorp.moneycorp.local
+```
+
+#### Forest Enumeration
+
+**Details about the current forest :**
+
+```powershell
+Get-NetForest
+Get-NetForest –Forest eurocorp.local
+Get-ADForest
+Get-ADForest –Identity eurocorp.local
+```
+
 ### GPO enumeration
+
+**List of GPO**
+
+```powershell
+Get-NetGPO
+Get-NetGPO -ComputerName dcorp-student1.dollarcorp.moneycorp.local 
+Get-GPO -All
+Get-GPResultantSetOfPolicy -ReportType Html -Path C:\Users\Administrator\report.html
+```
+
 
 ### ACL enumeration
 
