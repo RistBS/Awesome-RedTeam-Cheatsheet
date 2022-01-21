@@ -102,6 +102,20 @@ powerview is a script from powersploit that allow enumeration of the AD architec
 
 ## Powershell Components
 
+### Powershell Tricks 
+
+**PS-Session** :
+
+```powershell
+#METHOD 1
+$c = New-PSSession -ComputerName 10.10.13.100 -Authentication Negociate -Credential $user 
+Enter-PSSession -Credential $c -ComputerName 10.10.13.100
+
+# METHOD 2
+$pass = ConvertTo-SecureString 'Ab!Q@aker1' -asplaintext -force
+$cred = New-Object System.Management.Automation.PSCredential('$user, $pass)
+Enter-PSSession -Credential $c -ComputerName 10.10.13.100
+```
 
 ### PSWA Abusing
 
