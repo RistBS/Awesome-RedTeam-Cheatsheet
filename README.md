@@ -534,13 +534,13 @@ create custom usernames using username-anarchy :
 S-1-5-21-40646273370-24341400410-2375368561-1036
 ```
 
-`S-1-5-21`: **S refers SID (Security Identifier)**
-`40646273370-24341400410-2375368561`: **Domain or Local Computer Identifier**
-`1036`: **RID (Relative Identifier)**
+- `S-1-5-21`: **S refers SID (Security Identifier)**
+- `40646273370-24341400410-2375368561`: **Domain or Local Computer Identifier**
+- `1036`: **RID (Relative Identifier)**
 
 *User SID Structure :*
-`S-1-5-21-40646273370-24341400410-2375368561`: **Domain SID**
-`1036`: **User RID**
+- `S-1-5-21-40646273370-24341400410-2375368561`: **Domain SID**
+- `1036`: **User RID**
 
  
 > using [Crackmapexec](https://github.com/byt3bl33d3r/CrackMapExec) :
