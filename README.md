@@ -194,7 +194,7 @@ Get-GPResultantSetOfPolicy -ReportType Html -Path C:\Users\Administrator\report.
 
 ### ACL and ACE enumeration
 
-> Enumerate All ACEs
+**Enumerate All ACEs**
 
 ```powershell
  Get-DomainUser | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member -NotePropertyName Identity -NotePropertyValue (ConvertFrom-SID 
