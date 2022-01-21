@@ -16,7 +16,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [PSWA Abusing](#pswa-abusing) 
   - [Enumeration](#domain-enumeration)
     - [GPO enumeration](#gpo-enumeration)
-    - [ACL enumeration](#acl-enumeration)
+    - [ACL and ACE enumeration](#acl-enumeration)
   - [Domain Privilege Escalation](#domain-privilege-escalation)
     - [Kerberoasting](#kerberoasting)
     - [ASREPRoasting](#asreproasting)
@@ -192,8 +192,15 @@ Get-GPResultantSetOfPolicy -ReportType Html -Path C:\Users\Administrator\report.
 ```
 
 
-### ACL enumeration
+### ACL and ACE enumeration
 
+> Enumerate All ACEs
+
+```powershell
+ Get-DomainUser | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member -NotePropertyName Identity -NotePropertyValue (ConvertFrom-SID 
+$_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity -eq 
+$("$env:UserDomain\$env:Username")) {$_}}
+```
 
 ## Domain Privilege Escalation
 
