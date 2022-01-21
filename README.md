@@ -15,10 +15,14 @@ it is the first version of this repo, many things will be added later, so stay t
     - [Powershell Tricks](#powershell-tricks)
     - [PSWA Abusing](#pswa-abusing) 
   - [Domain Enumeration](#domain-enumeration)
-  - [Local Privilege Escalation](#local-privilege-escalation)
+    - [GPO enumeration]
+    - [ACL enumeration]
+  - [Domain Privilege Escalation](#local-privilege-escalation)
+    - [Kerberoasting]
+    - [ASREPRoasting]
+    - [DNSAdmin]
   - [Lateral Mouvement](#lateral-mouvement)
-    - [Bloodhound](#bloodhound)
-    - [PowerView](#powerview)
+    - [WMIExec](#wmiexec)
   - [Credentials Dumping](#credentials-dumping)
     - [LSASS Dumping](#lsass-dumping)
     - [NTDS Dumping](#ntds-dumping)
