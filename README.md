@@ -135,7 +135,7 @@ Add-PswaAuthorizationRule -UsernName * -ComputerName * -ConfigurationName *
 ## Enumeration
 
 
-#### Find user with SPN
+### Find user with SPN
 
 > using [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
 ```powershell
@@ -147,7 +147,7 @@ Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincip
 ```
 
 
-#### Trusts Enumeration
+### Trusts Enumeration
 
 **MapTrust :**
 
@@ -169,7 +169,7 @@ Get-ADTrust
 Get-ADTrust –Identity us.dollarcorp.moneycorp.local
 ```
 
-#### Forest Enumeration
+### Forest Enumeration
 
 **Details about the current forest :**
 
