@@ -532,11 +532,12 @@ Invoke-SDPropagator -timeoutMinutes 1 -showProgress -Verbose
 ### GenericAll
 
 **list all groups to which the user belongs and has explicit access rights**
-```
+```powershell
 Get-DomainGroup | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member -NotePropertyName Identity -NotePropertyValue (ConvertFrom-SID 
-$_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity -eq 
-$("$env:UserDomain\$env:Username")) {$_}}
+$_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity -eq $("$env:UserDomain\$env:Username")) {$_}}
 ```
+
+
 
 ## Enhanced Security Bypass
 
