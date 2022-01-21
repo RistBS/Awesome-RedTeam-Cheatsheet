@@ -253,8 +253,10 @@ nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm='MEGACOR
 crackmapexec smb 10.10.10.x --pass-pol -u '' -p ''
 ```
 *enumeration with crackmapexec (authenticated)*
-crackmapexec smb 10.10.11.129 --pass-pol -u usernames.txt -p 'IsolationIsKey?' --continue-on-sucess
-crackmapexec smb 10.10.11.129 --pass-pol -u xlsx_users -p xlsx_pass --continue-on-sucess         # using lists both for users and passwords
+```powershell
+crackmapexec smb 10.10.11.129 --pass-pol -u usernames.txt -p $pass --continue-on-sucess
+crackmapexec smb 10.10.11.129 --pass-pol -u xlsx_users -p $pass --continue-on-sucess      
+```
 
 *enumeration with kerbrute, against Kerberos pre-auth bruteforcing:*
 ```bash
