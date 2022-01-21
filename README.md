@@ -546,6 +546,9 @@ Get-MsolUser -EnabledFilter EnabledOnly -MaxResults 50000 | select DisplayName,U
 
 ### Golden SAML
 
+
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/501769334?h=cd7777e8ab" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+
 ### PassTheCRT
 
 ### MSOL Account
