@@ -151,7 +151,7 @@ Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincip
 
 **MapTrust :**
 
-```bash
+```powershell
 Invoke-MapDomainTrust
 ```
 
