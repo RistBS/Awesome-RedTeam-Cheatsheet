@@ -796,7 +796,7 @@ scanning IPv6 address using nmap :
 tips for adapting tools for ipv6 :
 ```bash
 echo -n "port1" "port2" "port3" | xargs -d ' ' -I% bash -c 'socat TCP4-LISTEN:%,fork TCP6:[{ipv6-address-here}]:% &'
-netstat -lapute |grep LISTEN
+netstat -laputen |grep LISTEN
 ```
 you can replace AF_INET value to AF_INET6 from socket python lib :
 ```bash
