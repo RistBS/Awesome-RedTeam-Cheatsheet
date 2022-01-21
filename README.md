@@ -24,7 +24,6 @@ it is the first version of this repo, many things will be added later, so stay t
     - [DNSAdmin](#dnsadmin)
   - [Lateral Mouvement](#lateral-mouvement)
     - [WMIExec](#wmiexec)
-    - [Token Impersonation](#token-impersonation)
   - [Credentials Dumping](#credentials-dumping)
     - [LSASS Dumping](#lsass-dumping)
     - [NTDS Dumping](#ntds-dumping)
