@@ -529,7 +529,7 @@ create custom usernames using username-anarchy :
 
 ## RID Cycling 
 
-> Global Structure :
+*Global Structure :*
 ```
 S-1-5-21-40646273370-24341400410-2375368561-1036
 ```
@@ -538,7 +538,7 @@ S-1-5-21-40646273370-24341400410-2375368561-1036
 `40646273370-24341400410-2375368561`: **Domain or Local Computer Identifier**
 `1036`: **RID (Relative Identifier)**
 
-> User SID Structure :
+*User SID Structure :*
 `S-1-5-21-40646273370-24341400410-2375368561`: **Domain SID**
 `1036`: **User RID**
 
