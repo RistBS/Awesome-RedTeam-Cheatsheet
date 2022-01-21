@@ -757,6 +757,8 @@ a toolkit to exploit Golden SAML can be found [here](https://github.com/securewo
 
 ### MSOL Account
 
+[username]:[password]@[ip]
+
 
 ## Miscs 
 
