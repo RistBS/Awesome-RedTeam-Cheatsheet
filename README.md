@@ -757,7 +757,7 @@ a toolkit to exploit Golden SAML can be found [here](https://github.com/securewo
 
 ### MSOL Account
 
-you can dump MSOL Service account with [azuread_decrypt_msol.ps1](https://gist.github.com/xpn/f12b145dba16c2eebdd1c6829267b90c) used by Azure AD Connect Sync and launch a DCsync attack with the dumped creds
+> you can dump MSOL Service account with [azuread_decrypt_msol.ps1](https://gist.github.com/xpn/f12b145dba16c2eebdd1c6829267b90c) used by Azure AD Connect Sync and launch a DCsync attack with the dumped creds
 
 *DCSync with MSOL account*
 ```powershell
