@@ -94,7 +94,7 @@ powerview is a script from powersploit that allow enumeration of the AD architec
 - `[⭐] kekeo` -> https://github.com/gentilkiwi/kekeo
 
 **Dumping Tools :**
-- `[⭐] mimikatz` -> https://github.com/ParrotSec/mimikatz
+- `[⭐] mimikatz` -> https://github.com/gentilkiwi/mimikatz
 - `[⭐] rubeus` -> https://github.com/GhostPack/Rubeus
 
 **Listener Tool :**
