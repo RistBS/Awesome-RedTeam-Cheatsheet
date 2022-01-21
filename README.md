@@ -137,11 +137,11 @@ Add-PswaAuthorizationRule -UsernName * -ComputerName * -ConfigurationName *
 
 #### Find user with SPN
 
-using [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
+> using [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
 ```powershell
 Get-NetUser –SPN
 ```
-using [AD Module](https://docs.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) :
+> using [AD Module](https://docs.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) :
 ```powershell
 Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
 ```
@@ -157,13 +157,13 @@ Invoke-MapDomainTrust
 
 **Domain trusts for the current domain :**
 
-using [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
+> using [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
 ```powershell
 Get-NetDomainTrust #Find potential external trust
 Get-NetDomainTrust –Domain us.dollarcorp.moneycorp.local
 ```
 
-using [AD Module](https://docs.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) :
+> using [AD Module](https://docs.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) :
 ```powershell
 Get-ADTrust
 Get-ADTrust –Identity us.dollarcorp.moneycorp.local
