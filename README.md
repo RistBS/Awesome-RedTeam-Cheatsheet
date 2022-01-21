@@ -58,7 +58,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [CVE-2020-0688](#cve-2020-0688)
   - [MSSQL Server](#mssql-server)
     - [UNC Path Injection](#unc-path-injection)
-    - [MC-SQLR Poisoning](#mcsqlr-poisoning)
+    - [MC-SQLR Poisoning](#mc-sqlr-poisoning)
     - [DML, DDL and Logon Triggers](#dml-ddl-and-logon-triggers)
   - [Forest Persistence](#forest-persistence)
     - [DCShadow](#dcshadow)
