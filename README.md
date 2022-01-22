@@ -295,6 +295,16 @@ S-1-5-21-40646273370-24341400410-2375368561-1036
 - `S-1-5-21-40646273370-24341400410-2375368561`: **Domain SID**
 - `1036`: **User RID**
 
+> using [Crackmapexec](https://github.com/byt3bl33d3r/CrackMapExec) :
+```bash
+cme smb $target -u $username -p $password --rid-brute
+```
+> using [lookupsid](https://github.com/SecureAuthCorp/impacket/blob/cd4fe47cfcb72d7d35237a99e3df95cedf96e94f/examples/lookupsid.py) :
+```bash
+lookupsid.py MEGACORP/$user:'$password'@$target 20000
+```
+the value "20000" in lookupsid is to indicate how many RID will be tested
+
 
 ## Privilege Escalation
 
@@ -632,17 +642,6 @@ create custom usernames using username-anarchy :
 ```bash
 ./username-anarchy --input-file users.list --select-format first,first.last,f.last,flast > users2.list
 ```
-
- 
-> using [Crackmapexec](https://github.com/byt3bl33d3r/CrackMapExec) :
-```bash
-cme smb $target -u $username -p $password --rid-brute
-```
-> using [lookupsid](https://github.com/SecureAuthCorp/impacket/blob/cd4fe47cfcb72d7d35237a99e3df95cedf96e94f/examples/lookupsid.py) :
-```bash
-lookupsid.py MEGACORP/$user:'$password'@$target 20000
-```
-the value "20000" in lookupsid is to indicate how many RID will be tested
   
 
 ## Pivoting
