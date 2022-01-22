@@ -1217,10 +1217,10 @@ for bind in binding:
 
 ## References 
 
-https://tools.thehacker.recipes/mimikatz/modules/sekurlsa/cloudap
-https://blog.netspi.com/maintaining-persistence-via-sql-server-part-2-triggers/
-https://www.thehacker.recipes/ad/movement/kerberos/asreproast
-https://www.hackingarticles.in/credential-dumping-ntds-dit/
-https://blog.alsid.eu/dcshadow-explained-4510f52fc19d
-https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet
-https://www.zerodayinitiative.com/blog/2020/2/24/cve-2020-0688-remote-code-execution-on-microsoft-exchange-server-through-fixed-cryptographic-keys
+- https://tools.thehacker.recipes/mimikatz/modules/sekurlsa/cloudap
+- https://blog.netspi.com/maintaining-persistence-via-sql-server-part-2-triggers/
+- https://www.thehacker.recipes/ad/movement/kerberos/asreproast
+- https://www.hackingarticles.in/credential-dumping-ntds-dit/
+- https://blog.alsid.eu/dcshadow-explained-4510f52fc19d
+- https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet
+- https://www.zerodayinitiative.com/blog/2020/2/24/cve-2020-0688-remote-code-execution-on-microsoft-exchange-server-through-fixed-cryptographic-keys
