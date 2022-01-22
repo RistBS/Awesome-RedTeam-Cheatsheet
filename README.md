@@ -161,13 +161,13 @@ Invoke-MapDomainTrust
 > using [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1) :
 ```powershell
 Get-NetDomainTrust #Find potential external trust
-Get-NetDomainTrust –Domain us.dollarcorp.moneycorp.local
+Get-NetDomainTrust –Domain $domain
 ```
 
 > using [AD Module](https://docs.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) :
 ```powershell
 Get-ADTrust
-Get-ADTrust –Identity us.dollarcorp.moneycorp.local
+Get-ADTrust –Identity $domain
 ```
 
 ### Forest Enumeration
@@ -176,9 +176,9 @@ Get-ADTrust –Identity us.dollarcorp.moneycorp.local
 
 ```powershell
 Get-NetForest
-Get-NetForest –Forest eurocorp.local
+Get-NetForest –Forest $forest
 Get-ADForest
-Get-ADForest –Identity eurocorp.local
+Get-ADForest –Identity $domain
 ```
 
 ### GPO enumeration
@@ -187,7 +187,7 @@ Get-ADForest –Identity eurocorp.local
 
 ```powershell
 Get-NetGPO
-Get-NetGPO -ComputerName dcorp-student1.dollarcorp.moneycorp.local 
+Get-NetGPO -ComputerName $computer
 Get-GPO -All
 Get-GPResultantSetOfPolicy -ReportType Html -Path C:\Users\Administrator\report.html
 ```
