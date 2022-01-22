@@ -32,6 +32,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [LSA Dumping](#lsa-dumping)
     - [SAM Dumping](#sam-dumping)
     - [Dump Registry Remotely and Directly](#dump-registry-remotely-and-directly)
+    - [Read GMSA Passwords](#read-gmsa-password)
   - [Hash Cracking](#hash-cracking)
   - [Brutforce AD Password](#bruteforce-ad-password)
     - [Custom Username and Password wordlist](#custom-username-and-password-wordlist)
