@@ -1325,3 +1325,5 @@ for bind in binding:
 - https://derkvanderwoude.medium.com/pass-the-prt-attack-and-detection-by-microsoft-defender-for-afd7dbe83c94
 - https://github.com/rootsecdev/Azure-Red-Team
 - https://www.secureworks.com/blog/going-for-the-gold-penetration-testing-tools-exploit-golden-saml
+
+
