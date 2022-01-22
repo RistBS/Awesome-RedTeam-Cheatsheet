@@ -936,10 +936,8 @@ SELECT * FROM sys.server_triggers
 ```
 *list DDL and DML triggers on an instance using powershell*
 ```powershell
-Get-SQLTriggerDdl -Instance ops-sqlsrvone -username $username -Password 
-$password -Verbose
-Get-SQLTriggerDml -Instance ops-sqlsrvone -username $username -Password 
-$password -Verbose
+Get-SQLTriggerDdl -Instance ops-sqlsrvone -username $username -Password $password -Verbose
+Get-SQLTriggerDml -Instance ops-sqlsrvone -username $username -Password $password -Verbose
 ```
 
 *use DML triggers for persistence*
