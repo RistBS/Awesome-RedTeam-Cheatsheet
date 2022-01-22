@@ -713,6 +713,37 @@ Invoke-PiperClient -destPipe forPivot -pipeHost $server_ip -bindPort 3333
 ### SharpSocks
 
 ### RDP Tunneling via DVC
+
+*sharings drives:*
+```powershell
+PS > regsvr32 UDVC-Plugin.dll
+PS > subst.exe x: C:\Users\john\RDP_Tools
+```
+
+*map the drives:*
+```powershell
+PS > net use x: \\TSCLIENT\X
+```
+
+create a server with SSFD.exe
+```powershell
+PS > ssfd.exe -p 8080 
+```
+*Redirect SSF port with DVC server:*
+```powershell
+PS > ./UDVC-Server.exe -c -p 8080 -i 127.0.0.1
+
+[*] Setting up client socket
+[*] Connected to: 127.0.0.1:8080
+[*] Starting thread RsWc
+[*] Starting thread RcWs
+[*] Wait for threads to exit...
+```
+
+*SSFD as a SOCK proxy*
+```powershell
+PS > ssf.exe -D 9090 -p 31337 127.0.0.1
+```
   
 
 ## Persistence
