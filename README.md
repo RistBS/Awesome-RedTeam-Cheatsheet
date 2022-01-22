@@ -17,6 +17,7 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Enumeration](#domain-enumeration)
     - [GPO enumeration](#gpo-enumeration)
     - [ACL and ACE enumeration](#acl-enumeration)
+    - [RID Cycling](#rid-cycling)
   - [Privilege Escalation](#privilege-escalation)
     - [Token Impersonation](#token-impersonation)
     - [Kerberoasting](#kerberoasting)
@@ -34,7 +35,6 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Hash Cracking](#hash-cracking)
   - [Brutforce AD Password](#bruteforce-ad-password)
     - [Custom Username and Password wordlist](#custom-username-and-password-wordlist)
-  - [RID Cycling](#rid-cycling)
   - [Pivoting](#pivoting)
     - [SMB Pipes](#smb-pipes)
     - [SharpSocks](#sharpsocks)
@@ -278,6 +278,23 @@ crackmapexec smb 10.10.13.100 -u users.txt -p $pass --users | tee userlist.txt
 ```bash
 /opt/kerbrute/dist/kerbrute_linux_amd64 passwordspray -d MEGACORP.CORP --dc 10.10.13.100 users.lst '$pass'
 ```
+
+
+## RID Cycling 
+
+*Global Structure :*
+```
+S-1-5-21-40646273370-24341400410-2375368561-1036
+```
+
+- `S-1-5-21`: **S refers SID (Security Identifier)**
+- `40646273370-24341400410-2375368561`: **Domain or Local Computer Identifier**
+- `1036`: **RID (Relative Identifier)**
+
+*User SID Structure :*
+- `S-1-5-21-40646273370-24341400410-2375368561`: **Domain SID**
+- `1036`: **User RID**
+
 
 ## Privilege Escalation
 
@@ -615,22 +632,6 @@ create custom usernames using username-anarchy :
 ```bash
 ./username-anarchy --input-file users.list --select-format first,first.last,f.last,flast > users2.list
 ```
-
-
-## RID Cycling 
-
-*Global Structure :*
-```
-S-1-5-21-40646273370-24341400410-2375368561-1036
-```
-
-- `S-1-5-21`: **S refers SID (Security Identifier)**
-- `40646273370-24341400410-2375368561`: **Domain or Local Computer Identifier**
-- `1036`: **RID (Relative Identifier)**
-
-*User SID Structure :*
-- `S-1-5-21-40646273370-24341400410-2375368561`: **Domain SID**
-- `1036`: **User RID**
 
  
 > using [Crackmapexec](https://github.com/byt3bl33d3r/CrackMapExec) :
