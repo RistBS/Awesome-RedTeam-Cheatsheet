@@ -52,7 +52,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [RunAsPPL for Credentials Dumping](#runasppl-for-credentials-dumping)
   - [MS Exchange](#ms-exchange)
     - [OWA Password Spraying](#owa-password-spraying)
-    - [GAL and OAB Extraction](#gal-and-oab-exfiltration)
+    - [GAL and OAB Extraction](#gal-and-oab-extration)
     - [PrivExchange](#privexchange)
     - [ProxyLogon](#proxylogon)
     - [CVE-2020-0688](#cve-2020-0688)
