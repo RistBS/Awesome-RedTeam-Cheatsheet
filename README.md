@@ -712,6 +712,13 @@ Invoke-PiperClient -destPipe forPivot -pipeHost $server_ip -bindPort 3333
 
 ### SharpSocks
 
+**SharpSocks is mostly used in C2 Frameworks and work with C2 Implants**
+
+*build a server:*
+```powershell
+PS> .\SharpSocksServer.exe --cmd-id=$id --http-server-uri=$uri --encryption-key=$key -v
+```
+
 ### RDP Tunneling via DVC
 
 *sharings drives:*
