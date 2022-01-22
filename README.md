@@ -607,7 +607,10 @@ $cred = New-Object System.Management.Automation.PSCredential $user, $mp.SecureCu
 ````
 
 *gMSA dumping:*
+```bash
 python3 gMSADumper.py -u $user -p $password -d $domain.local
+```
+
 
 ## Hash Cracking
 
