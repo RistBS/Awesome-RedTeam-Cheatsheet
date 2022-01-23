@@ -206,15 +206,15 @@ from impacket.dcerpc.v5.dtypes import ULONGLONG, UINT, USHORT, LPWSTR, DWORD, UL
 ```
 dtypes correspond à l'implémentations de [MS-DTYP](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-dtyp/3caa4769-b02f-4cee-a857-8496f4395ec1), ici on importe les types C qu'on veut utilisé :
 
-Wide Character =  est un type de données dont la taille est généralement supérieure à celle du caractère 8 bits traditionnel.
+**Wide Character** :  est un type de données dont la taille est généralement supérieure à celle du caractère 8 bits traditionnel.
 
-**ULONGLONG** : *Unsigned long long*
-**UINT** : *Unsigned int*
-**USHORT** : *Unsigned short*
-**LPWSTR** : *Long Pointer Wide String, c'est un pointeur de 32 bits vers un str de 16 bits*
-**DWORD** : *c'est un Unsigned int de 32 bits*
-**ULONG** : *Unsigned long*
-**NULL** : *valur null*
+- **ULONGLONG** : *Unsigned long long*
+- **UINT** : *Unsigned int*
+- **USHORT** : *Unsigned short*
+- **LPWSTR** : *Long Pointer Wide String, c'est un pointeur de 32 bits vers un str de 16 bits*
+- **DWORD** : *c'est un Unsigned int de 32 bits*
+- **ULONG** : *Unsigned long*
+- **NULL** : *valur null*
 
 ```python
 from impacket.dcerpc.v5.ndr import NDRCALL, NDRSTRUCT, NDRUNION, NDRPOINTER, NDRUniConformantArray
