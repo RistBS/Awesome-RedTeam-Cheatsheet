@@ -3,8 +3,6 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
 it is the first version of this repo, many things will be added later, so stay tuned ! :D
 
 
-<a href="https://ibb.co/z7DSpds"><img src="https://i.ibb.co/pR53cq2/attack-kill-chain-small.jpg" alt="attack-kill-chain-small" border="0" /></a>
-
 # Active-directory-Cheat-sheet
 ## Summary
 
