@@ -656,7 +656,7 @@ hashcat -m 5600 --force -a 0 hash.txt wordlist.txt
 
 note : some Hash Type in hashcat depend of the **etype**
 
-## Brutforce AD Password 
+## Bruteforce AD Password 
 
 ### Custom Username and Password wordlist 
 
