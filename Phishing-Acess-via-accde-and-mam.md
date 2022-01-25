@@ -6,7 +6,7 @@ Prérequis :
 
 Comprendre le Sevice Access :
 
-les fichiers avec pour extension ACCDE (Microsoft Access Execute Only Database) est un fichier utilisé pour protéger un ichier ACCDB. Il remplace le format MDE qui sécurise un fichier MDB utilisé par les anciennes versions d’Access. les permissions ne permettent pas de lire le code des macros (permissions Execute). C'est à dire que le code VBA d’un fichier ACCDE est enregistré de manière à empêcher quiconque de le voir ou de le modifier.
+les fichiers avec pour extension ACCDE (Microsoft Access Execute Only Database) sont des fichier utilisés pour protéger un fichier ACCDB. Il remplace le format MDE qui sécurise un fichier MDB utilisé par les anciennes versions d’Access. les permissions ne permettent pas de lire le code des macros (permissions Execute). C'est à dire que le code VBA d’un fichier ACCDE est enregistré de manière à empêcher quiconque de le voir ou de le modifier.
 
 ![](https://media.discordapp.net/attachments/909429116707680256/919240781158567986/unknown.png)
 
