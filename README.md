@@ -124,7 +124,7 @@ Enter-PSSession -Credential $c -ComputerName 10.10.13.100
 
 # METHOD 2
 $pass = ConvertTo-SecureString 'Ab!Q@aker1' -asplaintext -force
-$cred = New-Object System.Management.Automation.PSCredential('$user, $pass)
+$cred = New-Object System.Management.Automation.PSCredential('$user, $pass')
 Enter-PSSession -Credential $c -ComputerName 10.10.13.100
 ```
 
