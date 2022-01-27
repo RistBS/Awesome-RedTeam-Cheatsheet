@@ -5,8 +5,8 @@ it is the first version of this repo, many things will be added later, so stay t
 
 # Active-directory-Cheat-sheet
 
-  - [Exploit Development against Windows Protocols](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20Programmation%20Python%20avec%20impacket%20contre%20les%20protocoles%2)
-  - [ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
+  - [FR/EN - Exploit Development against Windows Protocols](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20Programmation%20Python%20avec%20impacket%20contre%20les%20protocoles%2)
+  - [FR - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
 
 **Attacking Office 365 :**
   - [FR - Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/attacking-microsoft365/Phishing-Acess-via-accde-and-mam.md)
