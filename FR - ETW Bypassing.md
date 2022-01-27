@@ -121,6 +121,7 @@ les valeurs BypassAmsi/BypassEtw indiquent au drone s'il doit ou non tenter de c
 
 ###### ETW EtwEventWrite Patching :
 ![](https://media.discordapp.net/attachments/713142876241920000/936061204013649930/unknown.png)
+
 on peux faire ce qu'on appelle du Function patching avec l'instruction RET.
 
 ce code permet de désactiver le suivi d'évenement ETW en user-mode,
