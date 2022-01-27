@@ -124,11 +124,11 @@ les valeurs BypassAmsi/BypassEtw indiquent au drone s'il doit ou non tenter de c
 on peux faire ce qu'on appelle du Function patching avec l'instruction RET.
 
 ce code permet de désactiver le suivi d'évenement ETW en user-mode,
-NTDLL est la couche la plus base du User-Mode. NTDLL comportes une grande listes de Fonctions utilisés pour le bon fonctionnement de Windows dans differentes versions de microprocesseur (x86, x64, wow64...). NTDLL comporte notamment la fonction *EtwEventWrite*.
+NTDLL est la couche la plus base du User-Mode. NTDLL comportes une grande listes de Fonctions utilisés pour le bon fonctionnement de Windows dans differentes versions de microprocesseur (x86, x64, wow64...). NTDLL comporte notamment la fonction `EtwEventWrite`.
 
-La fonction EtwEventWrite est responsable de l’écriture d’événements dans une session. vu que *EtwEventWrite* fonctionne en user-mode, un attaquant peux bypass l'ETW.  la fonction se termine normalement par *ret 0x14*
+La fonction EtwEventWrite est responsable de l’écriture d’événements dans une session. vu que *EtwEventWrite* fonctionne en user-mode, un attaquant peux bypass l'ETW.  la fonction se termine normalement par `ret 0x14`
 
-vu que le Suivi D'événements ce termine par EtwEventWrite pour écrire les événements,  Si on réecris le même code assembleur au début de la Fonction *EtwEventWrite()* aucun évenement ne seras enregistré.
+vu que le Suivi D'événements ce termine par `EtwEventWrite` pour écrire les événements,  Si on réecris le même code assembleur au début de la Fonction `EtwEventWrite()` aucun évenement ne seras enregistré.
 
 ![](https://media.discordapp.net/attachments/713142876241920000/936061052997742634/unknown.png)
 
@@ -138,13 +138,14 @@ et memcpy sera utilisé pour copier l’opcode pour un retour dans la mémoire t
 
 ![](https://media.discordapp.net/attachments/713142876241920000/936061139421388810/unknown.png)
 (64 bits)
-vous pouvez voir que la valeur de retour est c3 (\xc3) et donc \x48\x33\xc0 c'est l'application de XOR sur le registre rax pour tout clear.
+vous pouvez voir que la valeur de retour est `c3` (\xc3) et donc `\x48\x33\xc0` c'est l'application de *XOR* sur le registre *rax* pour tout clear.
 
-dans l'autre suite d'opcode (32 bits) , "\x33\xc0\xc2\x14\x00", 
-![[Pasted image 20220106225147.png]]
-vous pouvez voir que la valeur de retour est c21400 soit ""\xc2\x14\x00" pour *'ret 14h'* et \x33\xc0 pour xor le registre EAX
+dans l'autre suite d'opcode (32 bits) , `\x33\xc0\xc2\x14\x00`, 
+![](https://media.discordapp.net/attachments/713142876241920000/936062970167980053/unknown.png)
 
-on peux aussi utiliser *#ifdef _WIN64* si on veux adapter les opcode suivants les versions.
+vous pouvez voir que la valeur de retour est c21400 soit `\xc2\x14\x0`" pour `ret 14h` et `\x33\xc0` pour *xor* le registre *EAX*
+
+on peux aussi utiliser les préprocesseurs `#ifdef`, `#else`,`#endif` si on veux adapter les opcode suivants les versions.
 ```cpp
 #ifdef _WIN64
         memcpy(addr, "\x48\x33\xc0\xc3", 4); // xor rax, rax; ret
@@ -153,5 +154,6 @@ on peux aussi utiliser *#ifdef _WIN64* si on veux adapter les opcode suivants le
 #endif
 ```
 
-résultat : 
+résultat:
+
 ![](https://media.discordapp.net/attachments/713142876241920000/936060824869539950/unknown.png)
