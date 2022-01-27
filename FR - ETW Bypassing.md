@@ -137,6 +137,7 @@ et memcpy sera utilisé pour copier l’opcode pour un retour dans la mémoire t
 
 
 ![](https://media.discordapp.net/attachments/713142876241920000/936061139421388810/unknown.png)
+
 (64 bits)
 vous pouvez voir que la valeur de retour est `c3` (\xc3) et donc `\x48\x33\xc0` c'est l'application de *XOR* sur le registre *rax* pour tout clear.
 
