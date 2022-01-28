@@ -2,8 +2,7 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
 
 it is the first version of this repo, many things will be added later, so stay tuned ! :D
 
-
-# Active-directory-Cheat-sheet
+## Red Team Bible
 
 **Exploit Development :**
   - [FR/EN - Exploit Development against Windows Protocols](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20Programmation%20Python%20avec%20impacket%20contre%20les%20protocoles%2)
@@ -17,6 +16,9 @@ it is the first version of this repo, many things will be added later, so stay t
 
 **Attacking Office 365 :**
   - [FR - Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/attacking-microsoft365/Phishing-Acess-via-accde-and-mam.md)
+
+
+# Active-directory-Cheat-sheet
 
 ## Summary
 
