@@ -2,6 +2,8 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
 
 it is the first version of this repo, many things will be added later, so stay tuned ! :D
 
+**Information : some courses will be in French because I don't have time to translate everything but don't worry it will be translated in some time.**
+
 ## Red Team Bible
 
 **Exploit Development :**
