@@ -15,6 +15,7 @@ it is the first version of this repo, many things will be added later, so stay t
       - [Process Hollowing]()
   - [FR/EN - Payload Delivery Techniques](none)
     - [HTML Smuggling]()
+  - [Bypass Security Components](none)
 
 **Attacking Office 365 :**
   - [FR - Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/attacking-microsoft365/Phishing-Acess-via-accde-and-mam.md)
