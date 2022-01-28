@@ -5,15 +5,15 @@ it is the first version of this repo, many things will be added later, so stay t
 ## Red Team Bible
 
 **Exploit Development :**
-  - [FR/EN - Exploit Development against Windows Protocols](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20Programmation%20Python%20avec%20impacket%20contre%20les%20protocoles%2)
-  - [FR/EN - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
-  - [FR/EN - Win API Abusing](none)
+  - [EN/FR - Exploit Development against Windows Protocols](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20Programmation%20Python%20avec%20impacket%20contre%20les%20protocoles%2)
+  - [EN/FR - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
+  - [EN/FR - Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API]()
     - [Process Injection Techniques]()
       - [Process Doppleganging]()
       - [Process Herpaderping]()
       - [Process Hollowing]()
-  - [FR/EN - Payload Delivery Techniques](none)
+  - [EN/FR - Payload Delivery Techniques](none)
     - [HTML Smuggling]()
   - [Bypass Security Components](none)
 
