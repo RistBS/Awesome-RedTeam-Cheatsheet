@@ -10,6 +10,10 @@ it is the first version of this repo, many things will be added later, so stay t
   - [FR/EN - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
   - [FR/EN - Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API]()
+    - [Process Injection Techniques]
+      - [Process Doppleganging]()
+      - [Process Herpaderping]()
+      - [Process Hollowing]()
 
 **Attacking Office 365 :**
   - [FR - Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/attacking-microsoft365/Phishing-Acess-via-accde-and-mam.md)
