@@ -12,7 +12,7 @@ it is the first version of this repo, many things will be added later, so stay t
   - [EN/FR - Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API]()
     - [Process Injection Techniques]()
-      - [Process Doppleganging]()
+      - [Process Doppelganging]()
       - [Process Herpaderping]()
       - [Process Hollowing]()
       - [Process Ghosting]()
