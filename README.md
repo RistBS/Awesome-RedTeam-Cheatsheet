@@ -11,7 +11,7 @@ it is the first version of this repo, many things will be added later, so stay t
   - [EN/FR - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
   - [EN/FR - Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API]()
-    - [Process Injection Techniques]()
+    - [Process Injection Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/Process%20Injection%20Techniques)
       - [Process Reimaging]()
       - [Process Doppelganging]()
       - [Process Herpaderping]()
