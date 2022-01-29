@@ -16,7 +16,7 @@ it is the first version of this repo, many things will be added later, so stay t
       - [Process Herpaderping]()
       - [Process Hollowing]()
   - [EN/FR - Payload Delivery Techniques](none)
-    - [HTML Smuggling]()
+    - [HTML Smuggling](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/payload-delivery/FR%20-%20HTML%20Smuggling.md)
   - [Bypass Security Components](none)
 
 **Attacking Office 365 :**
