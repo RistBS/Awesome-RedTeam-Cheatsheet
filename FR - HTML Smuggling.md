@@ -80,6 +80,6 @@ window.URL.revokeObjectURL(url);
 
 Démo :
 
-[](https://media.discordapp.net/attachments/713142876241920000/936775304234537022/smuggle.png?width=1125&height=572)
+![](https://media.discordapp.net/attachments/713142876241920000/936775304234537022/smuggle.png?width=1125&height=572)
 
 **⛔ malgré que la technique soit récente et qu'elle bypass quelque protections, ce qui rend la techniques détectables c'est le payload, vous pouvez rendre votres payloads indétectable par la majorité des antivirus via diverses techniques.**
