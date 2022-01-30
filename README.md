@@ -26,6 +26,10 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Evasion]()
     - [COR_PROFILER](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/COR_PROFILER.md)
   - [Bypass Security Components](none)
+    - [Application Whitelisting Bypass (AWL)]()
+  - [Lateral Mouvement]()
+    - [Fileless Lateral Mouvement]()
+    - [ShadowMove]()
 
 **Attacking Office 365 :**
   - [FR - Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/attacking-microsoft365/Phishing-Acess-via-accde-and-mam.md)
