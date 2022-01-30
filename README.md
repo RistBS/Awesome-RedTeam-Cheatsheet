@@ -8,9 +8,8 @@ it is the first version of this repo, many things will be added later, so stay t
 
 ![image](https://user-images.githubusercontent.com/75935486/151707710-02f88a24-5db5-4829-bf15-3bf2f398b90a.png)
 
+**Red Team Techniques**
 
-
-**Exploit Development :**
   - [EN/FR - Exploit Development against Windows Protocols](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20Programmation%20Python%20avec%20impacket%20contre%20les%20protocoles%2)
   - [EN/FR - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
   - [EN/FR - Win API Abusing](none)
@@ -36,6 +35,10 @@ it is the first version of this repo, many things will be added later, so stay t
 
 **Attacking Office 365 :**
   - [FR - Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/attacking-microsoft365/Phishing-Acess-via-accde-and-mam.md)
+
+
+**Binary Exploitation & Shellcoding**
+    - [x86 assembly basics]()
 
 
 # Active-directory-Cheat-sheet
