@@ -20,7 +20,7 @@ it is the first version of this repo, many things will be added later, so stay t
   - [EN/FR - Payload Delivery Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/evasion/payload-delivery)
     - [HTML Smuggling](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/payload-delivery/FR%20-%20HTML%20Smuggling.md)
   - [Evasion]()
-    - [COR_PROFILER]()
+    - [COR_PROFILER](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/COR_PROFILER.md)
   - [Bypass Security Components](none)
 
 **Attacking Office 365 :**
