@@ -10,7 +10,7 @@ dw = define word (16 bits)
 dd = define double word (32 bits)
 
 
-**3. Instructions de base :**
+#### **3. Instructions de base :**
 
 - jmp : jump vers une étiquette call : appelle les instructions d'une étiquette
 - movzx/movsx: movzx permet la conversion des nombres naturels en plus grand format alors que movsx le fais pour des nombres entiers. 
@@ -30,7 +30,7 @@ dd = define double word (32 bits)
 - lea : Cette instruction permet d'incrémenter un registre ou un emplacement mémoire.
 
 
-**4. Hello World ! : **
+#### **4. Hello World ! : **
 
 ```asm
 BITS 64
@@ -57,12 +57,12 @@ exit:
       syscall ; appel systeme
 ```
 
-4.1 Compilation :
+###### 4.1 Compilation :
 ```
 nasm -f elf64 -o hello.o hello.asm && ld -o hello hello.o
 ```
 
-**5. Sauts Conditionnels**
+#### **5. Sauts Conditionnels**
 
 - JE : saut si égal
 - JZ : saut si résultat est zéro
@@ -73,7 +73,7 @@ nasm -f elf64 -o hello.o hello.asm && ld -o hello hello.o
 - JNO : saut si pas déborbement (not overflow)
 - ...
 
-**6. boucles**
+#### **6. boucles**
 
 si on considère cette boucle `for (cx=0; cx<5; cx++){ ax = ax + cx }`, en assembleur sa ressemblerais à ça :
 
