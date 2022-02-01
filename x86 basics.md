@@ -1,16 +1,37 @@
+### CheatSheet général sur le nasm :
+
+![image](https://user-images.githubusercontent.com/75935486/152057885-07742345-bef3-4793-85da-f631fe8101d5.png)
 
 
 
-.text– qui stocke les instructions qui consistent en le programme lui-même. Il est marqué comme exécutable et en lecture seule (r-x).
-.data – qui est utilisé pour stocker des variables statiques et globales (les variables non statiques sont stockées sur la pile). Il est marqué comme lecture-écriture et non exécutable (rw-).
-.bss – qui stocke des variables non initialisées. Il est marqué comme lecture-écriture et non exécutable (rw-).
-.rodata – qui stocke des données constantes. Il faut s’attendre à ce que des strings et d’autres valeurs constantes  soit stocké dans rodata. c'est pour une lecture seule
+
+#### **1. Les registres :**
+
+![image](https://user-images.githubusercontent.com/75935486/152057010-ffd64c4f-8fa1-4f5f-8d24-280548268268.png)
+
+
+
+
+
+
+#### **2. Sections :**
+
+- .text : contient le code c'est à dire les instructions qui consistent le programme lui-même. Il est marqué comme exécutable et en lecture seule (r-x).
+- .data – qui est utilisé pour stocker des variables statiques et globales (les variables non statiques sont stockées sur la pile). Il est marqué comme lecture-écriture et non exécutable (rw-).
+- .bss – qui stocke des variables non initialisées. Il est marqué comme lecture-écriture et non exécutable (rw-).
+- .rodata – qui stocke des données constantes. Il faut s’attendre à ce que des strings et d’autres valeurs constantes  soit stocké dans rodata. c'est pour une lecture seule.
+
+
+
+
+#### **3. les tailles de données :**
+
 db = define bytes (8 bits)
 dw = define word (16 bits) 
 dd = define double word (32 bits)
 
 
-#### **3. Instructions de base :**
+#### **4. Instructions de base :**
 
 - jmp : jump vers une étiquette call : appelle les instructions d'une étiquette
 - movzx/movsx: movzx permet la conversion des nombres naturels en plus grand format alors que movsx le fais pour des nombres entiers. 
@@ -30,7 +51,7 @@ dd = define double word (32 bits)
 - lea : Cette instruction permet d'incrémenter un registre ou un emplacement mémoire.
 
 
-#### **4. Hello World ! : **
+#### **5. Hello World ! : **
 
 ```asm
 BITS 64
@@ -57,12 +78,12 @@ exit:
       syscall ; appel systeme
 ```
 
-###### 4.1 Compilation :
+###### 5.1 Compilation :
 ```
 nasm -f elf64 -o hello.o hello.asm && ld -o hello hello.o
 ```
 
-#### **5. Sauts Conditionnels**
+#### **6. Sauts Conditionnels**
 
 - JE : saut si égal
 - JZ : saut si résultat est zéro
@@ -73,7 +94,7 @@ nasm -f elf64 -o hello.o hello.asm && ld -o hello hello.o
 - JNO : saut si pas déborbement (not overflow)
 - ...
 
-#### **6. boucles**
+#### **7. boucles**
 
 si on considère cette boucle `for (cx=0; cx<5; cx++){ ax = ax + cx }`, en assembleur sa ressemblerais à ça :
 
