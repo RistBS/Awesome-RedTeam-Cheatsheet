@@ -23,9 +23,9 @@
 
 #### **3. les tailles de données :**
 
-db = define bytes (8 bits)
-dw = define word (16 bits) 
-dd = define double word (32 bits)
+- db = define bytes (8 bits)
+- dw = define word (16 bits) 
+- dd = define double word (32 bits)
 
 
 #### **4. Instructions de base :**
