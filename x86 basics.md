@@ -17,17 +17,17 @@ dd = define double word (32 bits)
 - mov 'destination', 'source' (valeur dans regsitre)
 - sub : soustraction 
 - add : addition 
-div : division 
-xor: XOR ce base sur sa table de vérité: 1 et 1 = 0 / 0 et 1 = 1 
-rol/ror: rotation de bits l=left et r=right 
-mul/imul: imul effectue une multiplication signée alors que mul peux uniquement sur du non-signé soit entièrement Positive
-pop : dépile dans la stack 
-push : empile en haut de la stack
-syscall: appel système 
-ret : return 
-inc : incrémentation de 1 
-loop équivalent à while, c'est une boucle. 
-lea : Cette instruction permet d'incrémenter un registre ou un emplacement mémoire.
+- div : division 
+- xor: XOR ce base sur sa table de vérité: 1 et 1 = 0 / 0 et 1 = 1 
+- rol/ror: rotation de bits l=left et r=right 
+- mul/imul: imul effectue une multiplication signée alors que mul peux uniquement sur du non-signé soit entièrement Positive
+- pop : dépile dans la stack 
+- push : empile en haut de la stack
+- syscall: appel système 
+- ret : return 
+- inc : incrémentation de 1 
+- loop équivalent à while, c'est une boucle. 
+- lea : Cette instruction permet d'incrémenter un registre ou un emplacement mémoire.
 
 
 **4. Hello World ! : **
