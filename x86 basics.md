@@ -82,11 +82,11 @@ xor rax, rax
 xor rcx, rcx
 
 boucle:
-    cmp rcx, 5 ; compare CX à 5
-    jge done ; si CX >= 5, on sort de la boucle
-    add ax, cx ; fait le calcul
-    inc cx ; CX est incrémenté de 1
-    jmp boucle ; on reprend au début de la boucle
+    cmp rcx, 0x5
+    jge done
+    add rax, rcx 
+    inc rcx 
+    jmp boucle 
 done:
      mov rax, 0x3c
      xor rdi, rdi
