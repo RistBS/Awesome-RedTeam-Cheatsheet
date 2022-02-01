@@ -1,7 +1,3 @@
-### CheatSheet général sur le nasm :
-
-![image](https://user-images.githubusercontent.com/75935486/152057885-07742345-bef3-4793-85da-f631fe8101d5.png)
-
 
 
 
@@ -21,6 +17,7 @@
 - .bss – qui stocke des variables non initialisées. Il est marqué comme lecture-écriture et non exécutable (rw-).
 - .rodata – qui stocke des données constantes. Il faut s’attendre à ce que des strings et d’autres valeurs constantes  soit stocké dans rodata. c'est pour une lecture seule.
 
+![image](https://user-images.githubusercontent.com/75935486/152057979-7f6a2028-b03f-4a7e-9058-3cb43960a1ee.png)
 
 
 
@@ -116,3 +113,8 @@ done:
  on commence par initaliser les registres rax, et rcx (counter) puis on compare rcx à 5 avec JGE (plus grand ou égal) si c'est le cas on quitte, sinon on commence le calcul
  et on incrémente de 1 avec inc le counter et on fais un jmp pour répeter la bloc d'instruction.
 
+
+
+### CheatSheet général sur le nasm :
+
+![image](https://user-images.githubusercontent.com/75935486/152057885-07742345-bef3-4793-85da-f631fe8101d5.png)
