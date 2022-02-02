@@ -19,8 +19,20 @@ AH: 56
 AL: 78
 ```
 
+##### 1.2 - Roles des 8 registres généraux :
 
-##### 1.2 - les FLAGS :
+- AX : accumulateur
+- BX : base (adresse mémoire)
+- CX : counter
+- DX : donnée
+- SI : source index
+- DI : destination index
+- BP : base pointer
+- SP : stack pointer
+
+
+
+##### 1.3 - les FLAGS :
 
 les flags sont codé sur 1 bit
 
