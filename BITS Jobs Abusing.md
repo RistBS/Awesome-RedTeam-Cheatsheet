@@ -54,6 +54,21 @@ ici ce qui nous interesse c'est QMGR.db car c'est que sont loggé les infos des 
 
 ![image](https://user-images.githubusercontent.com/75935486/152225890-df0b4a93-7476-4513-bd75-b470dc0752a3.png)
 
+```json
+> python BitsParser.py -i qmgr.db
+Processing file qmgr.db
+{
+    "JobType": "download",
+    "JobPriority": "normal",
+    "JobState": "suspended",
+    "JobId": "b733e5e1-12ad-463e-a125-ade26cc1fab6",
+    "JobName": "SpeechModelDownloadJob",
+    "OwnerSID": "S-1-5-20",
+    "Owner": "NT AUTHORITY\\NETWORK SERVICE",
+    "CreationTime": "2021-01-25T11:52:05Z",
+    "ModifiedTime": "2021-01-25T12:45:21Z"
+}
+```
 
 #### Pesistence avec BITS : 
 
