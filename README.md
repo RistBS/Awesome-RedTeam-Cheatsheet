@@ -39,7 +39,7 @@ it is the first version of this repo, many things will be added later, so stay t
 
 **Binary Exploitation & Shellcoding :**
 
-  - [x86 assembly basics]()
+  - [x86 assembly basics](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/binary-exploitation-and-shellcoding/x86%20basics.md)
 
 
 
