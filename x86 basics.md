@@ -5,9 +5,29 @@
 
 ![image](https://user-images.githubusercontent.com/75935486/152057010-ffd64c4f-8fa1-4f5f-8d24-280548268268.png)
 
+```asm
+rax = 64 BITS | eax = 32 BITS | ax = 16 BITS | ah = 8 BITS (partie haute) | al (basse)
+rdi = 64 BITS | edx = 32 BITS | bx = 16 BITS | bh = 8 BITS (partie haute) | bl (basse)
+rsi = 64 BITS | ecx = 32 BITS | cx = 16 BITS | ch = 8 BITS (partie haute) | cl (basse) 
+rdx = 64 BITS | ebx = 32 BITS | dx = 16 BITS | dh = 8 BITS (partie haute) | dl (basse)
+```
+exemple:
+```asm
+EAX: 12 34 56 78
+AX: 56 78
+AH: 56
+AL: 78
+```
 
 
+##### 1.2 - les FLAGS :
 
+les flags sont codé sur 1 bit
+
+- CS : code flag
+- DS : data flag
+- SS : stack flag
+- ES : extra flag
 
 
 #### **2. Sections :**
@@ -30,22 +50,24 @@
 
 #### **4. Instructions de base :**
 
-- jmp : jump vers une étiquette call : appelle les instructions d'une étiquette
-- movzx/movsx: movzx permet la conversion des nombres naturels en plus grand format alors que movsx le fais pour des nombres entiers. 
-- mov 'destination', 'source' (valeur dans regsitre)
-- sub : soustraction 
-- add : addition 
-- div : division 
-- xor: XOR ce base sur sa table de vérité: `1 et 1 = 0` / `0 et 1 = 1`
-- rol/ror: rotation de bits l=left et r=right 
-- mul/imul: imul effectue une multiplication signée alors que mul peux uniquement sur du non-signé soit entièrement Positive
-- pop : dépile dans la stack 
-- push : empile en haut de la stack
-- syscall: appel système 
-- ret : return 
-- inc : incrémentation de 1 
-- loop équivalent à while, c'est une boucle. 
-- lea : Cette instruction permet d'incrémenter un registre ou un emplacement mémoire.
+- JMP: jump vers une étiquette call : appelle les instructions d'une étiquette
+- MOV: 'destination', 'source' (valeur dans regsitre)
+- MOVZX/MOVSX: movzx permet la conversion des nombres naturels en plus grand format alors que movsx le fais pour des nombres entiers. 
+- SYSCALL: appel système 
+- RET: return 
+- INC: incrémentation de 1 
+- DEC: décrémentation de 1
+- LOOP: équivalent à while, c'est une boucle. 
+- LEA: Cette instruction permet d'incrémenter un registre ou un emplacement mémoire.
+- NEG: Négation
+- CMP: Comparaison
+
+opération arithmétique:
+- SUB : soustraction 
+- ADD : addition 
+- DIV/IDIV : division et division non signé 
+- MUL/IMUL: imul effectue une multiplication signée alors que mul peux uniquement sur du non-signé soit entièrement Positive
+
 
 
 #### **5. Hello World ! : **
@@ -91,7 +113,7 @@ nasm -f elf64 -o hello.o hello.asm && ld -o hello hello.o
 - JNO : saut si pas déborbement (not overflow)
 - ...
 
-#### **7. boucles**
+#### **7. boucles:**
 
 si on considère cette boucle `for (cx=0; cx<5; cx++){ ax = ax + cx }`, en assembleur sa ressemblerais à ça :
 
@@ -113,6 +135,19 @@ done:
  on commence par initaliser les registres rax, et rcx (counter) puis on compare rcx à 5 avec JGE (plus grand ou égal) si c'est le cas on quitte, sinon on commence le calcul
  et on incrémente de 1 avec inc le counter et on fais un jmp pour répeter la bloc d'instruction.
 
+#### 8. la stack:
+
+- POP : dépile dans la stack 
+- PUSH : empile en haut de la stack
+- PUSHA : empiler les 8 registres généraux sur la pile
+- POPA : positionne les valeurs des 8 registres à partir des 8 valeurs au sommet de la pile
+
+exemple :
+```asm
+mov rax, [rsp] ; RAX prend la première valeur au sommet de pile
+mov rax, [rsp+2] ; RAX prend la deuxième valeur au sommet de pile
+mov rax, [rsp+3] ; RAX prend la troisième valeur au sommet de pile
+```
 
 
 ### CheatSheet général sur le nasm :
