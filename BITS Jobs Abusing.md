@@ -72,6 +72,7 @@ Processing file qmgr.db
 
 #### Pesistence avec BITS : 
 
+élever la priorité de téléchargement. `/priority high`
 
 Compromissions de Windows BITS:
 - https://www.secureworks.com/blog/malware-lingers-with-bits
