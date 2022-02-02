@@ -51,10 +51,11 @@ Logs BITS : `C:\Windows\System32\winevt\Logs\Microsoft-Windows-Bits-Client%4Oper
 
 QMGR signifie Querie Manager, il enregistre chaque activité de chaque BITS Job dans une base de données mais c'est chiffré, il faut utiliser hex editor ou autre editeur de base16 pour ésperer dump quelque chose.
 ici ce qui nous interesse c'est QMGR.db car c'est que sont loggé les infos des BITS Job
+
 ![image](https://user-images.githubusercontent.com/75935486/152225890-df0b4a93-7476-4513-bd75-b470dc0752a3.png)
 
 
-Pesistence avec BITS : 
+#### Pesistence avec BITS : 
 
 
 Compromissions de Windows BITS:
