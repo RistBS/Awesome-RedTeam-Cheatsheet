@@ -11,6 +11,7 @@ it is the first version of this repo, many things will be added later, so stay t
 **Red Team Techniques**
 
   - [EN/FR - Exploit Development against Windows Protocols](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20Programmation%20Python%20avec%20impacket%20contre%20les%20protocoles%2)
+  - [EN/FR - BITS Jobs Abusing]()
   - [EN/FR - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
   - [EN/FR - Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API]()
