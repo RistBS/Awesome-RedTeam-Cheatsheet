@@ -1,4 +1,9 @@
+<h3 align="left">Support:</h3> <p><a href="https://www.buymeacoffee.com/RistBS"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="130" width="430" alt="ristbs" /></a></p>
+
+
 This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-Exploitation-Cheat-Sheet](https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet) repo.
+
+
 
 it is the first version of this repo, many things will be added later, so stay tuned ! :D
 
@@ -9,38 +14,43 @@ it is the first version of this repo, many things will be added later, so stay t
 ![image](https://user-images.githubusercontent.com/75935486/151707710-02f88a24-5db5-4829-bf15-3bf2f398b90a.png)
 
 **Red Team Techniques**
-
-  - [EN/FR - Exploit Development against Windows Protocols](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20Programmation%20Python%20avec%20impacket%20contre%20les%20protocoles%2)
-  - [EN/FR - BITS Jobs Abusing]()
-  - [EN/FR - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
-  - [EN/FR - Win API Abusing](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing)
-    - [Process Injection Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/Process%20Injection%20Techniques)
+  - [FR - Red-Team VS Pentest]()
+  - [FR - Exploit Development against Windows Protocols]()
+  - [FR - BITS Jobs Abusing](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/BITS%20Jobs%20Abusing.md)
+  - [FR - Win API Abusing](none)
+    - [Shellcode injection using CreateThreadPoolWait API](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing)
+    - [Process Injection Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing/Process%20Injection%20Techniques)
       - [Process Reimaging]()
       - [Process Doppelganging]()
       - [Process Herpaderping]()
       - [Process Hollowing]()
-      - [Process Ghosting](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/Process%20Injection%20Techniques/Process%20Ghosting.md)
-      - [Shellcode injection using CreateThreadPoolWait API]()
-  - [EN/FR - Payload Delivery Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/evasion/payload-delivery)
-    - [HTML Smuggling](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/payload-delivery/FR%20-%20HTML%20Smuggling.md)
-  - [Evasion]()
-    - [COR_PROFILER](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/COR_PROFILER.md)
+      - [Process Ghosting](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Win%20API%20Abusing/Process%20Injection%20Techniques/Process%20Ghosting.md)
+  - [FR - Payload Delivery Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Payload%20Delivery)
+    - [HTML Smuggling](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Payload%20Delivery/HTML%20Smuggling.md)
+  - [Evasion](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion)
+    - [COR_PROFILER](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion/COR_PROFILER.md)
+    - [FR - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion/ETW%20Patching.md)
   - [Bypass Security Components](none)
     - [Application Whitelisting Bypass (AWL)]()
-    - [Sandbox Evasion]()
+    - [WSB Abusing]()
     - [Windows Defender Application Control (WDAC)]()
   - [Lateral Mouvement]()
     - [Fileless Lateral Mouvement]()
     - [ShadowMove]()
     - [RDP Hijacking]()
 
-**Attacking Office 365 :**
-  - [FR - Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/attacking-microsoft365/Phishing-Acess-via-accde-and-mam.md)
+**Attacking Office 365**
+  - [FR - Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Phishing/Phishing%20Microsoft%20Access%20using%20ACCDE%20%26%20MAM.md)
 
 
 **Binary Exploitation & Shellcoding :**
 
-  - [x86 assembly basics](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/binary-exploitation-and-shellcoding/x86%20basics.md)
+  - [x86 assembly basics](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Binary%20Exploitation%20%26%20Shellcoding/x86%20basics.md)
+  - [FR - Basic Shellcode]()
+    - [Bad-Byte removing techniques]()
+  - [FR - Custom Shellcode Encoder/Decoder]()
+    - [ROT13 Encoder]()
+    - [XOR Encoder]()
 
 
 
