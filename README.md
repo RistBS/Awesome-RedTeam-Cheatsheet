@@ -1,4 +1,4 @@
-<h3 align="left">Support:</h3> <p><a href="https://www.buymeacoffee.com/RistBS"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="130" width="430" alt="ristbs" /></a></p>
+
 
 
 This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-Exploitation-Cheat-Sheet](https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet) repo.
