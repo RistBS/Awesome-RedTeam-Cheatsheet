@@ -12,17 +12,6 @@ Les fichiers de configuration de WSB sont au format XML et utilisent l’extensi
 
 voici l'exemple d'un fichier de configuration: 
 
-```xml
-
-```
-
-
-
-
-
-
-
-
 
 
 
@@ -101,6 +90,3 @@ NOTE : File created in the sand-box environment will directly reflect in the C:\
 
 
 ```
-
-### étude approfondi de Windows Sandbox:
-
