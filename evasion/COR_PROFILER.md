@@ -1,10 +1,11 @@
-un attaquant peut exploiter la variable d’environnement COR_PROFILER pour détourner le flux d’exécution des programmes qui chargent le **CLR .NET**. 
-**COR_PROFILER** est une fonctionnalité du **.NET Framework** qui permet aux développeurs de spécifier **un fichier DLL** à charger dans chaque processus .NET qui charge le Common Language Runtime (CLR). Ces profileurs sont conçus pour surveiller, dépanner et déboguer le code managé exécuté par le CLR .NET.
+an attacker can exploit the COR_PROFILER environment variable to hijack the execution flow of programs that load the **.NET CLR**. 
+**COR_PROFILER** is a feature of the **.NET Framework** that allows developers to specify **a DLL file** to load into each .NET process that loads the Common Language Runtime (CLR). These profilers are designed to monitor, troubleshoot, and debug managed code executed by the .NET CLR.
 
 
 
-COR_PROFILER : si la vérification COR_ENABLE_PROFILING réussit, le CLR se connecte au profileur qui a ce CLSID ou ProgID, 
-lequel doit avoir été stocké précédemment dans le Registre. La variable d'environnement COR_PROFILER est définie en tant que chaîne, comme indiqué dans les deux exemples suivants.
+COR_PROFILER: if the COR_ENABLE_PROFILING check succeeds, the CLR connects to the profiler that has that CLSID or ProgID, 
+which must have been previously stored in the Registry. The COR_PROFILER environment variable is defined as a string, as shown in the following two examples.
+
 
 
 
@@ -14,6 +15,6 @@ lequel doit avoir été stocké précédemment dans le Registre. La variable d'e
 
 
 
-**Références :**
+**References :**
 
 - https://attack.mitre.org/techniques/T1574/012/
