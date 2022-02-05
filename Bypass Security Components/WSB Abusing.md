@@ -15,7 +15,7 @@ Here is an example of a configuration file:
 
 
 
-### Exploiting WSB configurations:
+### II - Exploiting WSB configurations:
 
 
 One of the first methods is to modify the `<Command>` field to execute our malicious command and access the host's system files, in addition to that WSB files are not detected by Windows Defender.
