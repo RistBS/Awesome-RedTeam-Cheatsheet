@@ -15,6 +15,7 @@ it is the first version of this repo, many things will be added later, so stay t
 
 **Red Team Techniques**
   - [Red-Team VS Pentest]()
+  - [Red Teaming Infrastructure 101]()
   - [Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing)
     - [Process Injection Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing/Process%20Injection%20Techniques)
