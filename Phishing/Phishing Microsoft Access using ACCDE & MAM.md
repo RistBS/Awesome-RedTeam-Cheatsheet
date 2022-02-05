@@ -1,38 +1,40 @@
-Prérequis :
+Prerequisite:
 
--   Programmation en VBA
--   Compréhension général des services Microsoft en Pentesting.
+- Programming in VBA
+- General understanding of Microsoft services in Pentesting.
     
 
-Comprendre le Sevice Access :
+Understanding the Access Sevice:
 
-les fichiers avec pour extension ACCDE (Microsoft Access Execute Only Database) sont des fichiers utilisés pour protéger un fichier ACCDB. Il remplace le format MDE qui sécurise un fichier MDB utilisé par les anciennes versions d’Access. les permissions ne permettent pas de lire le code des macros (permissions Execute). C'est à dire que le code VBA d’un fichier ACCDE est enregistré de manière à empêcher quiconque de le voir ou de le modifier.
+Files with the extension ACCDE (Microsoft Access Execute Only Database) are files used to protect an ACCDB file. It replaces the MDE format which secures an MDB file used by older versions of Access. The permissions do not allow to read the macro code (Execute permissions). This means that the VBA code of an ACCDE file is saved in a way that prevents anyone from seeing or changing it.
 
 ![](https://media.discordapp.net/attachments/909429116707680256/919240781158567986/unknown.png)
 
-les differences majeur entre ACCDB et MDB c'est que ACCDB ne prennent pas en charge la sécurité ou la réplication au niveau de l’utilisateur alors que MDB oui, par contre ACCDB utilise un système cryptographique plus avancée via les API windows.
+the major difference between ACCDB and MDB is that ACCDB does not support security or replication at user level while MDB does, on the other hand ACCDB uses a more advanced cryptographic system via windows APIs.
 
-Exemple de fichier MDB :
+Example of MDB file :
 
 ![](https://media.discordapp.net/attachments/909429116707680256/919245188092801054/unknown.png)
 
-Comme vous pouvez le voir les données sont partiellement chiffré on peut obtenir ces données : `Driver.SQLServer.SERVER\SQLEXPRESS` `UID: CEOuser` `PWD: CEOpassword`
+As you can see the data is partially encrypted we can get this data: `Driver.SQLServer.SERVER\SQLEXPRESS` `UID: CEOuser` `PWD: CEOpassword`
 
-Exemple de fichier ACCDB :
+Example of ACCDB file:
+
 
 ![](https://media.discordapp.net/attachments/909429116707680256/919246921380552704/unknown.png)
 
-c'est illisible mais nous pouvons malgé tout avoir accès à certaines données via `strings`
+it's unreadable but we can still access some data via `strings`.
 
 ![](https://media.discordapp.net/attachments/713142876241920000/919261585929809980/unknown.png)
 
-MDB et ACCDB sont des bases de données de Microsoft Access, mais MDB n'est plus utilisé dans les versions récentes. Chaque DB contiennent différents objets comme les tables, requêtes, formulaires, états, ou encore des macros et du code VBA ( Visual Basic ). Les fichiers correspondant aux bases de données Access sont souvent lié à un fichier appellé LACCDB ou LDB pour les ancienne versions. ces fichiers sont des fichiers de verrouillage qui permettent de déterminer quels enregistrements sont verrouillés dans une base de données partagée et par qui ils sont verrouillés.
+MDB and ACCDB are Microsoft Access databases, but MDB is no longer used in recent versions. Each DB contains different objects like tables, queries, forms, reports, macros and VBA (Visual Basic) code. The files corresponding to Access databases are often linked to a file called LACCDB or LDB for older versions. These files are lock files that allow you to determine which records are locked in a shared database and by whom they are locked.
+
 
 ![](https://media.discordapp.net/attachments/909429116707680256/919249514563518495/unknown.png?width=522&height=343)
 
-le but du phishing via Access peux permettre à un attaquant de gérérer un code VBA malveillant en ACCDE et en autoexec pour que au moment de l'execution la victime soit automatiquement redirigé vers le serveurs de l'attaquant.
+the purpose of phishing via Access can allow an attacker to manage a malicious VBA code in ACCDE and autoexec so that at the time of execution the victim is automatically redirected to the attacker's servers.
 
-pour l'exemple nous allons faire un code VBA innoffensif qui va faire une boucle sur la pop up.
+For the example we are going to make an innoffensive VBA code that will make a loop on the pop up.
 
 ```vb
 Public Function main()
@@ -48,9 +50,9 @@ End Sub
 
 ![](https://media.discordapp.net/attachments/713142876241920000/919256210790838352/unknown.png?width=974&height=192)
 
-pour mettre une macro et mettre l'autoexec, aller dans `Créer`->`Macro` et ajouter l'action `ExcuterCode` puis mettre la fonction principal de ton code pour ma part c'est `main()` et après `Ctrl-S` nommez le _autoexec_.
+to put a macro and put the autoexec, go to `Create`->`Macro` and add the action `ExcuterCode` then put the main function of your code for my part it is `main()` and after `Ctrl-S` name it _autoexec_.
 
-Utilisation de MAM sur un serveur HTTP mais on peut utiliser un partage SMB ce qui va en meme temps volé les creds de la cible.
+Using MAM on a HTTP server but you can use a SMB share which will steal the creds from the target at the same time.
 
 ```powershell
 [Shortcut Properties]
@@ -67,6 +69,6 @@ Icon=265
 
 ![](https://media.discordapp.net/attachments/713142876241920000/919274348836171818/unknown.png?width=974&height=440)
 
-Lors de l'execution du MAM voila ce qu'il ce passe.
+During the execution of the MAM, this is what happens.
 
 ![](https://media.discordapp.net/attachments/713142876241920000/919251022973653062/unknown.png?width=974&height=215)
