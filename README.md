@@ -15,7 +15,6 @@ it is the first version of this repo, many things will be added later, so stay t
 
 **Red Team Techniques**
   - [FR - Red-Team VS Pentest]()
-  - [FR - Exploit Development against Windows Protocols]()
   - [FR - Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing)
     - [Process Injection Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing/Process%20Injection%20Techniques)
@@ -53,9 +52,13 @@ it is the first version of this repo, many things will be added later, so stay t
     - [XOR Encoder]()
 
 
+**Offensive Windows 101**
+
 
 # Active-directory-Cheat-sheet
-
+  - [FR - Exploit Development against Windows Protocols]()
+ 
+ 
 ## Summary
 
 - [AD Exploitation Cheat Sheet by RistBS](#active-directory-exploitation-cheat-sheet)
