@@ -1,5 +1,5 @@
 
-I - How Windows Sandbox works
+### I - How Windows Sandbox works
 
 
 Windows Sandbox (WSB) will allow to create an isolated desktop environment, 
