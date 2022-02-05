@@ -13,21 +13,21 @@ This technique is recent and remains similar to previous techniques like Process
 
 **II - step :**
 
-- 1:** ** **Create** a file
+- **1:** **Create** a file
 ```c
 h = CreateFile()
 ```
-- 2:** Place the file in a Delete-Pending State using `NtSetInformationFile(FileDispositionInformation)`.
+- **2:** Place the file in a Delete-Pending State using `NtSetInformationFile(FileDispositionInformation)`.
 you can also use `FILE_DELETE_ON_CLOSE`.
-- 3:** ** **Write** the payload to the file. The contents are not retained because the file is already pending deletion. The pending-delete state also blocks attempts to open an external file.
+- **3:** **Write** the payload to the file. The contents are not retained because the file is already pending deletion. The pending-delete state also blocks attempts to open an external file.
 ```c
 WriteFile(h)
 ```
-- 4:** ** Create** an image section for the file.
-- 5:** ** **Close** the descriptor waiting to be deleted by **deleting the file**.
-- 6:** ** Create a process** using the image section.
-- 7: **Assign** process arguments and environment variables.
-- 8:** ** Create a thread** to run in the process.
+- **4:** **Create** an image section for the file.
+- **5:** **Close** the descriptor waiting to be deleted by **deleting the file**.
+- **6:** **Create a process** using the image section.
+- **7:** **Assign** process arguments and environment variables.
+- **8:** **Create a thread** to run in the process.
 ```c
 CreateThreadEx() -> CreateProcessEx()
 ```
