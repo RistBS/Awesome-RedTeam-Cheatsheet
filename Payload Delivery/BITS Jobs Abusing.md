@@ -4,7 +4,7 @@ BITS stands for Background Intelligent Transfer Service and is a widely used ser
 BITS has a CLI version called BitsAdmin and commands included in the powershell. BITS can be used for administration with logging systems from actions like /transfer or SANP protocols (notification protocols) for example: `SetNotifyFlag`. In pentest, BITS is very used for EOAP (Exfiltration over Alternative Protocol).
 Use of bitsadmin and analysis of traffics:
 
-``powershell
+```powershell
 bitsadmin /transfer howtohack http://192.168.1.45:8000/ak.txt "C:\Users\hth\Documents\ak.txt"
 ```
 
@@ -15,7 +15,7 @@ bitsadmin /transfer howtohack http://192.168.1.45:8000/ak.txt "C:\Users\hth\Docu
 - STATE**: Transferred, state of the job.
 
 you can also use it with the PowerShell modules: `BitsTransfer`
-``powershell
+```powershell
 Import-Module BitsTransfer
 ```
 
@@ -29,7 +29,7 @@ start the HTTP server and download the evasive payload via BITS asynchronously. 
 
 #### BITSAdmin enumeration: 
 
-``powershell
+```powershell
 # listed jobs
 bitsadmin /list
 # get more info on a job
@@ -54,7 +54,7 @@ here what we are interested in is QMGR.db because it's where the BITS Job info i
 
 ![image](https://user-images.githubusercontent.com/75935486/152225890-df0b4a93-7476-4513-bd75-b470dc0752a3.png)
 
-``json
+```json
 > python BitsParser.py -i qmgr.db
 Processing file qmgr.db
 {
