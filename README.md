@@ -27,7 +27,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [BITS Jobs Abusing](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/BITS%20Jobs%20Abusing.md)
     - [HTML Smuggling](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Payload%20Delivery/HTML%20Smuggling.md)
   - [Evasion](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion)
-    - [COR_PROFILER](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion/COR_PROFILER.md)
+    - [Execution Flow Hijacking using COR_PROFILER](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion/COR_PROFILER.md)
     - [ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion/ETW%20Patching.md)
     - [Bring Your Own Interpreter (BYOI)]()
     - [SYSMON Evasion]()
