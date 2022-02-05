@@ -1,86 +1,84 @@
-Prérequis :
+Prerequisite:
 
-- Connaitres la programmation applicative low-level.
-- Connaitre un minimum l'architecture de Windows
+- Knowledge of low-level application programming.
+- Knowledge of Windows architecture
 
-# Qu'est ce que l'ETW ? 
+# What is ETW ? 
 
 
-ETW  ( Event Tracing for Windows ) va permettres de faire du suivi d'événements sur une applications programmer pour en stockant les événements de l’utilisateur ou du noyau dans des logs. il est possible de visionner ces logs plus tard ou en temps réel. l'ETW fais parti intégrant de Windows Performance Toolkit (WPT), WPT c'est ce qui comportes la plupart des outils de surveillance sur Windows. ETW est également utilisé lors des déploiement d'EDR.
+ETW  (Event Tracing for Windows) ETW will allow you to monitor events on a programmed application by storing user or kernel events in logs. It is possible to view these logs later or in real time. ETW is an integral part of the Windows Performance Toolkit (WPT), WPT is what contains most of the monitoring tools on Windows. ETW is also used for EDR deployment.
 
-Quand une session ETW est ouverte pour l'écoute d'évenement, l'ensembles des evenements sont stocké dans un fichier appelé Event Trace Log (ETL)
-
+When a ETW Session is opened to listen events, all the events are stored in a file called Event Trace Log (ETL)
 
 ETW API .NET : https://www.nuget.org/packages/Microsoft.Windows.EventTracing.Processing.All
 
-ETW utilise le WPA et WPR pour géré et présenté les évenement de facon propre. WPA ( Windows Performance Analyzer ) va consulter les fichiers ETL produits par les applications active (Provider) d'une session ETW pour créer des graphiques et tableau, afin que le rendu soit propre.
+ETW uses WPA and WPR to manage and present the events in a clean way. WPA (Windows Performance Analyzer) will consult the ETL files produced by the active applications (Provider) of an ETW session to create graphs and tables, so that the rendering is clean.
 
-WPR (Windows Performance Recorder) lui, agit en tant que contrôleur de session, c'est lui qui va démarrer et arrêter la session et peux sélectionner les événements ETW à enregistrer. des fichiers WPRP peuvent etre créer pour créer des profiles personnalisé, afin de pouvoir démarrer des sessions ETW en suivant des évenements très précis.
+WPR (Windows Performance Recorder) acts as a session controller, it will start and stop the session and can select the ETW events to be recorded. WPRP files can be created to create custom profiles, in order to start ETW sessions by following very precise events.
 
 
 ![](https://media.discordapp.net/attachments/713142876241920000/936061596755701780/unknown.png?width=838&height=609)
 
 
-[Création de profils d’enregistrement | Documents Microsoft](https://docs.microsoft.com/en-us/windows-hardware/test/wpt/authoring-recording-profiles)
-[WPT Mise en route | Documents Microsoft](https://docs.microsoft.com/en-us/windows-hardware/test/wpt/wpt-getting-started-portal)
+[Creating Recording Profiles | Microsoft Documents](https://docs.microsoft.com/en-us/windows-hardware/test/wpt/authoring-recording-profiles)
+[WPT Getting Started | Microsoft Documents](https://docs.microsoft.com/en-us/windows-hardware/test/wpt/wpt-getting-started-portal)
 [Event Tracing - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/etw/event-tracing-portal)
 
 
 ### ETW Logman Enumeration :
 
-Logman est un outil permettant aux utilisateurs windows de voir quel sessions ETW sont actives ainsi que les providers de ses logs.
+Logman is a tool that allows windows users to see which ETW sessions are active as well as the providers of its logs.
 
-ici, vous pouvez voir tout les providers actifs du powershell comme l'AMSI :
+Here you can see all active powershell providers like AMSI:
 
 ```powershell
 PS> tasklist | findstr powershell
 PS> logman query providers -pid <pid>
-PS> logman query providers # ici on listera tout les providers sans exceptions
+PS> logman query providers # here we will list all providers without exceptions
 ```
 ![](https://media.discordapp.net/attachments/713142876241920000/936061907746566234/unknown.png)
 
-si vous souhaitez supprimé tout les providers actif venant de l'AutoLogger :
+if you want to delete all active providers from the AutoLogger:
 ```powershell
 PS> Remove-EtwTraceProvider -AutologgerName EventLog-Application -Guid {GUID}
 ```
-Un AutoLogger est une Trace Session qui enregistre les événements des provider en kernel mode et en user mode.
+An AutoLogger is a Trace Session that records provider events in kernel mode and user mode.
 
-désactiver l'ETW (logging ScriptBlock) :
+disable ETW (logging ScriptBlock) :
 ```powershell
 [Reflection.Assembly]::LoadWithPartialName('System.Core').GetType('System.Diagnostics.Eventing.EventProvider').GetField('m_enabled','NonPublic,Instance').SetValue([Ref].Assembly.GetType('System.Management.Automation.Tracing.PSEtwLogProvider').GetField('etwProvider','NonPublic,Static').GetValue($null),0)
 ```
 
-pour lister toute les sessions ETW, exectuez cette commande.
+to list all ETW sessions, run this command.
 ```powershell
 PS> logman -ets
 ```
 
 ###### EVENT_ENABLE_PROPERTY_IGNORE_KEYWORD_0 :
 
-
 ```powershell
 Set-EtwTraceProvider -Guid {GUID} -AutologgerName 'EventLog-Application' -Property 0x11
 ```
 
-cela permet de ne pas faire apparaitre les évenements ayant la valeur KEYWORD 0
+this allows not to display the events having the value KEYWORD 0
 
+#### Attacks against ETW : 
 
-#### Attaques contre l'ETW : 
-
-differentes méthodes d'attaques contre ETW :
+different methods of attack against ETW :
 
 ![](https://media.discordapp.net/attachments/713142876241920000/936061629181861948/unknown.png?width=1319&height=609)
 
--  __*rouge*__ : montre les attaques contre ETW de l’intérieur d’un processus mailicieux.
--   __*bleu clair*__ : montre les attaques sur ETW en modifiant les variables d’environnement, le registre et les fichiers
--   __*Orange*__ : montre des attaques contre les providers ETW en user mode
--   __*Bleu foncé*__ : montre les attaques contre les providers ETW en kernel mode
--   __*Violet*__ : montre des attaques sur les sessions ETW.
+- __*red*__ : shows attacks on ETW from inside a malicious process.
+- __*Light blue*__ : shows attacks on ETW by modifying environment variables, registry and files
+- __*Orange*__ : shows attacks against ETW providers in user mode
+- __*Dark blue*__ : shows attacks against ETW providers in kernel mode
+- __*Violet*__ : shows attacks on ETW sessions.
 
-le nombre totals d'attaques possibles contre ETW serait de 36 mais Dans ce cours, nous verrons justes les attaques rouges, orange et bleu clair.
-Certaines opérations Offensive (Red Team) on utilisé des techniques d'attaques contre ETW, exemple APT42 à désactivé l'ETW, APT Slingshot à renommé les ETL pour ne pas laisser de traces et le ransomware lockerGoga à désactiver ETW pour bypass les host-based sensors comme les HIDS, HIPS...
+The total number of possible attacks against ETW would be 36 but in this course we will only see the red, orange and light blue attacks.
+Some offensive operations (Red Team) have used attack techniques against ETW, for example APT42 has disabled ETW, APT Slingshot has renamed ETLs to leave no trace and the lockerGoga ransomware has disabled ETW to bypass host-based sensors like HIDS, HIPS...
 
-certains C2 on implémenté des fonctions pour bypass ETW, exemple SharpC2 :
+
+Some C2's have implemented ETW bypass functions, for example SharpC2 :
 ```apm
 [drones] > interact a47153bd55 
 [a47153bd55] > help 
@@ -94,11 +92,11 @@ cd               Change working directory
 execute-assembly Execute a .NET assembly 
 exit             Exit this Drone
 ```
-une fois que vous avez compromis la victime, vous pouvez intéragir avec le drone, *bypass* Indique au drone s'il doit ou non tenter de contourner AMSI et/ou ETW lors de l'exécution de commandes post-exp. Le drone utilise la bibliothèque MinHook.NET intégrée pour connecter amsi.dll!AmsiScanBuffer et ntdll.dll!EtwEventWrite.
+once you have compromised the victim, you can interact with the drone, *bypass* Tells the drone whether or not it should attempt to bypass AMSI and/or ETW when executing post-exp commands. The drone uses the built-in MinHook.NET library to connect `amsi.dll!AmsiScanBuffer` and `ntdll.dll!EtwEventWrite`.
 
 ###### Post-Exploitation Custom C2Profile, Bypass AMSI/ETW :
 
-SharpC2 utilise des profils C2 pour personnaliser certaines actions. Les profils sont au format YAML et comportent 3 key/objects, Stage, PostExploitation et ProcessInjection.
+SharpC2 uses C2 profiles to customize certain actions. Profiles are in YAML format and have 3 key/objects, Stage, PostExploitation and ProcessInjection.
 ```yaml
 Stage: 
    SleepTime: 5 
@@ -115,39 +113,40 @@ ProcessInjection:
    Execution: RtlCreateUserThread
 ```
 
-les valeurs BypassAmsi/BypassEtw indiquent au drone s'il doit ou non tenter de contourner l'AMSI et l'ETW lors des tâches post-ex. on peux
-également l'utiliser pendant l'exécution avec la commande bypass.
+the **BypassAmsi/BypassEtw** values tell the drone whether or not it should attempt to bypass the AMSI and ETW during post-ex tasks.
+can also be used at runtime with the bypass command.
 
 
 ###### ETW EtwEventWrite Patching :
 ![](https://media.discordapp.net/attachments/713142876241920000/936061204013649930/unknown.png)
 
-on peux faire ce qu'on appelle du Function patching avec l'instruction RET.
+we can do what we call Function patching with the RET instruction.
 
-ce code permet de désactiver le suivi d'évenement ETW en user-mode,
-NTDLL est la couche la plus base du User-Mode. NTDLL comportes une grande listes de Fonctions utilisés pour le bon fonctionnement de Windows dans differentes versions de microprocesseur (x86, x64, wow64...). NTDLL comporte notamment la fonction `EtwEventWrite`.
+This code allows to disable the ETW event tracking in user-mode,
+NTDLL is the most basic layer of User-Mode. NTDLL includes a large list of functions used for the proper functioning of Windows in different versions of microprocessor (x86, x64, wow64...). NTDLL includes the `EtwEventWrite` function.
 
-La fonction EtwEventWrite est responsable de l’écriture d’événements dans une session. vu que *EtwEventWrite* fonctionne en user-mode, un attaquant peux bypass l'ETW.  la fonction se termine normalement par `ret 0x14`
+The EtwEventWrite function is responsible for writing events to a session. Since *EtwEventWrite* works in user-mode, an attacker can bypass ETW. the function normally ends with `ret 0x14`.
 
-vu que le Suivi D'événements ce termine par `EtwEventWrite` pour écrire les événements,  Si on réecris le même code assembleur au début de la Fonction `EtwEventWrite()` aucun évenement ne seras enregistré.
+since Event Tracking ends with `EtwEventWrite` to write events, if you rewrite the same assembly code at the beginning of the `EtwEventWrite()` function, no events will be recorded.
 
 ![](https://media.discordapp.net/attachments/713142876241920000/936061052997742634/unknown.png)
 
-dans ce code ci dessus nous récupérons l'adresse de la fonction *EtwEventWrite* depuis NTDLL et on modifie les autorisations de ce segment mémoire avec VirtualProtect() en définissant les perms RWX (Read Write Exec)
-et memcpy sera utilisé pour copier l’opcode pour un retour dans la mémoire tampon.
+in this code above we get the address of the *EtwEventWrite* function from NTDLL and we modify the permissions of this memory segment with VirtualProtect() by defining the perms RWX (Read Write Exec)
+and memcpy will be used to copy the opcode for a return to the buffer.
 
 
 ![](https://media.discordapp.net/attachments/713142876241920000/936061139421388810/unknown.png)
 
 (64 bits)
-vous pouvez voir que la valeur de retour est `c3` (\xc3) et donc `\x48\x33\xc0` c'est l'application de *XOR* sur le registre *rax* pour tout clear.
+you can see that the return value is `c3` (\xc3) and so `x48\x33\xc0` is the application of *XOR* on the *rax* register for all clear.
 
-dans l'autre suite d'opcode (32 bits) , `\x33\xc0\xc2\x14\x00`, 
+
+in the other opcode sequence (32 bits), `x33\xc0\xc2\x14\x00`, 
 ![](https://media.discordapp.net/attachments/713142876241920000/936062970167980053/unknown.png)
 
-vous pouvez voir que la valeur de retour est c21400 soit `\xc2\x14\x0`" pour `ret 14h` et `\x33\xc0` pour *xor* le registre *EAX*
+you can see that the return value is c21400 which is ``xc2\x14\x0`'' for ``ret 14h`' and ``x33\xc0`'' for *xor* the *EAX* register
 
-on peux aussi utiliser les préprocesseurs `#ifdef`, `#else`,`#endif` si on veux adapter les opcode suivants les versions.
+we can also use the preprocessors `#ifdef`, `#else`, `#endif` if we want to adapt the opcode according to the versions.
 ```cpp
 #ifdef _WIN64
         memcpy(addr, "\x48\x33\xc0\xc3", 4); // xor rax, rax; ret
@@ -156,6 +155,6 @@ on peux aussi utiliser les préprocesseurs `#ifdef`, `#else`,`#endif` si on veux
 #endif
 ```
 
-résultat:
+results:
 
 ![](https://media.discordapp.net/attachments/713142876241920000/936060824869539950/unknown.png)
