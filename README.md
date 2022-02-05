@@ -14,8 +14,8 @@ it is the first version of this repo, many things will be added later, so stay t
 ![image](https://user-images.githubusercontent.com/75935486/151707710-02f88a24-5db5-4829-bf15-3bf2f398b90a.png)
 
 **Red Team Techniques**
-  - [FR - Red-Team VS Pentest]()
-  - [FR - Win API Abusing](none)
+  - [Red-Team VS Pentest]()
+  - [Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing)
     - [Process Injection Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing/Process%20Injection%20Techniques)
       - [Process Reimaging]()
@@ -23,12 +23,12 @@ it is the first version of this repo, many things will be added later, so stay t
       - [Process Herpaderping]()
       - [Process Hollowing]()
       - [Process Ghosting](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Win%20API%20Abusing/Process%20Injection%20Techniques/Process%20Ghosting.md)
-  - [FR - Payload Delivery Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Payload%20Delivery)
+  - [Payload Delivery Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Payload%20Delivery)
     - [BITS Jobs Abusing](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/BITS%20Jobs%20Abusing.md)
     - [HTML Smuggling](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Payload%20Delivery/HTML%20Smuggling.md)
   - [Evasion](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion)
     - [COR_PROFILER](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion/COR_PROFILER.md)
-    - [FR - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion/ETW%20Patching.md)
+    - [ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion/ETW%20Patching.md)
   - [Bypass Security Components](none)
     - [Application Whitelisting Bypass (AWL)]()
     - [WSB Abusing](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/red-team-bible/Bypass%20Security%20Components/WSB%20Abusing.md)
@@ -39,15 +39,15 @@ it is the first version of this repo, many things will be added later, so stay t
     - [RDP Hijacking]()
 
 **Attacking Office 365**
-  - [FR - Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Phishing/Phishing%20Microsoft%20Access%20using%20ACCDE%20%26%20MAM.md)
+  - [Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Phishing/Phishing%20Microsoft%20Access%20using%20ACCDE%20%26%20MAM.md)
 
 
 **Binary Exploitation & Shellcoding :**
 
   - [x86 assembly basics](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Binary%20Exploitation%20%26%20Shellcoding/x86%20basics.md)
-  - [FR - Basic Shellcode]()
+  - [Basic Shellcode]()
     - [Bad-Byte removing techniques]()
-  - [FR - Custom Shellcode Encoder/Decoder]()
+  - [Custom Shellcode Encoder/Decoder]()
     - [ROT13 Encoder]()
     - [XOR Encoder]()
 
