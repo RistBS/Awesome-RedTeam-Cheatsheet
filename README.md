@@ -53,7 +53,7 @@ it is the first version of this repo, many things will be added later, so stay t
 
 
 **Offensive Windows 101**
-  - [FR - Exploit Development against Windows Protocols]()
+  - [Exploit Development against Windows Protocols]()
 
 
 
