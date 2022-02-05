@@ -32,7 +32,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [FR - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion/ETW%20Patching.md)
   - [Bypass Security Components](none)
     - [Application Whitelisting Bypass (AWL)]()
-    - [WSB Abusing]()
+    - [WSB Abusing](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/red-team-bible/Bypass%20Security%20Components/WSB%20Abusing.md)
     - [Windows Defender Application Control (WDAC)]()
   - [Lateral Mouvement]()
     - [Fileless Lateral Mouvement]()
