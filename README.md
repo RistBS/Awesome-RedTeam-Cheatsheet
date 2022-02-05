@@ -16,7 +16,6 @@ it is the first version of this repo, many things will be added later, so stay t
 **Red Team Techniques**
   - [FR - Red-Team VS Pentest]()
   - [FR - Exploit Development against Windows Protocols]()
-  - [FR - BITS Jobs Abusing](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/BITS%20Jobs%20Abusing.md)
   - [FR - Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing)
     - [Process Injection Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing/Process%20Injection%20Techniques)
@@ -26,6 +25,7 @@ it is the first version of this repo, many things will be added later, so stay t
       - [Process Hollowing]()
       - [Process Ghosting](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Win%20API%20Abusing/Process%20Injection%20Techniques/Process%20Ghosting.md)
   - [FR - Payload Delivery Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Payload%20Delivery)
+    - [BITS Jobs Abusing](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/BITS%20Jobs%20Abusing.md)
     - [HTML Smuggling](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Payload%20Delivery/HTML%20Smuggling.md)
   - [Evasion](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion)
     - [COR_PROFILER](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/evasion/COR_PROFILER.md)
