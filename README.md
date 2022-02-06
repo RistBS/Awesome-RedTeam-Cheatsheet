@@ -13,6 +13,8 @@ it is the first version of this repo, many things will be added later, so stay t
 
 ![image](https://user-images.githubusercontent.com/75935486/151707710-02f88a24-5db5-4829-bf15-3bf2f398b90a.png)
 
+Code Snippet are [here]() !
+
 **Red Team Techniques**
   - [Red-Team VS Pentest]()
   - [Red Teaming Infrastructure 101]()
@@ -78,6 +80,7 @@ it is the first version of this repo, many things will be added later, so stay t
 **Miscs**
   - [SAP Exploitation]()
   - [Windows Kiosk Abusing]()
+
 
 # Active-directory-Cheat-sheet
  
