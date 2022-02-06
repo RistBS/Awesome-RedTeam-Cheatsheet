@@ -16,6 +16,11 @@ it is the first version of this repo, many things will be added later, so stay t
 **Red Team Techniques**
   - [Red-Team VS Pentest]()
   - [Red Teaming Infrastructure 101]()
+    - [Malleable C2]()
+    - [Cobalt Strike]()
+      - [Aggressor Script]()
+    - [Covenant C2]()
+  - [Red Team Tips](https://github.com/vysecurity/RedTips)
   - [Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing)
     - [Process Injection Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing/Process%20Injection%20Techniques)
@@ -44,6 +49,10 @@ it is the first version of this repo, many things will be added later, so stay t
     - [ShadowMove]()
     - [RDP Hijacking]()
   - [Exfiltration]()
+  - [DNS Protocol Abusing]()
+    - [DNS Tunnelling]()
+    - [Domain Fronting]()
+    - [Domain Borrowing]()
 
 **Attacking Office 365**
   - [Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Phishing/Phishing%20Microsoft%20Access%20using%20ACCDE%20%26%20MAM.md)
