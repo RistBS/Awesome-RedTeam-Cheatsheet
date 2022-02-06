@@ -24,6 +24,8 @@ it is the first version of this repo, many things will be added later, so stay t
       - [Process Herpaderping]()
       - [Process Hollowing]()
       - [Process Ghosting](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Win%20API%20Abusing/Process%20Injection%20Techniques/Process%20Ghosting.md)
+      - 
+      - [Windows Notification Facility Process Injection]()
   - [Payload Delivery Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Payload%20Delivery)
     - [BITS Jobs Abusing](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/BITS%20Jobs%20Abusing.md)
     - [HTML Smuggling](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Payload%20Delivery/HTML%20Smuggling.md)
@@ -36,6 +38,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [Application Whitelisting Bypass (AWL)]()
     - [WSB Abusing](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/red-team-bible/Bypass%20Security%20Components/WSB%20Abusing.md)
     - [Windows Defender Application Control (WDAC)]()
+    - [Code Integrity Guard (CIG) Bypass]()
   - [Lateral Mouvement]()
     - [Fileless Lateral Mouvement]()
     - [ShadowMove]()
