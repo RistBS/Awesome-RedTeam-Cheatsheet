@@ -46,8 +46,9 @@ it is the first version of this repo, many things will be added later, so stay t
 
 
 **Binary Exploitation & Shellcoding :**
-
-  - [x86 assembly basics](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Binary%20Exploitation%20%26%20Shellcoding/x86%20basics.md)
+  - [Assembly]()
+    - [x86 assembly basics](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Binary%20Exploitation%20%26%20Shellcoding/x86%20basics.md)
+    - [ARM assembly basics]()
   - [Basic Shellcode]()
     - [Bad-Byte removing techniques]()
   - [Custom Shellcode Encoder/Decoder]()
