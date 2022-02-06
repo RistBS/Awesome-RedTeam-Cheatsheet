@@ -73,7 +73,9 @@ it is the first version of this repo, many things will be added later, so stay t
 **Offensive Windows 101**
   - [Exploit Development against Windows Protocols]()
 
-
+**Miscs**
+- [SAP Exploitation]()
+- [Windows Kiosk Abusing]()
 
 # Active-directory-Cheat-sheet
  
