@@ -54,6 +54,7 @@ it is the first version of this repo, many things will be added later, so stay t
     - [Domain Fronting]()
     - [Domain Borrowing]()
 
+
 **Attacking Office 365**
   - [Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Phishing/Phishing%20Microsoft%20Access%20using%20ACCDE%20%26%20MAM.md)
 
@@ -73,9 +74,10 @@ it is the first version of this repo, many things will be added later, so stay t
 **Offensive Windows 101**
   - [Exploit Development against Windows Protocols]()
 
+
 **Miscs**
-- [SAP Exploitation]()
-- [Windows Kiosk Abusing]()
+  - [SAP Exploitation]()
+  - [Windows Kiosk Abusing]()
 
 # Active-directory-Cheat-sheet
  
