@@ -54,6 +54,7 @@ it is the first version of this repo, many things will be added later, so stay t
   - [Custom Shellcode Encoder/Decoder]()
     - [ROT13 Encoder]()
     - [XOR Encoder]()
+  - [Shellcode Crypters]() 
 
 
 **Offensive Windows 101**
