@@ -144,7 +144,7 @@ you can see that the return value is `c3` (\xc3) and so `x48\x33\xc0` is the app
 in the other opcode sequence (32 bits), `x33\xc0\xc2\x14\x00`, 
 ![](https://media.discordapp.net/attachments/713142876241920000/936062970167980053/unknown.png)
 
-you can see that the return value is c21400 which is ``xc2\x14\x0`'' for ``ret 14h`' and ``x33\xc0`'' for *xor* the *EAX* register
+you can see that the return value is c21400 which is `xc2\x14\x0` for `ret 14h` and `x33\xc0` for *xor* the *EAX* register
 
 we can also use the preprocessors `#ifdef`, `#else`, `#endif` if we want to adapt the opcode according to the versions.
 ```cpp
