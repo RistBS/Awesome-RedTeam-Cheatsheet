@@ -22,6 +22,7 @@ Code Snippet are [here](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/tre
     - [Cobalt Strike]()
       - [Aggressor Script]()
     - [Covenant C2]()
+    - [C2 Memory & Network Forensics]()
   - [Red Team Tips](https://github.com/vysecurity/RedTips)
   - [Win API Abusing](none)
     - [Shellcode injection using CreateThreadPoolWait API](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing)
