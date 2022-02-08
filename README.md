@@ -89,6 +89,10 @@ Code Snippet are [here](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/tre
   - [Exploit Development against Windows Protocols]()
 
 
+**Cloud Security**
+ - [AWS]()
+
+
 **Miscs**
   - [SAP Exploitation]()
   - [Windows Kiosk Abusing]()
