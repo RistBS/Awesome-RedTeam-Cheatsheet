@@ -49,6 +49,7 @@ Code Snippet are [here](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/tre
     - [WSB Abusing](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/red-team-bible/Bypass%20Security%20Components/WSB%20Abusing.md)
     - [Windows Defender Application Control (WDAC)]()
     - [Code Integrity Guard (CIG)]()
+    - [MFA/OAuth & MS-ATP Security Restrictions Bypass]()
   - [Lateral Mouvement]()
     - [Fileless Lateral Mouvement]()
     - [ShadowMove]()
@@ -61,7 +62,15 @@ Code Snippet are [here](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/tre
 
 
 **Attacking Office 365**
+  - [Generate Macro]()
   - [Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Phishing/Phishing%20Microsoft%20Access%20using%20ACCDE%20%26%20MAM.md)
+  - [WORD]()
+    - [subDoc Function Phishing]()
+  - [EXCEL]()
+    - [XLM Macro Phishing]()
+  - [OFFICE]()
+    - [LNK Shortcut Phishing]()
+    - [baseStriker, Unicode-Based Techniques]()
 
 
 **Binary Exploitation & Shellcoding :**
