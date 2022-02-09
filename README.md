@@ -74,7 +74,7 @@ Code Snippet are [here](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/tre
 
 **Binary Exploitation, Shellcoding & IoT Security :**
   - [Assembly]()
-    - [x86 assembly basics](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/red-team-bible/Binary%20Exploitation%20%26%20Shellcoding/x86%20basics.md)
+    - [x86 assembly basics](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Binary%20Exploitation%20%26%20Shellcoding/ASM/x86%20basics.md)
     - [ARM assembly basics]()
   - [Basic Shellcode]()
     - [Bad-Byte removing techniques]()
