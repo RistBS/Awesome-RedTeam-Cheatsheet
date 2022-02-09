@@ -82,13 +82,6 @@ Code Snippet are [here](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/tre
     - [ROT13 Encoder]()
     - [XOR Encoder]()
   - [Shellcode Crypters]() 
-  - [Mitigation Bypass]()
-    - [SEHOP, SafeSEH & Stack Cookies]()
-    - [Control Flow Guard (CFG)]()
-    - [Arbitrary Code Guard (ACG)]()
-    - [Code Integrity Guard (CIG)]()
-    - [Data Execution Prevention (DEP)]()
-    - [Address space layout randomization (ASLR)]()
 
 
 **Offensive Windows 101**
