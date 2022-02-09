@@ -48,7 +48,6 @@ Code Snippet are [here](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/tre
     - [Application Whitelisting (AWL)]()
     - [WSB Abusing](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/red-team-bible/Bypass%20Security%20Components/WSB%20Abusing.md)
     - [Windows Defender Application Control (WDAC)]()
-    - [Code Integrity Guard (CIG)]()
     - [MFA/OAuth & MS-ATP Security Restrictions Bypass]()
   - [Lateral Mouvement]()
     - [Fileless Lateral Mouvement]()
@@ -90,7 +89,7 @@ Code Snippet are [here](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/tre
 
 
 **Cloud Security**
- - [AWS]()
+  - [AWS]()
 
 
 **Miscs**
