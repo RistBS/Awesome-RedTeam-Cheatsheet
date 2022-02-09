@@ -94,7 +94,7 @@ Code Snippet are [here](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/tre
 
 
 **Miscs**
-  - [SAP Exploitation]()
+  - [SAP Exploitation](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Miscs/SAP%20Exploitation.md)
   - [Windows Kiosk Abusing]()
 
 
