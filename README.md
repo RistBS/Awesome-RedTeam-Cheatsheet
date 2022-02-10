@@ -7,7 +7,9 @@ This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-
 
 it is the first version of this repo, many things will be added later, so stay tuned ! :D
 
-**Information : some courses will be in French because I don't have time to translate everything but don't worry it will be translated in some time.**
+**Informations : 
+1. some courses will be in French because I don't have time to translate everything but don't worry it will be translated in some time.
+2. it is possible that some courses on the red team are not written but it will happen, it is a cheatsheet in constant evolution.**
 
 ## Red Team Bible
 
