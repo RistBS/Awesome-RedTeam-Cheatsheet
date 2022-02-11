@@ -17,7 +17,7 @@ ETW uses WPA and WPR to manage and present the events in a clean way. WPA (Windo
 WPR (Windows Performance Recorder) acts as a session controller, it will start and stop the session and can select the ETW events to be recorded. WPRP files can be created to create custom profiles, in order to start ETW sessions by following very precise events.
 
 
-![](https://media.discordapp.net/attachments/713142876241920000/936061596755701780/unknown.png?width=838&height=609)
+![image](https://user-images.githubusercontent.com/75935486/153571218-c549be1e-e4e0-42f2-86d2-a65007d71707.png)
 
 
 [Creating Recording Profiles | Microsoft Documents](https://docs.microsoft.com/en-us/windows-hardware/test/wpt/authoring-recording-profiles)
@@ -36,7 +36,7 @@ PS> tasklist | findstr powershell
 PS> logman query providers -pid <pid>
 PS> logman query providers # here we will list all providers without exceptions
 ```
-![](https://media.discordapp.net/attachments/713142876241920000/936061907746566234/unknown.png)
+![image](https://user-images.githubusercontent.com/75935486/153571271-52625701-bb5a-49d3-b703-f39050f60286.png)
 
 if you want to delete all active providers from the AutoLogger:
 ```powershell
@@ -66,7 +66,7 @@ this allows not to display the events having the value KEYWORD 0
 
 different methods of attack against ETW :
 
-![](https://media.discordapp.net/attachments/713142876241920000/936061629181861948/unknown.png?width=1319&height=609)
+![image](https://user-images.githubusercontent.com/75935486/153571308-01ef3870-b6f4-4248-8c6e-f0b5ed011881.png)
 
 - __*red*__ : shows attacks on ETW from inside a malicious process.
 - __*Light blue*__ : shows attacks on ETW by modifying environment variables, registry and files
@@ -118,7 +118,7 @@ can also be used at runtime with the bypass command.
 
 
 ###### ETW EtwEventWrite Patching :
-![](https://media.discordapp.net/attachments/713142876241920000/936061204013649930/unknown.png)
+![image](https://user-images.githubusercontent.com/75935486/153571358-b1ec7fd7-d66f-4e0e-8afc-1c137b0536b6.png)
 
 we can do what we call Function patching with the RET instruction.
 
@@ -129,20 +129,20 @@ The EtwEventWrite function is responsible for writing events to a session. Since
 
 since Event Tracking ends with `EtwEventWrite` to write events, if you rewrite the same assembly code at the beginning of the `EtwEventWrite()` function, no events will be recorded.
 
-![](https://media.discordapp.net/attachments/713142876241920000/936061052997742634/unknown.png)
+![image](https://user-images.githubusercontent.com/75935486/153571624-28b40c4b-9cde-4110-bfc2-676d3a6f3c86.png)
 
 in this code above we get the address of the *EtwEventWrite* function from NTDLL and we modify the permissions of this memory segment with VirtualProtect() by defining the perms RWX (Read Write Exec)
 and memcpy will be used to copy the opcode for a return to the buffer.
 
 
-![](https://media.discordapp.net/attachments/713142876241920000/936061139421388810/unknown.png)
+![image](https://user-images.githubusercontent.com/75935486/153571513-3b193861-d3f7-428e-995b-cc5af6045719.png)
 
 (64 bits)
 you can see that the return value is `c3` (\xc3) and so `x48\x33\xc0` is the application of *XOR* on the *rax* register for all clear.
 
 
 in the other opcode sequence (32 bits), `x33\xc0\xc2\x14\x00`, 
-![](https://media.discordapp.net/attachments/713142876241920000/936062970167980053/unknown.png)
+![image](https://user-images.githubusercontent.com/75935486/153571571-a39a59ee-68bb-4985-9b49-bf8bda2bac61.png)
 
 you can see that the return value is c21400 which is `xc2\x14\x0` for `ret 14h` and `x33\xc0` for *xor* the *EAX* register
 
@@ -157,4 +157,4 @@ we can also use the preprocessors `#ifdef`, `#else`, `#endif` if we want to adap
 
 results:
 
-![](https://media.discordapp.net/attachments/713142876241920000/936060824869539950/unknown.png)
+![image](https://user-images.githubusercontent.com/75935486/153571594-e1df4d49-d7af-4423-87fe-93c0f1f24fbf.png)
