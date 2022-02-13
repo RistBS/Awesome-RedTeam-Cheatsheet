@@ -1,3 +1,3 @@
 ### SOON !
 
-- [[FR ONLY] C2 Design]
+- [(FR ONLY) C2 Design]
